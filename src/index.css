@@ -1,0 +1,57 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
+@import "tailwindcss";
+
+:root {
+  --dark-gradient: linear-gradient(
+    180deg,
+    rgba(16, 35, 56, 0.7) 0%,
+    rgba(12, 24, 40, 0.7) 50%,
+    rgba(7, 17, 31, 0.7) 100%
+  );
+  --full-absolute-bg: linear-gradient(
+    180deg,
+    rgba(7, 17, 31, 0.5) 0%,
+    rgba(12, 24, 40, 0.5) 50%,
+    rgba(5, 10, 18, 0.5) 100%
+  );
+  --main-title-color: linear-gradient(
+    90deg,
+    rgba(51, 199, 255, 1) 0%,
+    rgba(31, 140, 255, 1) 50%,
+    rgba(122, 223, 255, 1) 100%
+  );
+  --button-bg: linear-gradient(
+    90deg,
+    rgba(7, 17, 31, 0.6) 0%,
+    rgba(12, 24, 40, 0.6) 50%,
+    rgba(5, 10, 18, 0.6) 100%
+  );
+}
+
+img {
+  object-fit: cover;
+}
+
+@layer base {
+  *,
+  ::before,
+  ::after {
+    box-sizing: border-box;
+  }
+
+  html,
+  body,
+  #root {
+    width: 100%;
+    min-height: 100%;
+    color: white;
+  }
+
+  body {
+    margin: 0;
+    overflow-x: hidden;
+    font-family: "Pretendard", sans-serif;
+    background: url("/img/bg-1.png") no-repeat center center;
+    background-size: cover;
+  }
+}
