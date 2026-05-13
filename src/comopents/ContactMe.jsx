@@ -4,7 +4,11 @@ export const ContactMe = ({ src, title, url }) => {
   return (
     <Card style={{ padding: "11px 7px" }} className="bg-(--deepdark-gradient)">
       <div className="flex flx-col items-center gap-4">
-        <img className="max-w-1/6 w-full" src={src} alt="Github" />
+        <img
+          className="max-w-1/6 w-full max-md:max-w-1/8"
+          src={src}
+          alt="Github"
+        />
         <div>
           <p className="text-sm font-semibold ">{title}</p>
           <p className="text-xs text-[#a4a4a4]">{url}</p>

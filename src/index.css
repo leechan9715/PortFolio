@@ -97,6 +97,58 @@ img {
   border-left: 0;
 }
 
+@media (max-width: 1023px) {
+  .project-button-hit-area {
+    inset: 0;
+  }
+
+  .project-button-part {
+    transform: none;
+    transition:
+      border-color 0.3s ease,
+      background 0.3s ease;
+  }
+
+  .project-button-part-left {
+    border-right: 0;
+    border-radius: 0.5rem 0 0 0.5rem;
+  }
+
+  .project-button-part-right {
+    border-left: 0;
+    border-radius: 0 0.5rem 0.5rem 0;
+  }
+
+  .project-button-split:hover .project-button-part {
+    transform: none;
+  }
+}
+
+.skill-icon-swiper {
+  width: 100%;
+  min-width: 0;
+}
+
+.skill-icon-swiper .swiper-wrapper {
+  align-items: center;
+}
+
+.skill-icon-swiper .skill-icon-slide {
+  width: 80px !important;
+  flex-shrink: 0;
+}
+
+.skill-icon-slide > div {
+  width: 80px;
+}
+
+.skill-icon-image {
+  width: 3rem;
+  min-width: 3rem;
+  height: 3rem;
+  display: block;
+}
+
 @layer base {
   *,
   ::before,
@@ -136,5 +188,11 @@ img {
 
   body.bg-2-active::after {
     opacity: 1;
+  }
+}
+
+@media (max-width: 1024px) {
+  html {
+    overflow: scroll;
   }
 }
