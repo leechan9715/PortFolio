@@ -19,7 +19,6 @@ import Icon1 from "../public/img/icon_1.png";
 import Icon2 from "../public/img/icon_2.png";
 import Icon3 from "../public/img/icon_3.png";
 import Icon4 from "../public/img/icon_4.png";
-import ArrowBlue from "../public/img/arrow-blue.png";
 import Email from "../public/img/email.png";
 import { OperationProcessIcon } from "./comopents/OperationProcessIcon";
 import { ProjectList } from "./comopents/ProjectList";
@@ -81,40 +80,49 @@ function App() {
           <div className="flex items-center justify-center  flex-col  gap-3 flex-1 text-center tracking-widest">
             <div className="flex items-center gap-5">
               <div className="flex items-center gap-5">
-                <span>Frontend Developer</span>
+                <span className="font-extralight text-gray-300 text-sm">
+                  Frontend Developer
+                </span>
+                <Circle />
+              </div>
+              <div className="flex items-center gap-5 ">
+                <span className="font-extralight text-gray-300 text-sm">
+                  React
+                </span>
                 <Circle />
               </div>
               <div className="flex items-center gap-5">
-                <span>React</span>
+                <span className="font-extralight text-gray-300 text-sm">
+                  Next.js
+                </span>
                 <Circle />
               </div>
               <div className="flex items-center gap-5">
-                <span>Next.js</span>
-                <Circle />
-              </div>
-              <div className="flex items-center gap-5">
-                <span>TypeScript</span>
-                <Circle />
+                <span className="font-extralight text-gray-300 text-sm">
+                  TypeScript
+                </span>
               </div>
             </div>
-            <h1>승찬</h1>
+            <h1 className="text-center text-7xl bg-clip-text text-transparent bg-(image:--main-title-color) font-bold">
+              이승찬
+            </h1>
             <h2 className="text-4xl font-semibold ">
               사용자의 시선에서 흐름을
-              <span className="text-5xl bg-clip-text text-transparent bg-(image:--main-title-color)">
+              <span className="text-5xl bg-clip-text text-transparent bg-(image:--text-color)">
                 바라
               </span>
               보고
             </h2>
             <h2 className="text-4xl font-semibold mb-8">
               아이디어를 실제
-              <span className="text-5xl bg-clip-text text-transparent bg-(image:--main-title-color)">
+              <span className="text-5xl bg-clip-text text-transparent bg-(image:--text-color)">
                 경험
               </span>
               으로 연결하는사람
             </h2>
             <div>
-              <button className="[background:var(--button-bg)] border border-(--border) px-14 py-2.5 rounded-lg">
-                <p className="font-bold text-2xl">프로젝트 둘러보기</p>
+              <button className="text-gray-500 [background:var(--button-bg)] border-2 border-(--border) px-14 py-2.5 rounded-lg duration-300 hover:[background:var(--button-hover)] hover:text-white hover:border-(--hover-border)">
+                <p className="font-bold text-2xl ">프로젝트 둘러보기</p>
               </button>
             </div>
           </div>
@@ -157,27 +165,47 @@ function App() {
             </div>
           </Card>
           <Card className="max-w-83 w-full flex flex-col">
-            <CardTitleBlue style={{ margin: 0 }}>운영프로세스</CardTitleBlue>
-            <div className="w-full h-full flex justify-center items-center">
-              <OperationProcessIcon desc="기획" src={Icon1} />
-              <img
-                className="flex self-center max-w-6 h-6 w-full mb-5.5"
-                src={ArrowBlue}
-                alt="arrow"
-              />
-              <OperationProcessIcon desc="UI 설계" src={Icon2} />
-              <img
-                className="flex self-center max-w-6 h-6 w-full mb-5.5"
-                src={ArrowBlue}
-                alt="arrow"
-              />
-              <OperationProcessIcon desc="구현" src={Icon3} />
-              <img
-                className="flex self-center max-w-6 h-6 w-full mb-5.5"
-                src={ArrowBlue}
-                alt="arrow"
-              />
-              <OperationProcessIcon desc="운영" src={Icon4} />
+            <CardTitleBlue>운영프로세스</CardTitleBlue>
+            <div className="flex gap-3.5">
+              <div className="flex flex-col items-center justify-center">
+                <p className="w-8 h-8 border border-(--border) text-sm rounded-full flex justify-center items-center before">
+                  01
+                </p>
+                <div className="h-5 w-0.5 bg-(--border)" />
+                <p className="w-8 h-8 border border-(--border) text-sm rounded-full flex justify-center items-center before">
+                  02
+                </p>
+                <div className="h-5 w-0.5 bg-(--border)" />
+                <p className="w-8 h-8 border border-(--border) text-sm rounded-full flex justify-center items-center before">
+                  03
+                </p>
+                <div className="h-5 w-0.5 bg-(--border)" />
+                <p className="w-8 h-8 border border-(--border) text-sm rounded-full flex justify-center items-center before">
+                  04
+                </p>
+              </div>
+              <div className="flex flex-col justify-between items-start">
+                <OperationProcessIcon
+                  src={Icon1}
+                  title="기획분석"
+                  desc="요구사항 분석 및 사용자 흐름 정의"
+                />
+                <OperationProcessIcon
+                  src={Icon2}
+                  title="UI/UX 설계"
+                  desc="와이어프레임 및 UI 설계"
+                />
+                <OperationProcessIcon
+                  src={Icon3}
+                  title="개발 구현"
+                  desc="재사용 검증한 컴포넌트 개발"
+                />
+                <OperationProcessIcon
+                  src={Icon4}
+                  title="배포 & 운영"
+                  desc="안정적인 운영 및 지속적 모니터링"
+                />
+              </div>
             </div>
           </Card>
         </div>
