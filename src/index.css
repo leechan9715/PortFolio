@@ -39,6 +39,64 @@ img {
   object-fit: cover;
 }
 
+.project-button-split {
+  position: relative;
+  border: 0;
+  background: transparent;
+}
+
+.project-button-label {
+  display: flex;
+  align-items: center;
+}
+
+.project-button-hit-area {
+  position: absolute;
+  inset: -3rem -5rem;
+}
+
+.project-button-part {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--border);
+  background: var(--button-bg);
+  min-height: 3.75rem;
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    background 0.35s ease;
+}
+
+.project-button-part-left {
+  min-width: 8rem;
+  border-right: 0;
+  border-radius: 0.5rem 0 0 0.5rem;
+  transform: translateX(-30px);
+}
+
+.project-button-part-right {
+  min-width: 8rem;
+  border-left: 0;
+  border-radius: 0 0.5rem 0.5rem 0;
+  transform: translate(-45px, 95px) rotate(90deg);
+  transform-origin: center;
+}
+
+.project-button-split:hover .project-button-part {
+  border-color: var(--hover-border);
+  background: var(--button-hover);
+  transform: translate(0, 0) rotate(0deg);
+}
+
+.project-button-split:hover .project-button-part-left {
+  border-right: 0;
+}
+
+.project-button-split:hover .project-button-part-right {
+  border-left: 0;
+}
+
 @layer base {
   *,
   ::before,
@@ -55,11 +113,6 @@ img {
     overflow: hidden;
   }
 
-  #root {
-    position: relative;
-    z-index: 1;
-  }
-
   body {
     margin: 0;
     overflow-x: hidden;
@@ -73,17 +126,15 @@ img {
     content: "";
     position: fixed;
     inset: 0;
-    z-index: 0;
+    z-index: -1;
     background: url("/img/bg-2.png") no-repeat center center;
     background-size: cover;
     opacity: 0;
-    transform: scale(1);
-    transition: opacity 1.2s ease, transform 2s ease;
+    transition: opacity 1.2s ease;
     pointer-events: none;
   }
 
   body.bg-2-active::after {
     opacity: 1;
-    transform: scale(1.06);
   }
 }
