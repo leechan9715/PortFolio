@@ -80,7 +80,9 @@ function App() {
           <div className="flex items-center justify-center  flex-col  gap-3 flex-1 text-center tracking-widest">
             <div className="flex items-center gap-5">
               <div className="flex items-center gap-5">
-                <span>Frontend Developer</span>
+                <span className="font-extralight text-gray-300 text-sm">
+                  Frontend Developer
+                </span>
                 <Circle />
               </div>
               <div className="flex items-center gap-5">
