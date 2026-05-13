@@ -78,7 +78,7 @@ function App() {
             </div>
           </Card>
           <div className="flex items-center justify-center  flex-col  gap-3 flex-1 text-center tracking-widest">
-            <div className="flex items-center gap-5">
+            <div className="flex items-center gap-5 mb-8">
               <div className="flex items-center gap-5">
                 <span className="font-extralight text-gray-300 text-sm">
                   Frontend Developer
@@ -121,7 +121,7 @@ function App() {
               으로 연결하는사람
             </h2>
             <div>
-              <button className="text-gray-500 [background:var(--button-bg)] border-2 border-(--border) px-14 py-2.5 rounded-lg duration-300 hover:[background:var(--button-hover)] hover:text-white hover:border-(--hover-border)">
+              <button className="text-gray-500 cursor-pointer [background:var(--button-bg)] border-2 border-(--border) px-14 py-2.5 rounded-lg duration-300 hover:[background:var(--button-hover)] hover:text-white hover:border-(--hover-border)">
                 <p className="font-bold text-2xl ">프로젝트 둘러보기</p>
               </button>
             </div>
