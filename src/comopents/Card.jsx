@@ -1,13 +1,19 @@
-export const Card = ({ children, className, style }) => {
+import { forwardRef } from "react";
+
+export const Card = forwardRef(function Card(
+  { children, className, style },
+  ref
+) {
   return (
     <div
+      ref={ref}
       className={`border border-(--border) bg-(--dark-gradient) px-7.5 py-4 rounded-[10px] hover:border-(--hover-border) duration-300 cursor-pointer ${className}`}
       style={style}
     >
       {children}
     </div>
   );
-};
+});
 
 export const Circle = () => {
   return <div className="h-1 w-1 rounded-full bg-[#008cff]" />;
