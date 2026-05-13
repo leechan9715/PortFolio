@@ -1,17 +1,51 @@
-import Card, {
-  CardTitleBlue,
-  CardTitleGreen,
-  ProjectList,
-} from "./comopents/Card";
+import Card, { CardTitleBlue, CardTitleGreen } from "./comopents/Card";
 import Porfile from "../public/img/profile.png";
-import Github from "../public/img/Github-Dark 2.png";
+import GithubDark from "../public/img/Github-dark.png";
+import HtmlDark from "../public/img/html-dark.png";
+import CssDark from "../public/img/css-dark.png";
+import FigmaDark from "../public/img/Figma-Dark.png";
+import JavascriptDark from "../public/img/javascript-dark.png";
+import JqueryDark from "../public/img/jquery-dark.png";
+import BootstrapDark from "../public/img/Bootstrap-dark.png";
+import MongodbDark from "../public/img/mongodb-dark.png";
+import NextJsDark from "../public/img/NextJS-Dark.png";
+import NodeJsDark from "../public/img/NodeJS-Dark.png";
+import PhpDark from "../public/img/PHP-Dark.png";
+import ReactDark from "../public/img/React-Dark.png";
+import SassDark from "../public/img/sass-dark.png";
+import TailwindCssDark from "../public/img/TailwindCSS-Dark.png";
+import VueDark from "../public/img/Vue-Dark.png";
 import Icon1 from "../public/img/icon_1.png";
+import Icon2 from "../public/img/icon_2.png";
+import Icon3 from "../public/img/icon_3.png";
+import Icon4 from "../public/img/icon_4.png";
 import ArrowBlue from "../public/img/arrow-blue.png";
+import Email from "../public/img/email.png";
+import { OperationProcessIcon } from "./comopents/OperationProcessIcon";
+import { ProjectList } from "./comopents/ProjectList";
+import { ContactMe } from "./comopents/ContactMe";
 const skills = ["HTML5", "CSS3"];
+const darkIcons = [
+  GithubDark,
+  HtmlDark,
+  CssDark,
+  FigmaDark,
+  JavascriptDark,
+  JqueryDark,
+  BootstrapDark,
+  MongodbDark,
+  NextJsDark,
+  NodeJsDark,
+  PhpDark,
+  ReactDark,
+  SassDark,
+  TailwindCssDark,
+  VueDark,
+];
 
 function App() {
   return (
-    <div className="relative min-h-screen py-6.25">
+    <div className="relative min-h-screen p-6.25">
       <div className="absolute inset-0 z-0 [background:var(--full-absolute-bg)]" />
       <section className="flex flex-wrap items-center justify-between relative z-10 h-full w-full rounded-2xl border border-[#1F4360] px-10 py-6.25 gap-3.5">
         <div className="flex w-full">
@@ -82,108 +116,44 @@ function App() {
           <Card className="max-w-104.5 w-full">
             <CardTitleGreen>CONTACT ME</CardTitleGreen>
             <div className="flex flex-col gap-2.5">
-              <Card style={{ padding: "11px 7px" }}>
-                <div className="flex flx-col items-center gap-4">
-                  <img className="max-w-1/6 w-full" src={Github} alt="Github" />
-                  <div>
-                    <p className="text-xs text-[#a4a4a4]">GitHub</p>
-                    <p className="text-xs text-[#a4a4a4]">
-                      github.com/leechan9715
-                    </p>
-                  </div>
-                </div>
-              </Card>
-              <Card style={{ padding: "11px 7px" }}>
-                <div className="flex flx-col items-center gap-4">
-                  <img className="max-w-1/6 w-full" src={Github} alt="Github" />
-                  <div>
-                    <p className="text-xs text-[#a4a4a4]">GitHub</p>
-                    <p className="text-xs text-[#a4a4a4]">
-                      github.com/leechan9715
-                    </p>
-                  </div>
-                </div>
-              </Card>
+              <ContactMe
+                src={GithubDark}
+                title="GitHub"
+                url="github.com/leechan9715"
+              />
+              <ContactMe src={Email} title="Email" url="iseung809@gmail.com" />
             </div>
           </Card>
           <Card className="max-w-104.5 w-full flex flex-col">
             <CardTitleBlue style={{ margin: 0 }}>운영프로세스</CardTitleBlue>
             <div className="w-full h-full flex justify-center items-center">
-              <div className="flex flex-col">
-                <Card style={{ padding: "21px" }}>
-                  <img
-                    className="max-w-15.25 h-9 w-full"
-                    src={Icon1}
-                    alt="Icon1"
-                  />
-                </Card>
-                <p className="text-center">기획</p>
-              </div>
+              <OperationProcessIcon desc="기획" src={Icon1} />
               <img
                 className="flex self-center max-w-6 h-6 w-full mb-5.5"
                 src={ArrowBlue}
                 alt="arrow"
               />
-              <div className="flex flex-col">
-                <Card style={{ padding: "21px" }}>
-                  <img
-                    className="max-w-15.25 h-9 w-full"
-                    src={Icon1}
-                    alt="Icon1"
-                  />
-                </Card>
-                <p className="text-center">기획</p>
-              </div>
+              <OperationProcessIcon desc="UI 설계" src={Icon2} />
               <img
                 className="flex self-center max-w-6 h-6 w-full mb-5.5"
                 src={ArrowBlue}
                 alt="arrow"
               />
-              <div className="flex flex-col">
-                <Card style={{ padding: "21px" }}>
-                  <img
-                    className="max-w-15.25 h-9 w-full"
-                    src={Icon1}
-                    alt="Icon1"
-                  />
-                </Card>
-                <p className="text-center">기획</p>
-              </div>
+              <OperationProcessIcon desc="구현" src={Icon3} />
               <img
                 className="flex self-center max-w-6 h-6 w-full mb-5.5"
                 src={ArrowBlue}
                 alt="arrow"
               />
-              <div className="flex flex-col">
-                <Card style={{ padding: "21px" }}>
-                  <img
-                    className="max-w-15.25 h-9 w-full"
-                    src={Icon1}
-                    alt="Icon1"
-                  />
-                </Card>
-                <p className="text-center">기획</p>
-              </div>
+              <OperationProcessIcon desc="운영" src={Icon4} />
             </div>
           </Card>
         </div>
         <div className="w-full flex justify-center ">
           <Card className=" flex justify-center  items-center gap-5.5">
-            <img className="w-12.5" src={Github} alt="" />
-            <img className="w-12.5" src={Github} alt="" />
-            <img className="w-12.5" src={Github} alt="" />{" "}
-            <img className="w-12.5" src={Github} alt="" />
-            <img className="w-12.5" src={Github} alt="" />
-            <img className="w-12.5" src={Github} alt="" />{" "}
-            <img className="w-12.5" src={Github} alt="" />
-            <img className="w-12.5" src={Github} alt="" />
-            <img className="w-12.5" src={Github} alt="" />{" "}
-            <img className="w-12.5" src={Github} alt="" />
-            <img className="w-12.5" src={Github} alt="" />
-            <img className="w-12.5" src={Github} alt="" />{" "}
-            <img className="w-12.5" src={Github} alt="" />
-            <img className="w-12.5" src={Github} alt="" />
-            <img className="w-12.5" src={Github} alt="" />
+            {darkIcons.map((icon, index) => (
+              <img key={index} className="w-12.5" src={icon} alt="skill icon" />
+            ))}
           </Card>
         </div>
       </section>

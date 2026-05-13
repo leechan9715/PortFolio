@@ -10,9 +10,9 @@
   );
   --full-absolute-bg: linear-gradient(
     180deg,
-    rgba(7, 17, 31, 0.5) 0%,
-    rgba(12, 24, 40, 0.5) 50%,
-    rgba(5, 10, 18, 0.5) 100%
+    rgba(7, 17, 31, 0.7) 0%,
+    rgba(12, 24, 40, 0.7) 50%,
+    rgba(5, 10, 18, 0.7) 100%
   );
   --main-title-color: linear-gradient(
     90deg,
