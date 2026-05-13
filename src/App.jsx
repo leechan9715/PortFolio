@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import Card, { CardTitleBlue, CardTitleGreen, Circle } from "./comopents/Card";
 import Porfile from "../public/img/profile.png";
 import GithubDark from "../public/img/Github-Dark.png";
@@ -43,12 +44,132 @@ const darkIcons = [
 ];
 
 function App() {
+  // 프로젝트 둘러보기 버튼 눌럿을때 상태
+  const [isClicked, setIsClicked] = useState(false);
+  const [isWrapVisible, setIsWrapVisible] = useState(true);
+  const content1 = useRef(null);
+  const content2 = useRef(null);
+  const content3 = useRef(null);
+  const content4 = useRef(null);
+  const content5 = useRef(null);
+  const content6 = useRef(null);
+  const absoluteBg = useRef(null);
+  const wrap = useRef(null);
+
+  // 프로젝트 둘러보기 버튼 눌럿을때 함수
+  const handleClick = () => {
+    if (isClicked) {
+      setIsWrapVisible(true);
+    }
+
+    setIsClicked((prev) => !prev);
+  };
+
+  useEffect(() => {
+    document.body.classList.toggle("bg-2-active", isClicked);
+
+    return () => {
+      document.body.classList.remove("bg-2-active");
+    };
+  }, [isClicked]);
+
+  useEffect(() => {
+    const hideTimers = [];
+
+    const animateContent = (element, transformValue) => {
+      if (!element) return;
+
+      element.style.transition = "transform 0.5s ease, opacity 0.5s ease";
+      element.style.willChange = "transform, opacity";
+
+      if (isClicked) {
+        element.style.transform = transformValue;
+        element.style.opacity = "0";
+        element.style.pointerEvents = "none";
+
+        const timer = setTimeout(() => {
+          element.style.display = "none";
+        }, 500);
+
+        hideTimers.push(timer);
+        return;
+      }
+
+      element.style.display = "";
+      element.style.pointerEvents = "auto";
+      void element.offsetWidth;
+      element.style.transform = "translate(0, 0)";
+      element.style.opacity = "1";
+    };
+
+    const animateAbsoluteBg = (element) => {
+      if (!element) return;
+
+      element.style.transition = "opacity 0.5s ease";
+
+      if (isClicked) {
+        element.style.opacity = "0";
+
+        const timer = setTimeout(() => {
+          element.style.display = "none";
+        }, 500);
+
+        hideTimers.push(timer);
+        return;
+      }
+
+      element.style.display = "";
+      void element.offsetWidth;
+      element.style.opacity = "1";
+    };
+
+    const animateWrapBorder = (element) => {
+      if (!element) return;
+
+      element.style.transition = "border-color 1s ease";
+      element.style.borderColor = isClicked ? "transparent" : "var(--border)";
+
+      if (isClicked) {
+        const timer = setTimeout(() => {
+          setIsWrapVisible(false);
+        }, 1000);
+
+        hideTimers.push(timer);
+      }
+    };
+
+    animateContent(content1.current, "translateX(-120%)");
+    animateContent(content2.current, "translateX(120%)");
+    animateContent(content3.current, "translateX(-120%)");
+    animateContent(content4.current, "translateX(120%)");
+    animateContent(content5.current, "translateY(120%)");
+    animateContent(content6.current, "translateY(-120%)");
+    animateAbsoluteBg(absoluteBg.current);
+    animateWrapBorder(wrap.current);
+
+    return () => {
+      hideTimers.forEach((timer) => clearTimeout(timer));
+    };
+  }, [isClicked]);
   return (
     <div className="relative min-h-screen flex items-center px-6.25">
-      <div className="absolute inset-0 z-0 [background:var(--full-absolute-bg)]" />
-      <section className="flex flex-wrap items-center justify-between relative z-10 h-full w-full rounded-2xl border border-(--border) px-10 py-6.25 gap-3.5">
-        <div className="flex w-full">
-          <Card className="max-w-83  w-full ">
+      <div
+        className="absolute inset-0 z-0 [background:var(--full-absolute-bg)]"
+        ref={absoluteBg}
+        style={{ opacity: 1 }}
+      />
+      {isWrapVisible && (
+        <section
+          className="flex flex-wrap items-center justify-between relative z-10 w-full rounded-2xl border border-(--border) px-10 py-6.25 gap-3.5"
+          ref={wrap}
+          style={{ borderColor: "var(--border)" }}
+        >
+          <div className="flex w-full">
+          <Card
+            ref={content1}
+            className="max-w-83  w-full "
+            style={{ transform: "translateX(0)", opacity: 1 }}
+          >
             <CardTitleGreen>프로필</CardTitleGreen>
             <div className="flex flex-col items-center text-center ">
               <img src={Porfile} alt="profile" className="max-w-1/3 mb-6.5" />
@@ -56,7 +177,6 @@ function App() {
               <p className="text-sm bg-clip-text text-transparent bg-(image:--text-color) bac mb-6.5">
                 Frontend Developer
               </p>
-
               <p className="text-sm font-light mb-6.5">
                 사용자 흐름을 이해하고,
                 <br />
@@ -77,7 +197,11 @@ function App() {
               </div>
             </div>
           </Card>
-          <div className="flex items-center justify-center  flex-col  gap-3 flex-1 text-center tracking-widest">
+          <div
+            className="flex items-center justify-center  flex-col  gap-3 flex-1 text-center tracking-widest"
+            ref={content6}
+            style={{ transform: "translate(0, 0)", opacity: 1 }}
+          >
             <div className="flex items-center gap-5 mb-8">
               <div className="flex items-center gap-5">
                 <span className="font-extralight text-gray-300 text-sm">
@@ -121,19 +245,22 @@ function App() {
               으로 연결하는사람
             </h2>
             <div>
-              <button className="text-gray-500 cursor-pointer [background:var(--button-bg)] border-2 border-(--border) px-14 py-2.5 rounded-lg duration-300 hover:[background:var(--button-hover)] hover:text-white hover:border-(--hover-border)">
+              <button
+                className="text-gray-500 cursor-pointer [background:var(--button-bg)] border-2 border-(--border) px-14 py-2.5 rounded-lg duration-300 hover:[background:var(--button-hover)] hover:text-white hover:border-(--hover-border)"
+                onClick={handleClick}
+              >
                 <p className="font-bold text-2xl ">프로젝트 둘러보기</p>
               </button>
             </div>
           </div>
-          <Card className="max-w-83  w-full flex flex-col">
+
+          <Card
+            className="max-w-83  w-full flex flex-col"
+            ref={content2}
+            style={{ transform: "translateX(0)", opacity: 1 }}
+          >
             <CardTitleGreen>프로젝트</CardTitleGreen>
-            <div className="flex flex-col gap-5 justify-center item ">
-              <ProjectList
-                title="GOREON"
-                desc="AI 전자기기 쇼핑 플랫폼"
-                skills={skills}
-              />
+            <div className="flex flex-col gap-3 justify-center item ">
               <ProjectList
                 title="GOREON"
                 desc="AI 전자기기 쇼핑 플랫폼"
@@ -153,9 +280,13 @@ function App() {
           </Card>
         </div>
         <div className="w-full flex justify-between">
-          <Card className="max-w-83 w-full">
+          <Card
+            className="max-w-83 w-full"
+            ref={content3}
+            style={{ transform: "translateX(0)", opacity: 1 }}
+          >
             <CardTitleGreen>CONTACT ME</CardTitleGreen>
-            <div className="flex flex-col gap-2.5">
+            <div className="flex flex-col gap-5.5">
               <ContactMe
                 src={GithubDark}
                 title="GitHub"
@@ -164,7 +295,11 @@ function App() {
               <ContactMe src={Email} title="Email" url="iseung809@gmail.com" />
             </div>
           </Card>
-          <Card className="max-w-83 w-full flex flex-col">
+          <Card
+            className="max-w-83 w-full flex flex-col"
+            ref={content4}
+            style={{ transform: "translateX(0)", opacity: 1 }}
+          >
             <CardTitleBlue>운영프로세스</CardTitleBlue>
             <div className="flex gap-3.5">
               <div className="flex flex-col items-center justify-center">
@@ -209,7 +344,11 @@ function App() {
             </div>
           </Card>
         </div>
-        <div className=" w-full ">
+        <div
+          className=" w-full"
+          ref={content5}
+          style={{ transform: "translate(0, 0)", opacity: 1 }}
+        >
           <Card className=" flex justify-between items-center gap-5.5 bg-(--dark-gradient)">
             {darkIcons.map((icon, index) => (
               <Card
@@ -228,8 +367,10 @@ function App() {
               </Card>
             ))}
           </Card>
-        </div>
-      </section>
+          </div>
+        </section>
+      )}
+      <section></section>
     </div>
   );
 }

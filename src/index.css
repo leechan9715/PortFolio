@@ -52,6 +52,12 @@ img {
     width: 100%;
     min-height: 100%;
     color: white;
+    overflow: hidden;
+  }
+
+  #root {
+    position: relative;
+    z-index: 1;
   }
 
   body {
@@ -60,5 +66,22 @@ img {
     font-family: "Pretendard", sans-serif;
     background: url("/img/bg-1.png") no-repeat center center;
     background-size: cover;
+    position: relative;
+  }
+
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    background: url("/img/bg-2.png") no-repeat center center;
+    background-size: cover;
+    opacity: 0;
+    transition: opacity 1.2s ease;
+    pointer-events: none;
+  }
+
+  body.bg-2-active::after {
+    opacity: 1;
   }
 }
