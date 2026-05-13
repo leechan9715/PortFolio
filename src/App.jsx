@@ -85,16 +85,22 @@ function App() {
                 </span>
                 <Circle />
               </div>
-              <div className="flex items-center gap-5">
-                <span>React</span>
+              <div className="flex items-center gap-5 ">
+                <span className="font-extralight text-gray-300 text-sm">
+                  React
+                </span>
                 <Circle />
               </div>
               <div className="flex items-center gap-5">
-                <span>Next.js</span>
+                <span className="font-extralight text-gray-300 text-sm">
+                  Next.js
+                </span>
                 <Circle />
               </div>
               <div className="flex items-center gap-5">
-                <span>TypeScript</span>
+                <span className="font-extralight text-gray-300 text-sm">
+                  TypeScript
+                </span>
               </div>
             </div>
             <h1 className="text-center text-7xl bg-clip-text text-transparent bg-(image:--main-title-color) font-bold">
