@@ -1,6 +1,6 @@
 import Card, { CardTitleBlue, CardTitleGreen, Circle } from "./comopents/Card";
 import Porfile from "../public/img/profile.png";
-import GithubDark from "../public/img/Github-dark.png";
+import GithubDark from "../public/img/Github-Dark.png";
 import HtmlDark from "../public/img/html-dark.png";
 import CssDark from "../public/img/css-dark.png";
 import FigmaDark from "../public/img/Figma-Dark.png";
