@@ -1,30 +1,34 @@
 import { useEffect, useRef, useState } from "react";
+import { FreeMode } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/free-mode";
 import Card, { CardTitleBlue, CardTitleGreen, Circle } from "./Card";
-import Porfile from "../../public/img/profile.png";
-import GithubDark from "../../public/img/Github-Dark.png";
-import HtmlDark from "../../public/img/html-dark.png";
-import CssDark from "../../public/img/css-dark.png";
-import FigmaDark from "../../public/img/Figma-Dark.png";
-import JavascriptDark from "../../public/img/javascript-dark.png";
-import JqueryDark from "../../public/img/jquery-dark.png";
-import BootstrapDark from "../../public/img/Bootstrap-dark.png";
-import MongodbDark from "../../public/img/mongodb-dark.png";
-import NextJsDark from "../../public/img/NextJS-Dark.png";
-import NodeJsDark from "../../public/img/NodeJS-Dark.png";
-import PhpDark from "../../public/img/PHP-Dark.png";
-import ReactDark from "../../public/img/React-Dark.png";
-import SassDark from "../../public/img/sass-dark.png";
-import TailwindCssDark from "../../public/img/TailwindCSS-Dark.png";
-import VueDark from "../../public/img/Vue-Dark.png";
-import Icon1 from "../../public/img/icon_1.png";
-import Icon2 from "../../public/img/icon_2.png";
-import Icon3 from "../../public/img/icon_3.png";
-import Icon4 from "../../public/img/icon_4.png";
-import Email from "../../public/img/email.png";
 import { OperationProcessIcon } from "./OperationProcessIcon";
 import { ProjectList } from "./ProjectList";
 import { ContactMe } from "./ContactMe";
 const skills = ["HTML5", "CSS3"];
+const Porfile = "/img/profile.png";
+const GithubDark = "/img/Github-dark.png";
+const HtmlDark = "/img/html-dark.png";
+const CssDark = "/img/css-dark.png";
+const FigmaDark = "/img/Figma-Dark.png";
+const JavascriptDark = "/img/javascript-dark.png";
+const JqueryDark = "/img/jquery-dark.png";
+const BootstrapDark = "/img/Bootstrap-dark.png";
+const MongodbDark = "/img/mongodb-dark.png";
+const NextJsDark = "/img/NextJS-Dark.png";
+const NodeJsDark = "/img/NodeJS-Dark.png";
+const PhpDark = "/img/PHP-Dark.png";
+const ReactDark = "/img/React-Dark.png";
+const SassDark = "/img/sass-dark.png";
+const TailwindCssDark = "/img/TailwindCSS-Dark.png";
+const VueDark = "/img/Vue-Dark.png";
+const Icon1 = "/img/icon_1.png";
+const Icon2 = "/img/icon_2.png";
+const Icon3 = "/img/icon_3.png";
+const Icon4 = "/img/icon_4.png";
+const Email = "/img/email.png";
 const darkIcons = [
   GithubDark,
   HtmlDark,
@@ -146,7 +150,7 @@ export const Main = ({ onClickChange }) => {
         ["content3", "content4"],
       ];
       const currentGroup = swapGroups.find((group) =>
-        group.includes(draggedId)
+        group.includes(draggedId),
       );
 
       return draggableItems.find(({ id, element }) => {
@@ -199,7 +203,7 @@ export const Main = ({ onClickChange }) => {
           const dropTarget = findDropTarget(
             id,
             endEvent.clientX,
-            endEvent.clientY
+            endEvent.clientY,
           );
 
           if (dropTarget) {
@@ -292,10 +296,10 @@ export const Main = ({ onClickChange }) => {
           ref={wrap}
           style={{ borderColor: "var(--border)" }}
         >
-          <div className="flex w-full">
+          <div className="flex w-full max-lg:flex-col max-lg:gap-2.5 max-md:gap-2.5">
             <Card
               ref={content1}
-              className="max-w-83  w-full "
+              className="max-w-83 w-full max-lg:order-2 max-lg:max-w-none"
               style={{ transform: "translateX(-120%)", opacity: 0 }}
             >
               <CardTitleGreen>프로필</CardTitleGreen>
@@ -326,7 +330,7 @@ export const Main = ({ onClickChange }) => {
               </div>
             </Card>
             <div
-              className="flex items-center justify-center  flex-col  gap-3 flex-1 text-center tracking-widest"
+              className="flex items-center justify-center flex-col gap-3 flex-1 text-center tracking-widest max-lg:order-1 max-lg:w-full"
               ref={content6}
               style={{ transform: "translateY(-120%)", opacity: 0 }}
             >
@@ -355,30 +359,30 @@ export const Main = ({ onClickChange }) => {
                   </span>
                 </div>
               </div>
-              <h1 className="text-center text-7xl bg-clip-text text-transparent bg-(image:--main-title-color) font-bold">
+              <h1 className="text-center text-7xl bg-clip-text text-transparent bg-(image:--main-title-color) font-bold max-md:text-5xl">
                 이승찬
               </h1>
-              <h2 className="text-4xl font-semibold ">
+              <h2 className="text-4xl font-semibold max-md:text-2xl ">
                 사용자의 시선에서 흐름을
-                <span className="text-5xl bg-clip-text text-transparent bg-(image:--text-color)">
+                <span className="text-5xl bg-clip-text text-transparent bg-(image:--text-color) max-md:text-3xl">
                   바라
                 </span>
                 보고
               </h2>
-              <h2 className="text-4xl font-semibold mb-8">
+              <h2 className="text-4xl font-semibold mb-8 max-md:text-2xl">
                 아이디어를 실제
-                <span className="text-5xl bg-clip-text text-transparent bg-(image:--text-color)">
+                <span className="text-5xl bg-clip-text text-transparent bg-(image:--text-color) max-md:text-3xl">
                   경험
                 </span>
                 으로 연결하는사람
               </h2>
               <div>
                 <button
-                  className="project-button-split text-gray-500 cursor-pointer px-14 py-2.5 rounded-lg duration-300 hover:text-white"
+                  className="project-button-split text-gray-500 cursor-pointer px-14 py-2.5 rounded-lg duration-300 hover:text-white max-md:px-8 max-md:py-1"
                   onClick={handleClick}
                 >
                   <span className="project-button-hit-area" />
-                  <p className="project-button-label font-bold text-2xl">
+                  <p className="project-button-label font-bold text-2xl max-md:text-lg">
                     <span className="project-button-part project-button-part-left">
                       프로젝트
                     </span>
@@ -389,9 +393,8 @@ export const Main = ({ onClickChange }) => {
                 </button>
               </div>
             </div>
-
             <Card
-              className="max-w-83  w-full flex flex-col"
+              className="max-w-83 w-full flex flex-col max-lg:order-3 max-lg:max-w-none"
               ref={content2}
               style={{ transform: "translateX(120%)", opacity: 0 }}
             >
@@ -415,9 +418,9 @@ export const Main = ({ onClickChange }) => {
               </div>
             </Card>
           </div>
-          <div className="w-full flex justify-between">
+          <div className="w-full flex justify-between max-md:flex-col max-md:gap-2.5 max-lg:gap-2.5">
             <Card
-              className="max-w-83 w-full"
+              className="max-w-83 w-full max-md:max-w-full"
               ref={content3}
               style={{ transform: "translateX(-120%)", opacity: 0 }}
             >
@@ -436,7 +439,7 @@ export const Main = ({ onClickChange }) => {
               </div>
             </Card>
             <Card
-              className="max-w-83 w-full flex flex-col"
+              className="max-w-83 w-full flex flex-col max-md:max-w-full"
               ref={content4}
               style={{ transform: "translateX(120%)", opacity: 0 }}
             >
@@ -485,40 +488,54 @@ export const Main = ({ onClickChange }) => {
             </Card>
           </div>
           <div
-            className=" w-full"
+            className="w-full min-w-0"
             ref={content5}
             style={{ transform: "translateY(120%)", opacity: 0 }}
           >
-            <Card className=" flex justify-between items-center gap-5.5 bg-(--dark-gradient)">
-              {darkIcons.map((icon, index) => (
-                <Card
-                  className="bg-(--deepdark-gradient) flex flex-col gap-1.5 "
-                  style={{
-                    padding: "15px",
-                  }}
-                  key={index}
-                >
-                  <img
-                    className="w-12 cursor-pointer"
-                    onClick={(event) => {
-                      event.stopPropagation();
-                      const startPosition = {
-                        x: event.clientX,
-                        y: event.clientY,
-                      };
+            <Card className="w-full min-w-0 overflow-hidden bg-(--dark-gradient)">
+              <Swiper
+                className="skill-icon-swiper"
+                modules={[FreeMode]}
+                freeMode
+                grabCursor
+                slidesPerView="auto"
+                spaceBetween={39}
+              >
+                {darkIcons.map((icon, index) => (
+                  <SwiperSlide
+                    className="skill-icon-slide"
+                    key={index}
+                    style={{ width: "80px" }}
+                  >
+                    <Card
+                      className="bg-(--deepdark-gradient) flex flex-col gap-1.5"
+                      style={{
+                        padding: "15px",
+                      }}
+                    >
+                      <img
+                        className="skill-icon-image cursor-pointer"
+                        onClick={(event) => {
+                          event.stopPropagation();
+                          const startPosition = {
+                            x: event.clientX,
+                            y: event.clientY,
+                          };
 
-                      floatingIconTarget.current = startPosition;
-                      floatingIconCurrent.current = startPosition;
-                      setFloatingIconPosition(startPosition);
-                      setFloatingIcon((currentIcon) =>
-                        currentIcon === icon ? null : icon
-                      );
-                    }}
-                    src={icon}
-                    alt="skill icon"
-                  />
-                </Card>
-              ))}
+                          floatingIconTarget.current = startPosition;
+                          floatingIconCurrent.current = startPosition;
+                          setFloatingIconPosition(startPosition);
+                          setFloatingIcon((currentIcon) =>
+                            currentIcon === icon ? null : icon,
+                          );
+                        }}
+                        src={icon}
+                        alt="skill icon"
+                      />
+                    </Card>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
             </Card>
           </div>
         </section>

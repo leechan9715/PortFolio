@@ -1,5 +1,6 @@
-import ProjectImg from "../../public/img/projectImg.png";
 import Card from "./Card";
+
+const ProjectImg = "/img/projectImg.png";
 
 export const ProjectList = ({ title, desc, skills }) => {
   return (
