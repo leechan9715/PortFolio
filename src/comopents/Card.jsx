@@ -1,7 +1,7 @@
 export const Card = ({ children, className, style }) => {
   return (
     <div
-      className={`border border-(--border) bg-(--dark-gradient) px-7.5 py-4 rounded-[10px] ${className}`}
+      className={`border border-(--border) bg-(--dark-gradient) px-7.5 py-4 rounded-[10px] hover:border-(--hover-border) duration-300 cursor-pointer ${className}`}
       style={style}
     >
       {children}

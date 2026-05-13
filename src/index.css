@@ -4,7 +4,6 @@
 :root {
   --dark-gradient: rgba(7, 26, 42, 0.7);
   --deepdark-gradient: rgba(6, 21, 34, 0.5);
-
   --full-absolute-bg: radial-gradient(
     closest-side,
     rgba(10, 34, 73, 0.6) 0%,
@@ -12,15 +11,19 @@
   );
 
   --main-title-color: linear-gradient(
-    90deg,
-    rgba(51, 199, 255, 1) 0%,
-    rgba(31, 140, 255, 1) 50%,
-    rgba(122, 223, 255, 1) 100%
+    0deg,
+    rgba(0, 140, 255, 1) 0%,
+    rgb(255, 255, 255) 70%
   );
   --text-color: linear-gradient(
     185.57deg,
     rgba(0, 140, 255, 1) 0%,
     rgba(0, 200, 255, 1) 100%
+  );
+  --button-hover: linear-gradient(
+    185.57deg,
+    rgba(0, 140, 255, 0.8) 0%,
+    rgba(0, 200, 255, 0.8) 100%
   );
   --button-bg: linear-gradient(
     90deg,
@@ -29,6 +32,7 @@
     rgba(5, 10, 18, 0.6) 100%
   );
   --border: #0d4f73;
+  --hover-border: #2bb3fd;
 }
 
 img {
