@@ -85,7 +85,7 @@ const heroClasses = {
 
 const projectClasses = {
   card: "max-w-83 w-full flex flex-col max-lg:order-3 max-lg:max-w-none",
-  list: "flex flex-col gap-3 justify-center item",
+  list: "flex flex-col gap-3",
 };
 
 const contactClasses = {
@@ -233,213 +233,214 @@ export const Main = () => {
         ref={wrap}
         style={{ borderColor: "var(--border)" }}
       >
-          <div className={layoutClasses.topRow}>
-            <Card
-              ref={content1}
-              className={profileClasses.card}
-              style={{ transform: "translateX(-120%)", opacity: 0 }}
-            >
-              <CardTitleGreen>프로필</CardTitleGreen>
-              <div className={profileClasses.body}>
-                <img
-                  src={Porfile}
-                  alt="profile"
-                  className={profileClasses.image}
-                />
-                <h3 className="text-2xl font-semibold">이승찬</h3>
-                <p className={profileClasses.role}>Frontend Developer</p>
-                <p className={profileClasses.desc}>
-                  사용자 흐름을 이해하고,
-                  <br />
-                  직관적인 UI로 구현하는프론트엔드
-                  <br />
-                  개발자입니다.
-                </p>
-                <div className={profileClasses.tags}>
-                  <p className={profileClasses.tag}>React</p>
-                  <p className={profileClasses.tag}>Next.js</p>
-                  <p className={profileClasses.tag}>TypeScript</p>
-                </div>
-              </div>
-            </Card>
-            <div
-              className={heroClasses.wrap}
-              ref={content6}
-              style={{ transform: "translateY(-120%)", opacity: 0 }}
-            >
-              <div className={heroClasses.meta}>
-                <div className={heroClasses.metaItem}>
-                  <span className={heroClasses.metaText}>
-                    Frontend Developer
-                  </span>
-                  <Circle className={heroClasses.circle} />
-                </div>
-                <div className={heroClasses.metaItem}>
-                  <span className={heroClasses.metaText}>React</span>
-                  <Circle className={heroClasses.circle} />
-                </div>
-                <div className={heroClasses.metaItem}>
-                  <span className={heroClasses.metaText}>Next.js</span>
-                  <Circle className={heroClasses.circle} />
-                </div>
-                <div className={heroClasses.metaItem}>
-                  <span className={heroClasses.metaText}>TypeScript</span>
-                </div>
-              </div>
-              <h1 className={heroClasses.name}>이승찬</h1>
-              <h2 className={heroClasses.line}>
-                사용자의 시선에서 흐름을
-                <span className={heroClasses.accent}>바라</span>
-                보고
-              </h2>
-              <h2 className={`${heroClasses.line} mb-8`}>
-                아이디어를 실제
-                <span className={heroClasses.accent}>경험</span>
-                으로 연결하는사람
-              </h2>
-              <div>
-                <button className={heroClasses.button} onClick={handleClick}>
-                  <p className={heroClasses.buttonText}>프로젝트 둘러보기</p>
-                </button>
+        <div className={layoutClasses.topRow}>
+          <Card
+            ref={content1}
+            className={profileClasses.card}
+            style={{ transform: "translateX(-120%)", opacity: 0 }}
+          >
+            <CardTitleGreen>프로필</CardTitleGreen>
+            <div className={profileClasses.body}>
+              <img
+                src={Porfile}
+                alt="profile"
+                className={profileClasses.image}
+              />
+              <h3 className="text-2xl font-semibold">이승찬</h3>
+              <p className={profileClasses.role}>Frontend Developer</p>
+              <p className={profileClasses.desc}>
+                사용자 흐름을 이해하고,
+                <br />
+                직관적인 UI로 구현하는프론트엔드
+                <br />
+                개발자입니다.
+              </p>
+              <div className={profileClasses.tags}>
+                <p className={profileClasses.tag}>React</p>
+                <p className={profileClasses.tag}>Next.js</p>
+                <p className={profileClasses.tag}>TypeScript</p>
               </div>
             </div>
-            <Card
-              className={projectClasses.card}
-              ref={content2}
-              style={{ transform: "translateX(120%)", opacity: 0 }}
-            >
-              <CardTitleGreen>프로젝트</CardTitleGreen>
-              <div className={projectClasses.list}>
-                <ProjectList
-                  title="GOREON"
-                  desc="AI 전자기기 쇼핑 플랫폼"
-                  skills={skills}
-                />
-                <ProjectList
-                  title="GOREON"
-                  desc="AI 전자기기 쇼핑 플랫폼"
-                  skills={skills}
-                />
-                <ProjectList
-                  title="GOREON"
-                  desc="AI 전자기기 쇼핑 플랫폼"
-                  skills={skills}
-                />
-              </div>
-            </Card>
-          </div>
-          <div className={layoutClasses.bottomRow}>
-            <Card
-              className={contactClasses.card}
-              ref={content3}
-              style={{ transform: "translateX(-120%)", opacity: 0 }}
-            >
-              <CardTitleGreen>CONTACT ME</CardTitleGreen>
-              <div className={contactClasses.list}>
-                <ContactMe
-                  src={GithubDark}
-                  title="GitHub"
-                  url="github.com/leechan9715"
-                />
-                <ContactMe
-                  src={Email}
-                  title="Email"
-                  url="iseung809@gmail.com"
-                />
-              </div>
-            </Card>
-            <Card
-              className={processClasses.card}
-              ref={content4}
-              style={{ transform: "translateX(120%)", opacity: 0 }}
-            >
-              <CardTitleBlue>운영프로세스</CardTitleBlue>
-              <div className={processClasses.layout}>
-                <div className={processClasses.rail}>
-                  <p className={processClasses.step}>01</p>
-                  <div className={processClasses.line} />
-                  <p className={processClasses.step}>02</p>
-                  <div className={processClasses.line} />
-                  <p className={processClasses.step}>03</p>
-                  <div className={processClasses.line} />
-                  <p className={processClasses.step}>04</p>
-                </div>
-                <div className={processClasses.content}>
-                  <OperationProcessIcon
-                    src={Icon1}
-                    title="기획분석"
-                    desc="요구사항 분석 및 사용자 흐름 정의"
-                  />
-                  <OperationProcessIcon
-                    src={Icon2}
-                    title="UI/UX 설계"
-                    desc="와이어프레임 및 UI 설계"
-                  />
-                  <OperationProcessIcon
-                    src={Icon3}
-                    title="개발 구현"
-                    desc="재사용 검증한 컴포넌트 개발"
-                  />
-                  <OperationProcessIcon
-                    src={Icon4}
-                    title="배포 & 운영"
-                    desc="안정적인 운영 및 지속적 모니터링"
-                  />
-                </div>
-              </div>
-            </Card>
-          </div>
+          </Card>
           <div
-            className={skillClasses.wrap}
-            ref={content5}
-            style={{ transform: "translateY(120%)", opacity: 0 }}
+            className={heroClasses.wrap}
+            ref={content6}
+            style={{ transform: "translateY(-120%)", opacity: 0 }}
           >
-            <Card className={skillClasses.panel}>
-              <Swiper
-                className="skill-icon-swiper"
-                modules={[FreeMode]}
-                freeMode
-                grabCursor
-                slidesPerView="auto"
-                spaceBetween={39}
-              >
-                {darkIcons.map((icon, index) => (
-                  <SwiperSlide
-                    className="skill-icon-slide"
-                    key={index}
-                    style={{ width: "80px" }}
-                  >
-                    <Card
-                      className={skillClasses.tile}
-                      style={{
-                        padding: "15px",
-                      }}
-                    >
-                      <img
-                        className={skillClasses.icon}
-                        onClick={(event) => {
-                          event.stopPropagation();
-                          const startPosition = {
-                            x: event.clientX,
-                            y: event.clientY,
-                          };
-
-                          floatingIconTarget.current = startPosition;
-                          floatingIconCurrent.current = startPosition;
-                          setFloatingIconPosition(startPosition);
-                          setFloatingIcon((currentIcon) =>
-                            currentIcon === icon ? null : icon,
-                          );
-                        }}
-                        src={icon}
-                        alt="skill icon"
-                      />
-                    </Card>
-                  </SwiperSlide>
-                ))}
-              </Swiper>
-            </Card>
+            <div className={heroClasses.meta}>
+              <div className={heroClasses.metaItem}>
+                <span className={heroClasses.metaText}>Frontend Developer</span>
+                <Circle className={heroClasses.circle} />
+              </div>
+              <div className={heroClasses.metaItem}>
+                <span className={heroClasses.metaText}>React</span>
+                <Circle className={heroClasses.circle} />
+              </div>
+              <div className={heroClasses.metaItem}>
+                <span className={heroClasses.metaText}>Next.js</span>
+                <Circle className={heroClasses.circle} />
+              </div>
+              <div className={heroClasses.metaItem}>
+                <span className={heroClasses.metaText}>TypeScript</span>
+              </div>
+            </div>
+            <h1 className={heroClasses.name}>이승찬</h1>
+            <h2 className={heroClasses.line}>
+              사용자의 시선에서 흐름을
+              <span className={heroClasses.accent}>바라</span>
+              보고
+            </h2>
+            <h2 className={`${heroClasses.line} mb-8`}>
+              아이디어를 실제
+              <span className={heroClasses.accent}>경험</span>
+              으로 연결하는사람
+            </h2>
+            <div>
+              <button className={heroClasses.button} onClick={handleClick}>
+                <p className={heroClasses.buttonText}>프로젝트 둘러보기</p>
+              </button>
+            </div>
           </div>
+          <Card
+            className={projectClasses.card}
+            ref={content2}
+            style={{ transform: "translateX(120%)", opacity: 0 }}
+          >
+            <CardTitleGreen>프로젝트</CardTitleGreen>
+            <div
+              className={`${projectClasses.list} project-list-scroll max-h-70 overflow-y-auto overflow-x-hidden overscroll-contain pr-2`}
+            >
+              <ProjectList
+                title="GOREON"
+                desc="AI 전자기기 쇼핑 플랫폼"
+                skills={skills}
+              />
+              <ProjectList
+                title="GOREON"
+                desc="AI 전자기기 쇼핑 플랫폼"
+                skills={skills}
+              />
+              <ProjectList
+                title="GOREON"
+                desc="AI 전자기기 쇼핑 플랫폼"
+                skills={skills}
+              />
+              <ProjectList
+                title="GOREON"
+                desc="AI 전자기기 쇼핑 플랫폼"
+                skills={skills}
+              />
+            </div>
+          </Card>
+        </div>
+        <div className={layoutClasses.bottomRow}>
+          <Card
+            className={contactClasses.card}
+            ref={content3}
+            style={{ transform: "translateX(-120%)", opacity: 0 }}
+          >
+            <CardTitleGreen>CONTACT ME</CardTitleGreen>
+            <div className={contactClasses.list}>
+              <ContactMe
+                src={GithubDark}
+                title="GitHub"
+                url="github.com/leechan9715"
+              />
+              <ContactMe src={Email} title="Email" url="iseung809@gmail.com" />
+            </div>
+          </Card>
+          <Card
+            className={processClasses.card}
+            ref={content4}
+            style={{ transform: "translateX(120%)", opacity: 0 }}
+          >
+            <CardTitleBlue>운영프로세스</CardTitleBlue>
+            <div className={processClasses.layout}>
+              <div className={processClasses.rail}>
+                <p className={processClasses.step}>01</p>
+                <div className={processClasses.line} />
+                <p className={processClasses.step}>02</p>
+                <div className={processClasses.line} />
+                <p className={processClasses.step}>03</p>
+                <div className={processClasses.line} />
+                <p className={processClasses.step}>04</p>
+              </div>
+              <div className={processClasses.content}>
+                <OperationProcessIcon
+                  src={Icon1}
+                  title="기획분석"
+                  desc="요구사항 분석 및 사용자 흐름 정의"
+                />
+                <OperationProcessIcon
+                  src={Icon2}
+                  title="UI/UX 설계"
+                  desc="와이어프레임 및 UI 설계"
+                />
+                <OperationProcessIcon
+                  src={Icon3}
+                  title="개발 구현"
+                  desc="재사용 검증한 컴포넌트 개발"
+                />
+                <OperationProcessIcon
+                  src={Icon4}
+                  title="배포 & 운영"
+                  desc="안정적인 운영 및 지속적 모니터링"
+                />
+              </div>
+            </div>
+          </Card>
+        </div>
+        <div
+          className={skillClasses.wrap}
+          ref={content5}
+          style={{ transform: "translateY(120%)", opacity: 0 }}
+        >
+          <Card className={skillClasses.panel}>
+            <Swiper
+              className="skill-icon-swiper"
+              modules={[FreeMode]}
+              freeMode
+              grabCursor
+              slidesPerView="auto"
+              spaceBetween={39}
+            >
+              {darkIcons.map((icon, index) => (
+                <SwiperSlide
+                  className="skill-icon-slide"
+                  key={index}
+                  style={{ width: "80px" }}
+                >
+                  <Card
+                    className={skillClasses.tile}
+                    style={{
+                      padding: "15px",
+                    }}
+                  >
+                    <img
+                      className={skillClasses.icon}
+                      onClick={(event) => {
+                        event.stopPropagation();
+                        const startPosition = {
+                          x: event.clientX,
+                          y: event.clientY,
+                        };
+
+                        floatingIconTarget.current = startPosition;
+                        floatingIconCurrent.current = startPosition;
+                        setFloatingIconPosition(startPosition);
+                        setFloatingIcon((currentIcon) =>
+                          currentIcon === icon ? null : icon,
+                        );
+                      }}
+                      src={icon}
+                      alt="skill icon"
+                    />
+                  </Card>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </Card>
+        </div>
       </section>
       {floatingIcon && (
         <img

@@ -64,6 +64,25 @@ img {
   display: block;
 }
 
+.project-list-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(43, 179, 253, 0.7) rgba(13, 79, 115, 0.25);
+}
+
+.project-list-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.project-list-scroll::-webkit-scrollbar-track {
+  background: rgba(13, 79, 115, 0.25);
+  border-radius: 999px;
+}
+
+.project-list-scroll::-webkit-scrollbar-thumb {
+  background: rgba(43, 179, 253, 0.7);
+  border-radius: 999px;
+}
+
 .section-profile-enter {
   animation: sectionProfileEnter 1s ease forwards;
   opacity: 0;
