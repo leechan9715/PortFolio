@@ -46,6 +46,67 @@ const darkIcons = [
   TailwindCssDark,
   VueDark,
 ];
+
+const layoutClasses = {
+  section:
+    "flex flex-wrap items-center justify-between relative z-10 w-full rounded-2xl border border-(--border) px-10 py-6.25 gap-3.5 max-sm:py-3.25 max-sm:px-5",
+  topRow: "flex w-full max-lg:flex-col max-lg:gap-2.5 max-md:gap-2.5",
+  bottomRow:
+    "w-full flex justify-between max-md:flex-col max-md:gap-2.5 max-lg:gap-2.5",
+};
+
+const profileClasses = {
+  card: "max-w-83 w-full max-lg:order-2 max-lg:max-w-none",
+  body: "flex flex-col items-center text-center",
+  image: "max-w-1/3 mb-6.5",
+  role: "text-sm bg-clip-text text-transparent bg-(image:--text-color) bac mb-6.5",
+  desc: "text-sm font-light mb-6.5",
+  tags: "flex gap-1.5 items-center",
+  tag: "text-sm bg-clip-text text-transparent bg-(image:--text-color) px-2 py-1 rounded-lg border border-(--border)",
+};
+
+const heroClasses = {
+  wrap: "flex items-center justify-center flex-col gap-3 flex-1 text-center tracking-widest max-lg:order-1 max-lg:w-full",
+  meta: "flex items-center gap-5 mb-8  max-xl:grid max-xl:grid-cols-2 max-md:mb-2 max-xl:justify-items-center max-lg:flex max-md:grid max-md:grid-cols-2 ",
+  metaItem: "flex items-center max-lg:gap-2.5 min-xl:gap-5",
+  circle: "max-md:hidden min-lg:hidden min-xl:block",
+  metaText: "font-extralight text-gray-300 text-sm ",
+  name: "text-center text-7xl bg-clip-text text-transparent bg-(image:--main-title-color) font-bold max-xl:text-5xl max-lg:text-4xl max-md:text-3xl",
+  line: "text-4xl font-semibold max-xl:text-3xl max-md:text-2xl",
+  accent:
+    "text-5xl bg-clip-text text-transparent bg-(image:--text-color) max-xl:text-4xl max-md:text-3xl",
+  button:
+    "text-gray-500 cursor-pointer [background:var(--button-bg)] border-2 border-(--border) px-14 py-2.5 rounded-lg duration-300 hover:[background:var(--button-hover)] hover:text-white hover:border-(--hover-border) max-md:px-8 max-md:py-1",
+  buttonText: "font-bold text-2xl max-xl:text-xl max-md:text-lg",
+};
+
+const projectClasses = {
+  card: "max-w-83 w-full flex flex-col max-lg:order-3 max-lg:max-w-none",
+  list: "flex flex-col gap-3 justify-center item",
+};
+
+const contactClasses = {
+  card: "max-w-83 w-full max-md:max-w-full",
+  list: "flex flex-col gap-5.5",
+};
+
+const processClasses = {
+  card: "max-w-83 w-full flex flex-col max-md:max-w-full max-sm:hidden ",
+  layout: "flex gap-3.5 ",
+  rail: "flex flex-col items-center justify-center",
+  step: "w-8 h-8 border border-(--border) text-sm rounded-full flex justify-center items-center before",
+  line: "h-5 w-0.5 bg-(--border)",
+  content: "flex flex-col justify-between items-start",
+};
+
+const skillClasses = {
+  wrap: "w-full min-w-0",
+  panel: "w-full min-w-0 overflow-hidden bg-(--dark-gradient)",
+  tile: "bg-(--deepdark-gradient) flex flex-col gap-1.5",
+  icon: "skill-icon-image cursor-pointer",
+  floatingIcon: "pointer-events-none fixed z-50 w-12",
+};
+
 export const Main = ({ onClickChange }) => {
   const [isClicked, setIsClicked] = useState(false);
   const [isWrapVisible, setIsWrapVisible] = useState(true);
@@ -121,118 +182,6 @@ export const Main = ({ onClickChange }) => {
   }, [floatingIcon]);
 
   useEffect(() => {
-    if (!isWrapVisible) return;
-
-    const draggableItems = [
-      { id: "content1", element: content1.current },
-      { id: "content2", element: content2.current },
-      { id: "content3", element: content3.current },
-      { id: "content4", element: content4.current },
-    ].filter(({ element }) => element);
-
-    const swapElements = (firstElement, secondElement) => {
-      const firstPlaceholder = document.createComment("drag-first");
-      const secondPlaceholder = document.createComment("drag-second");
-      const firstParent = firstElement.parentNode;
-      const secondParent = secondElement.parentNode;
-
-      firstParent.insertBefore(firstPlaceholder, firstElement);
-      secondParent.insertBefore(secondPlaceholder, secondElement);
-      firstParent.insertBefore(secondElement, firstPlaceholder);
-      secondParent.insertBefore(firstElement, secondPlaceholder);
-      firstPlaceholder.remove();
-      secondPlaceholder.remove();
-    };
-
-    const findDropTarget = (draggedId, pointerX, pointerY) => {
-      const swapGroups = [
-        ["content1", "content2"],
-        ["content3", "content4"],
-      ];
-      const currentGroup = swapGroups.find((group) =>
-        group.includes(draggedId),
-      );
-
-      return draggableItems.find(({ id, element }) => {
-        if (id === draggedId) return false;
-        if (!currentGroup?.includes(id)) return false;
-
-        const rect = element.getBoundingClientRect();
-        return (
-          pointerX >= rect.left &&
-          pointerX <= rect.right &&
-          pointerY >= rect.top &&
-          pointerY <= rect.bottom
-        );
-      });
-    };
-
-    const cleanups = draggableItems.map(({ id, element }) => {
-      element.style.position = "relative";
-      element.style.cursor = "grab";
-      element.style.touchAction = "none";
-
-      const handlePointerDown = (event) => {
-        if (isClicked) return;
-
-        event.preventDefault();
-
-        const startX = event.clientX;
-        const startY = event.clientY;
-
-        element.setPointerCapture(event.pointerId);
-        element.style.cursor = "grabbing";
-        element.style.zIndex = "20";
-
-        const handlePointerMove = (moveEvent) => {
-          const nextX = moveEvent.clientX - startX;
-          const nextY = moveEvent.clientY - startY;
-
-          element.style.translate = `${nextX}px ${nextY}px`;
-        };
-
-        const handlePointerEnd = (endEvent) => {
-          if (element.hasPointerCapture(endEvent.pointerId)) {
-            element.releasePointerCapture(endEvent.pointerId);
-          }
-
-          element.style.cursor = "grab";
-          element.style.zIndex = "";
-          element.style.translate = "";
-
-          const dropTarget = findDropTarget(
-            id,
-            endEvent.clientX,
-            endEvent.clientY,
-          );
-
-          if (dropTarget) {
-            swapElements(element, dropTarget.element);
-          }
-
-          element.removeEventListener("pointermove", handlePointerMove);
-          element.removeEventListener("pointerup", handlePointerEnd);
-          element.removeEventListener("pointercancel", handlePointerEnd);
-        };
-
-        element.addEventListener("pointermove", handlePointerMove);
-        element.addEventListener("pointerup", handlePointerEnd);
-        element.addEventListener("pointercancel", handlePointerEnd);
-      };
-
-      element.addEventListener("pointerdown", handlePointerDown);
-
-      return () => {
-        element.removeEventListener("pointerdown", handlePointerDown);
-      };
-    });
-
-    return () => {
-      cleanups.forEach((cleanup) => cleanup());
-    };
-  }, [isClicked, isWrapVisible]);
-
-  useEffect(() => {
     const hideTimers = [];
 
     const animateContent = (element, transformValue) => {
@@ -292,114 +241,87 @@ export const Main = ({ onClickChange }) => {
     <>
       {isWrapVisible && (
         <section
-          className="flex flex-wrap items-center justify-between relative z-10 w-full rounded-2xl border border-(--border) px-10 py-6.25 gap-3.5"
+          className={layoutClasses.section}
           ref={wrap}
           style={{ borderColor: "var(--border)" }}
         >
-          <div className="flex w-full max-lg:flex-col max-lg:gap-2.5 max-md:gap-2.5">
+          <div className={layoutClasses.topRow}>
             <Card
               ref={content1}
-              className="max-w-83 w-full max-lg:order-2 max-lg:max-w-none"
+              className={profileClasses.card}
               style={{ transform: "translateX(-120%)", opacity: 0 }}
             >
               <CardTitleGreen>프로필</CardTitleGreen>
-              <div className="flex flex-col items-center text-center ">
-                <img src={Porfile} alt="profile" className="max-w-1/3 mb-6.5" />
+              <div className={profileClasses.body}>
+                <img
+                  src={Porfile}
+                  alt="profile"
+                  className={profileClasses.image}
+                />
                 <h3 className="text-2xl font-semibold">이승찬</h3>
-                <p className="text-sm bg-clip-text text-transparent bg-(image:--text-color) bac mb-6.5">
-                  Frontend Developer
-                </p>
-                <p className="text-sm font-light mb-6.5">
+                <p className={profileClasses.role}>Frontend Developer</p>
+                <p className={profileClasses.desc}>
                   사용자 흐름을 이해하고,
                   <br />
                   직관적인 UI로 구현하는프론트엔드
                   <br />
                   개발자입니다.
                 </p>
-                <div className="flex gap-1.5 items-center ">
-                  <p className="text-sm bg-clip-text text-transparent bg-(image:--text-color) px-2 py-1 rounded-lg border border-(--border)">
-                    React
-                  </p>
-                  <p className="text-sm bg-clip-text text-transparent bg-(image:--text-color) px-2 py-1 rounded-lg border border-(--border)">
-                    Next.js
-                  </p>
-                  <p className="text-sm bg-clip-text text-transparent bg-(image:--text-color) px-2 py-1 rounded-lg border border-(--border)">
-                    TypeScript
-                  </p>
+                <div className={profileClasses.tags}>
+                  <p className={profileClasses.tag}>React</p>
+                  <p className={profileClasses.tag}>Next.js</p>
+                  <p className={profileClasses.tag}>TypeScript</p>
                 </div>
               </div>
             </Card>
             <div
-              className="flex items-center justify-center flex-col gap-3 flex-1 text-center tracking-widest max-lg:order-1 max-lg:w-full"
+              className={heroClasses.wrap}
               ref={content6}
               style={{ transform: "translateY(-120%)", opacity: 0 }}
             >
-              <div className="flex items-center gap-5 mb-8">
-                <div className="flex items-center gap-5">
-                  <span className="font-extralight text-gray-300 text-sm">
+              <div className={heroClasses.meta}>
+                <div className={heroClasses.metaItem}>
+                  <span className={heroClasses.metaText}>
                     Frontend Developer
                   </span>
-                  <Circle />
+                  <Circle className={heroClasses.circle} />
                 </div>
-                <div className="flex items-center gap-5 ">
-                  <span className="font-extralight text-gray-300 text-sm">
-                    React
-                  </span>
-                  <Circle />
+                <div className={heroClasses.metaItem}>
+                  <span className={heroClasses.metaText}>React</span>
+                  <Circle className={heroClasses.circle} />
                 </div>
-                <div className="flex items-center gap-5">
-                  <span className="font-extralight text-gray-300 text-sm">
-                    Next.js
-                  </span>
-                  <Circle />
+                <div className={heroClasses.metaItem}>
+                  <span className={heroClasses.metaText}>Next.js</span>
+                  <Circle className={heroClasses.circle} />
                 </div>
-                <div className="flex items-center gap-5">
-                  <span className="font-extralight text-gray-300 text-sm">
-                    TypeScript
-                  </span>
+                <div className={heroClasses.metaItem}>
+                  <span className={heroClasses.metaText}>TypeScript</span>
                 </div>
               </div>
-              <h1 className="text-center text-7xl bg-clip-text text-transparent bg-(image:--main-title-color) font-bold max-md:text-5xl">
-                이승찬
-              </h1>
-              <h2 className="text-4xl font-semibold max-md:text-2xl ">
+              <h1 className={heroClasses.name}>이승찬</h1>
+              <h2 className={heroClasses.line}>
                 사용자의 시선에서 흐름을
-                <span className="text-5xl bg-clip-text text-transparent bg-(image:--text-color) max-md:text-3xl">
-                  바라
-                </span>
+                <span className={heroClasses.accent}>바라</span>
                 보고
               </h2>
-              <h2 className="text-4xl font-semibold mb-8 max-md:text-2xl">
+              <h2 className={`${heroClasses.line} mb-8`}>
                 아이디어를 실제
-                <span className="text-5xl bg-clip-text text-transparent bg-(image:--text-color) max-md:text-3xl">
-                  경험
-                </span>
+                <span className={heroClasses.accent}>경험</span>
                 으로 연결하는사람
               </h2>
               <div>
-                <button
-                  className="project-button-split text-gray-500 cursor-pointer px-14 py-2.5 rounded-lg duration-300 hover:text-white max-md:px-8 max-md:py-1"
-                  onClick={handleClick}
-                >
-                  <span className="project-button-hit-area" />
-                  <p className="project-button-label font-bold text-2xl max-md:text-lg">
-                    <span className="project-button-part project-button-part-left">
-                      프로젝트
-                    </span>
-                    <span className="project-button-part project-button-part-right">
-                      둘러보기
-                    </span>
-                  </p>
+                <button className={heroClasses.button} onClick={handleClick}>
+                  <p className={heroClasses.buttonText}>프로젝트 둘러보기</p>
                 </button>
               </div>
             </div>
             <Card
-              className="max-w-83 w-full flex flex-col max-lg:order-3 max-lg:max-w-none"
+              className={projectClasses.card}
               ref={content2}
               style={{ transform: "translateX(120%)", opacity: 0 }}
             >
               <CardTitleGreen>프로젝트</CardTitleGreen>
-              <div className="flex flex-col gap-3 justify-center item ">
+              <div className={projectClasses.list}>
                 <ProjectList
                   title="GOREON"
                   desc="AI 전자기기 쇼핑 플랫폼"
@@ -418,14 +340,14 @@ export const Main = ({ onClickChange }) => {
               </div>
             </Card>
           </div>
-          <div className="w-full flex justify-between max-md:flex-col max-md:gap-2.5 max-lg:gap-2.5">
+          <div className={layoutClasses.bottomRow}>
             <Card
-              className="max-w-83 w-full max-md:max-w-full"
+              className={contactClasses.card}
               ref={content3}
               style={{ transform: "translateX(-120%)", opacity: 0 }}
             >
               <CardTitleGreen>CONTACT ME</CardTitleGreen>
-              <div className="flex flex-col gap-5.5">
+              <div className={contactClasses.list}>
                 <ContactMe
                   src={GithubDark}
                   title="GitHub"
@@ -439,30 +361,22 @@ export const Main = ({ onClickChange }) => {
               </div>
             </Card>
             <Card
-              className="max-w-83 w-full flex flex-col max-md:max-w-full"
+              className={processClasses.card}
               ref={content4}
               style={{ transform: "translateX(120%)", opacity: 0 }}
             >
               <CardTitleBlue>운영프로세스</CardTitleBlue>
-              <div className="flex gap-3.5">
-                <div className="flex flex-col items-center justify-center">
-                  <p className="w-8 h-8 border border-(--border) text-sm rounded-full flex justify-center items-center before">
-                    01
-                  </p>
-                  <div className="h-5 w-0.5 bg-(--border)" />
-                  <p className="w-8 h-8 border border-(--border) text-sm rounded-full flex justify-center items-center before">
-                    02
-                  </p>
-                  <div className="h-5 w-0.5 bg-(--border)" />
-                  <p className="w-8 h-8 border border-(--border) text-sm rounded-full flex justify-center items-center before">
-                    03
-                  </p>
-                  <div className="h-5 w-0.5 bg-(--border)" />
-                  <p className="w-8 h-8 border border-(--border) text-sm rounded-full flex justify-center items-center before">
-                    04
-                  </p>
+              <div className={processClasses.layout}>
+                <div className={processClasses.rail}>
+                  <p className={processClasses.step}>01</p>
+                  <div className={processClasses.line} />
+                  <p className={processClasses.step}>02</p>
+                  <div className={processClasses.line} />
+                  <p className={processClasses.step}>03</p>
+                  <div className={processClasses.line} />
+                  <p className={processClasses.step}>04</p>
                 </div>
-                <div className="flex flex-col justify-between items-start">
+                <div className={processClasses.content}>
                   <OperationProcessIcon
                     src={Icon1}
                     title="기획분석"
@@ -488,11 +402,11 @@ export const Main = ({ onClickChange }) => {
             </Card>
           </div>
           <div
-            className="w-full min-w-0"
+            className={skillClasses.wrap}
             ref={content5}
             style={{ transform: "translateY(120%)", opacity: 0 }}
           >
-            <Card className="w-full min-w-0 overflow-hidden bg-(--dark-gradient)">
+            <Card className={skillClasses.panel}>
               <Swiper
                 className="skill-icon-swiper"
                 modules={[FreeMode]}
@@ -508,13 +422,13 @@ export const Main = ({ onClickChange }) => {
                     style={{ width: "80px" }}
                   >
                     <Card
-                      className="bg-(--deepdark-gradient) flex flex-col gap-1.5"
+                      className={skillClasses.tile}
                       style={{
                         padding: "15px",
                       }}
                     >
                       <img
-                        className="skill-icon-image cursor-pointer"
+                        className={skillClasses.icon}
                         onClick={(event) => {
                           event.stopPropagation();
                           const startPosition = {
@@ -542,7 +456,7 @@ export const Main = ({ onClickChange }) => {
       )}
       {floatingIcon && (
         <img
-          className="pointer-events-none fixed z-50 w-12"
+          className={skillClasses.floatingIcon}
           src={floatingIcon}
           alt="selected skill icon"
           style={{
