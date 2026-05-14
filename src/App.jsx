@@ -30,7 +30,7 @@ function App() {
   }, [isMainClicked]);
 
   return (
-    <div className="relative min-h-screen flex items-center px-6.25">
+    <div className="relative min-h-screen flex items-center px-6.25 max-md:px-2.25">
       <div
         className="absolute inset-0 z-0 [background:var(--full-absolute-bg)]"
         ref={absoluteBg}

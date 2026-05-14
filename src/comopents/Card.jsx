@@ -2,7 +2,7 @@ import { forwardRef } from "react";
 
 export const Card = forwardRef(function Card(
   { children, className, style },
-  ref
+  ref,
 ) {
   return (
     <div
@@ -15,8 +15,8 @@ export const Card = forwardRef(function Card(
   );
 });
 
-export const Circle = () => {
-  return <div className="h-1 w-1 rounded-full bg-[#008cff]" />;
+export const Circle = ({ className }) => {
+  return <div className={`h-1 w-1 rounded-full bg-[#008cff] ${className}`} />;
 };
 
 export const CardTitleBlue = ({ children = "프로필", style }) => {
