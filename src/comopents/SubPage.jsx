@@ -79,7 +79,7 @@ export const SubPage = () => {
                 </h2>
               </Card>
               <Card
-                className="flex items-center justify-center h-full w-1/6 border-t-0 rounded-t-none border-l-0 rounded-bl-none"
+                className="flex items-center justify-center h-full w-1/6 border-t-0 rounded-t-none border-l-0 rounded-bl-none hover:border-l-1"
                 onClick={() => tabButton("projects")}
               >
                 <h2
