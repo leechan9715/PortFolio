@@ -1,5 +1,8 @@
 import { useSelector } from "react-redux";
 
+import Mute from "../assets/img/mute.png";
+import Goreon from "../assets/img/goreon.png";
+
 import ProfileImg from "../assets/img/profile-2.png";
 import Card from "./Card";
 import IconBootstrap from "../assets/img/light/Bootstrap-Light.png";
@@ -19,6 +22,9 @@ import IconTailwindCSS from "../assets/img/light/TailwindCSS-Light.png";
 import IconVueJS from "../assets/img/light/VueJS-Light.png";
 import { SkillStat } from "./SkillStat";
 import { useState } from "react";
+import { ProjectDetail } from "./ProjectDetail";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
 
 const lightIcons = [
   { icon: IconGithub, title: "Github", percent: "90" },
@@ -114,6 +120,54 @@ export const SubPage = () => {
                       shouldFill={shouldFillSkills}
                     />
                   ))}
+                </div>
+              </Card>
+            )}
+            {isActive === "projects" && (
+              <Card style={{ padding: 40 }} className={`flex flex-col gap-5 `}>
+                <ul className="flex gap-5">
+                  <li>
+                    <Card style={{ padding: "8px 60px", borderRadius: "20px" }}>
+                      <p>전체</p>
+                    </Card>
+                  </li>
+                  <li>
+                    <Card style={{ padding: "8px 60px", borderRadius: "20px" }}>
+                      <p>개인프로젝트</p>
+                    </Card>
+                  </li>
+                  <li>
+                    <Card style={{ padding: "8px 60px", borderRadius: "20px" }}>
+                      <p>팀 프로젝트</p>
+                    </Card>
+                  </li>
+                </ul>
+                <div className="w-full min-w-0 overflow-hidden">
+                  <Swiper
+                    className="w-full"
+                    slidesPerView={1}
+                    spaceBetween={24}
+                    grabCursor
+                  >
+                    <SwiperSlide>
+                      <ProjectDetail
+                        thumbnail={Mute}
+                        title="MUTE"
+                        desc="Vue 3 기반 음악 서비스 팀 프로젝트입니다. 온보딩, 로컬/소셜 로그인, 메인/검색/차트, 플레이어, 라이브러리, 마이페이지, AI 페이지를 포함합니다."
+                      />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                      <div className="project-list-scroll w-full min-w-0 overflow-y-auto max-h-[80vh] ">
+                        <ProjectDetail
+                          className="flex-col min-h-[90vh]"
+                          thumbnail={Goreon}
+                          itemsClassName="max-w-full overflow-y-hidden"
+                          title="GOREON"
+                          desc="AI 기반 전자기기 쇼핑 플랫폼 프로젝트입니다. 상품 탐색, 추천 흐름, 상세 페이지, 사용자 경험 중심의 UI를 포함합니다."
+                        />
+                      </div>
+                    </SwiperSlide>
+                  </Swiper>
                 </div>
               </Card>
             )}
