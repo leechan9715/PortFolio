@@ -28,6 +28,8 @@ import Icon2 from "../assets/img/icon_2.png";
 import Icon3 from "../assets/img/icon_3.png";
 import Icon4 from "../assets/img/icon_4.png";
 import Email from "../assets/img/email.png";
+import { useDispatch } from "react-redux";
+import { hideMain, startMainTransition } from "../store/uiSlice";
 
 const skills = ["HTML5", "CSS3"];
 const darkIcons = [
@@ -108,14 +110,15 @@ const skillClasses = {
   floatingIcon: "pointer-events-none fixed z-50 w-12",
 };
 
-export const Main = ({ onClickChange }) => {
+export const Main = () => {
   const [isClicked, setIsClicked] = useState(false);
-  const [isWrapVisible, setIsWrapVisible] = useState(true);
   const [floatingIcon, setFloatingIcon] = useState(null);
   const [floatingIconPosition, setFloatingIconPosition] = useState({
     x: 0,
     y: 0,
   });
+  const dispatch = useDispatch();
+
   const floatingIconTarget = useRef({ x: 0, y: 0 });
   const floatingIconCurrent = useRef({ x: 0, y: 0 });
   const content1 = useRef(null);
@@ -128,24 +131,9 @@ export const Main = ({ onClickChange }) => {
 
   // 프로젝트 둘러보기 버튼 눌럿을때 함수
   const handleClick = () => {
-    if (isClicked) {
-      setIsWrapVisible(true);
-    }
-
-    setIsClicked((prev) => !prev);
+    dispatch(startMainTransition());
+    setIsClicked(true);
   };
-
-  useEffect(() => {
-    onClickChange(isClicked);
-  }, [isClicked, onClickChange]);
-
-  useEffect(() => {
-    document.body.classList.toggle("bg-2-active", isClicked);
-
-    return () => {
-      document.body.classList.remove("bg-2-active");
-    };
-  }, [isClicked]);
 
   useEffect(() => {
     if (!floatingIcon) return;
@@ -219,7 +207,7 @@ export const Main = ({ onClickChange }) => {
 
       if (isClicked) {
         const timer = setTimeout(() => {
-          setIsWrapVisible(false);
+          dispatch(hideMain());
         }, 1000);
 
         hideTimers.push(timer);
@@ -237,15 +225,14 @@ export const Main = ({ onClickChange }) => {
     return () => {
       hideTimers.forEach((timer) => clearTimeout(timer));
     };
-  }, [isClicked]);
+  }, [isClicked, dispatch]);
   return (
     <>
-      {isWrapVisible && (
-        <section
-          className={layoutClasses.section}
-          ref={wrap}
-          style={{ borderColor: "var(--border)" }}
-        >
+      <section
+        className={layoutClasses.section}
+        ref={wrap}
+        style={{ borderColor: "var(--border)" }}
+      >
           <div className={layoutClasses.topRow}>
             <Card
               ref={content1}
@@ -453,8 +440,7 @@ export const Main = ({ onClickChange }) => {
               </Swiper>
             </Card>
           </div>
-        </section>
-      )}
+      </section>
       {floatingIcon && (
         <img
           className={skillClasses.floatingIcon}
