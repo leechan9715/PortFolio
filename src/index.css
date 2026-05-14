@@ -84,7 +84,7 @@ img {
     margin: 0;
     overflow-x: hidden;
     font-family: "Pretendard", sans-serif;
-    background: url("/img/bg-1.png") no-repeat center center;
+    background: url("./assets/img/bg-1.png") no-repeat center center;
     background-size: cover;
     position: relative;
   }
@@ -94,7 +94,7 @@ img {
     position: fixed;
     inset: 0;
     z-index: -1;
-    background: url("/img/bg-2.png") no-repeat center center;
+    background: url("./assets/img/bg-2.png") no-repeat center center;
     background-size: cover;
     opacity: 0;
     transition: opacity 1.2s ease;
