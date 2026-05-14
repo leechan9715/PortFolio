@@ -1,6 +1,5 @@
 import Card from "./Card";
-
-const ProjectImg = "/img/projectImg.png";
+import ProjectImg from "../assets/img/projectImg.png";
 
 export const ProjectList = ({ title, desc, skills }) => {
   return (
