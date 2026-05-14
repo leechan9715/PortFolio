@@ -41,6 +41,12 @@ const lightIcons = [
 export const SubPage = () => {
   const { isMainHidden } = useSelector((state) => state.ui);
   const [shouldFillSkills, setShouldFillSkills] = useState(false);
+  const [isActive, setIsActive] = useState("skills");
+
+  function tabButton(tabName) {
+    setIsActive(tabName);
+  }
+
   return (
     <section className="relative z-10 w-full text-white flex ">
       <div className="section-profile-enter max-w-1/3 w-full flex items-center justify-center">
@@ -60,37 +66,57 @@ export const SubPage = () => {
             className="flex gap-3 flex-col rounded-t-none"
           >
             <div className="flex h-full w-full ">
-              <Card className="flex items-center justify-center h-full w-1/6 border-t-0 rounded-t-none rounded-br-none">
-                <h2>SKILLS</h2>
+              <Card
+                className="flex items-center justify-center h-full w-1/6 border-t-0 rounded-t-none rounded-br-none"
+                onClick={() => tabButton("skills")}
+              >
+                <h2
+                  className={
+                    isActive === "skills" ? "text-white" : "text-gray-400"
+                  }
+                >
+                  SKILLS
+                </h2>
               </Card>
-              <Card className="flex items-center justify-center h-full w-1/6 border-t-0 rounded-t-none border-l-0 rounded-bl-none">
-                <h2>PROJECTS</h2>
+              <Card
+                className="flex items-center justify-center h-full w-1/6 border-t-0 rounded-t-none border-l-0 rounded-bl-none"
+                onClick={() => tabButton("projects")}
+              >
+                <h2
+                  className={
+                    isActive === "projects" ? "text-white" : "text-gray-400"
+                  }
+                >
+                  PROJECTS
+                </h2>
               </Card>
             </div>
-            <Card className="grid grid-cols-2 gap-12" style={{ padding: 40 }}>
-              <div className=" flex flex-col gap-5">
-                {lightIcons.slice(0, 8).map((icon, index) => (
-                  <SkillStat
-                    key={`${isMainHidden}-${index}`}
-                    percent={icon.percent}
-                    title={icon.title}
-                    icon={icon.icon}
-                    shouldFill={shouldFillSkills}
-                  />
-                ))}
-              </div>
-              <div className=" flex flex-col gap-5">
-                {lightIcons.slice(8, 15).map((icon, index) => (
-                  <SkillStat
-                    key={`${isMainHidden}-${index + 8}`}
-                    percent={icon.percent}
-                    title={icon.title}
-                    icon={icon.icon}
-                    shouldFill={shouldFillSkills}
-                  />
-                ))}
-              </div>
-            </Card>
+            {isActive === "skills" && (
+              <Card className="grid grid-cols-2 gap-12" style={{ padding: 40 }}>
+                <div className=" flex flex-col gap-5">
+                  {lightIcons.slice(0, 8).map((icon, index) => (
+                    <SkillStat
+                      key={`${isMainHidden}-${index}`}
+                      percent={icon.percent}
+                      title={icon.title}
+                      icon={icon.icon}
+                      shouldFill={shouldFillSkills}
+                    />
+                  ))}
+                </div>
+                <div className=" flex flex-col gap-5">
+                  {lightIcons.slice(8, 15).map((icon, index) => (
+                    <SkillStat
+                      key={`${isMainHidden}-${index + 8}`}
+                      percent={icon.percent}
+                      title={icon.title}
+                      icon={icon.icon}
+                      shouldFill={shouldFillSkills}
+                    />
+                  ))}
+                </div>
+              </Card>
+            )}
           </Card>
         </div>
       </div>

@@ -1,7 +1,7 @@
 import { forwardRef } from "react";
 
 export const Card = forwardRef(function Card(
-  { children, className, style },
+  { children, className, style, onClick },
   ref,
 ) {
   return (
@@ -9,6 +9,7 @@ export const Card = forwardRef(function Card(
       ref={ref}
       className={`border border-(--border) bg-(--dark-gradient) px-7.5 py-4 rounded-[10px] hover:border-(--hover-border) duration-300 cursor-pointer ${className}`}
       style={style}
+      onClick={onClick}
     >
       {children}
     </div>
