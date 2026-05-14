@@ -64,6 +64,30 @@ img {
   display: block;
 }
 
+.section-profile-enter {
+  animation: sectionProfileEnter 1s ease forwards;
+  opacity: 0;
+  transform: translateX(-32px);
+}
+
+.section-content-enter {
+  animation: sectionContentEnter 0.75s ease-in-out 0.75s forwards;
+  max-height: 0;
+}
+
+@keyframes sectionProfileEnter {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes sectionContentEnter {
+  to {
+    max-height: 100%;
+  }
+}
+
 @layer base {
   *,
   ::before,
