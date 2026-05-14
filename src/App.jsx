@@ -73,12 +73,6 @@ function App() {
     };
   }, [isTransitioning]);
 
-  useEffect(() => {
-    if (!isMainHidden) {
-      setShouldFillSkills(false);
-    }
-  }, [isMainHidden]);
-
   return (
     <div
       className={`relative min-h-screen flex px-6.25 max-md:px-2.25 ${isMainHidden ? "py-0" : "py-2.5"}`}
@@ -122,7 +116,7 @@ function App() {
                   <div className=" flex flex-col gap-5">
                     {lightIcons.slice(0, 8).map((icon, index) => (
                       <SkillStat
-                        key={index}
+                        key={`${isMainHidden}-${index}`}
                         percent={icon.percent}
                         title={icon.title}
                         icon={icon.icon}
@@ -133,7 +127,7 @@ function App() {
                   <div className=" flex flex-col gap-5">
                     {lightIcons.slice(8, 15).map((icon, index) => (
                       <SkillStat
-                        key={index}
+                        key={`${isMainHidden}-${index + 8}`}
                         percent={icon.percent}
                         title={icon.title}
                         icon={icon.icon}

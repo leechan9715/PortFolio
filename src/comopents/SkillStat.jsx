@@ -6,11 +6,10 @@ export const SkillStat = ({ icon, title, percent, shouldFill = false }) => {
 
   useEffect(() => {
     if (!shouldFill) {
-      setDisplayPercent(1);
       return;
     }
 
-    let animationFrameId;
+    let animationFrameId = 0;
     const duration = 1200;
     const startTime = performance.now();
 
@@ -31,7 +30,9 @@ export const SkillStat = ({ icon, title, percent, shouldFill = false }) => {
     animationFrameId = requestAnimationFrame(animate);
 
     return () => {
-      cancelAnimationFrame(animationFrameId);
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+      }
     };
   }, [shouldFill, targetPercent]);
 
