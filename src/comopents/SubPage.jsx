@@ -36,7 +36,7 @@ export const SubPage = () => {
   const dispatch = useDispatch();
   const { isMainHidden } = useSelector((state) => state.ui);
   const [shouldFillSkills, setShouldFillSkills] = useState(false);
-  const [isActive, setIsActive] = useState("skills");
+  const [isActive, setIsActive] = useState("projects");
   const [isSelectProject, setIsSelectProject] = useState("all");
   const [isLeaving, setIsLeaving] = useState(false);
 
@@ -94,7 +94,7 @@ export const SubPage = () => {
           }
         }}
       >
-        <div className="w-full max-h-12 h-full">
+        <div className="w-full max-h-12">
           <Card
             style={{ borderTop: "none", paddingTop: 0 }}
             className="flex gap-3 flex-col rounded-t-none"
@@ -104,18 +104,6 @@ export const SubPage = () => {
               <div className="flex h-full w-full ">
                 <Card
                   className="flex items-center justify-center h-full w-1/6 border-t-0 rounded-t-none rounded-br-none"
-                  onClick={() => tabButton("skills")}
-                >
-                  <h2
-                    className={
-                      isActive === "skills" ? "text-white" : "text-gray-400"
-                    }
-                  >
-                    SKILLS
-                  </h2>
-                </Card>
-                <Card
-                  className="flex items-center justify-center h-full w-1/6 border-t-0 rounded-t-none border-l-0 rounded-b-none hover:border-l"
                   onClick={() => tabButton("projects")}
                 >
                   <h2
@@ -124,6 +112,20 @@ export const SubPage = () => {
                     }
                   >
                     PROJECTS
+                  </h2>
+                </Card>
+                <Card
+                  className="
+                  flex items-center justify-center h-full w-1/6 border-t-0 rounded-t-none border-l-0 rounded-b-none hover:border-l
+                  "
+                  onClick={() => tabButton("skills")}
+                >
+                  <h2
+                    className={
+                      isActive === "skills" ? "text-white" : "text-gray-400"
+                    }
+                  >
+                    SKILLS
                   </h2>
                 </Card>
                 <Card
@@ -145,7 +147,10 @@ export const SubPage = () => {
             </div>
             {/* 스킬목록 */}
             {isActive === "skills" && (
-              <Card className="grid grid-cols-2 gap-12" style={{ padding: 40 }}>
+              <Card
+                className="grid grid-cols-2 gap-12 h-screen"
+                style={{ padding: 40 }}
+              >
                 <div className=" flex flex-col gap-5">
                   {LightIcons.slice(0, 8).map((icon, index) => (
                     <SkillStat
@@ -172,7 +177,10 @@ export const SubPage = () => {
             )}
             {/* 프로젝트 목록 */}
             {isActive === "projects" && (
-              <Card style={{ padding: 40 }} className={`flex flex-col gap-5 `}>
+              <Card
+                style={{ padding: 40 }}
+                className={`flex flex-col gap-5 h-screen `}
+              >
                 {/* 프로젝트 탭 버튼 */}
                 <ul className="flex gap-5">
                   <li>
