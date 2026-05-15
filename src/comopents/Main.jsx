@@ -8,6 +8,7 @@ import { OperationProcessIcon } from "./OperationProcessIcon";
 import { ProjectList } from "./ProjectList";
 import { ContactMe } from "./ContactMe";
 import Porfile from "../assets/img/profile.png";
+import Call from "../assets/img/call.png";
 import GithubDark from "../assets/img/Github-dark.png";
 import HtmlDark from "../assets/img/html-dark.png";
 import CssDark from "../assets/img/css-dark.png";
@@ -341,12 +342,12 @@ export const Main = () => {
           >
             <CardTitleGreen>CONTACT ME</CardTitleGreen>
             <div className={contactClasses.list}>
+              <ContactMe src={Call} title="Phone" url="010-8686-9869" />
               <ContactMe
-                src={GithubDark}
-                title="GitHub"
-                url="github.com/leechan9715"
+                src={Email}
+                title="Email"
+                url="iseungchan809@gmail.com"
               />
-              <ContactMe src={Email} title="Email" url="iseung809@gmail.com" />
             </div>
           </Card>
           <Card

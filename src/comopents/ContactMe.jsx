@@ -1,6 +1,6 @@
 import Card from "./Card";
 
-export const ContactMe = ({ src, title, url }) => {
+export const ContactMe = ({ src, title, url, href }) => {
   return (
     <Card style={{ padding: "11px 7px" }} className="bg-(--deepdark-gradient)">
       <div className="flex flx-col items-center gap-4">
@@ -9,11 +9,34 @@ export const ContactMe = ({ src, title, url }) => {
           src={src}
           alt="Github"
         />
-        <div>
+        <a href={href} target="_blank" rel="noreferrer">
           <p className="text-sm font-semibold ">{title}</p>
           <p className="text-xs text-[#a4a4a4]">{url}</p>
-        </div>
+        </a>
       </div>
     </Card>
+  );
+};
+
+export const ContactMe2 = ({ downloadName, title, src, url }) => {
+  return (
+    <a href={url} download={downloadName}>
+      <Card
+        style={{ padding: "11px 7px" }}
+        className="bg-(--deepdark-gradient)"
+      >
+        <div className="flex items-center gap-4">
+          <img
+            className="max-w-1/6 w-full max-md:max-w-1/8"
+            src={src}
+            alt={title}
+          />
+          <div>
+            <p className="text-sm font-semibold">{title}</p>
+            <p className="text-xs text-[#a4a4a4]">Download PDF</p>
+          </div>
+        </div>
+      </Card>
+    </a>
   );
 };

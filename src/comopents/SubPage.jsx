@@ -4,8 +4,10 @@ import Mute from "../assets/img/mute.png";
 import Goreon from "../assets/img/goreon.png";
 import Shop from "../assets/img/shop.png";
 import Netflix from "../assets/img/netflix.png";
+import PortFolio2 from "../assets/img/portfolio-2.png";
 import PortFolio from "../assets/img/portfolio.png";
 import Kakao from "../assets/img/kakao.png";
+import PDF from "../assets/img/pdf.png";
 
 import ProfileImg from "../assets/img/profile-2.png";
 import Card from "./Card";
@@ -30,7 +32,13 @@ import { ProjectDetail } from "./ProjectDetail";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Contact } from "./Contact";
-
+import Email from "../assets/img/email.png";
+import Call from "../assets/img/call.png";
+import { ContactMe, ContactMe2 } from "./ContactMe";
+const contactClasses = {
+  card: " w-full",
+  list: "grid grid-cols-2 gap-5.5 ",
+};
 const lightIcons = [
   { icon: IconGithub, title: "Github", percent: "90" },
   { icon: IconHtml, title: "HTML", percent: "95" },
@@ -60,9 +68,33 @@ export const SubPage = () => {
   }
 
   return (
-    <section className="relative z-10 w-full text-white flex ">
-      <div className="section-profile-enter max-w-1/3 w-full flex items-center justify-center">
-        <img src={ProfileImg} className="text-center" alt="profile" />
+    <section className="relative z-10 w-full text-white flex gap-5">
+      <div className="section-profile-enter max-w-1/3 w-full flex items-center justify-center ">
+        <div className="flex justify-center flex-col items-center  ">
+          <img src={ProfileImg} className="text-center " alt="profile" />
+          <Card className={`${contactClasses.card} relative -bottom-10`}>
+            <div className={contactClasses.list}>
+              <ContactMe src={Call} title="Phone" url="010-8686-9869" />
+              <ContactMe
+                src={Email}
+                title="Email"
+                url="iseungchan809@gmail.com"
+              />
+              <ContactMe
+                src={IconGithub}
+                title="Github"
+                href="https://github.com/leechan9715"
+                url="github.com/leechan9715"
+              />
+              <ContactMe2
+                src={PDF}
+                title="이력서"
+                url="/files/이승찬_이력서.pdf"
+                downloadName="이승찬_이력서.pdf"
+              />
+            </div>
+          </Card>
+        </div>
       </div>
       <div
         className="section-content-enter max-w-2/3 w-full flex justify-center overflow-hidden"
@@ -208,7 +240,7 @@ export const SubPage = () => {
                               className="flex-col min-h-[90vh]"
                               thumbnail={Kakao}
                               itemsClassName="max-w-full overflow-y-hidden"
-                              title="GOREON"
+                              title="Kakao Renewal"
                               desc="AI 기반 전자기기 쇼핑 플랫폼 프로젝트입니다. 상품 탐색, 추천 흐름, 상세 페이지, 사용자 경험 중심의 UI를 포함합니다."
                             />
                           </div>
@@ -219,7 +251,7 @@ export const SubPage = () => {
                               className="flex-col min-h-[90vh]"
                               thumbnail={Netflix}
                               itemsClassName="max-w-full overflow-y-hidden"
-                              title="GOREON"
+                              title="Netflix Clone"
                               desc="AI 기반 전자기기 쇼핑 플랫폼 프로젝트입니다. 상품 탐색, 추천 흐름, 상세 페이지, 사용자 경험 중심의 UI를 포함합니다."
                             />
                           </div>
@@ -230,7 +262,18 @@ export const SubPage = () => {
                               className="flex-col min-h-[90vh]"
                               thumbnail={Shop}
                               itemsClassName="max-w-full overflow-y-hidden"
-                              title="GOREON"
+                              title="쇼핑몰 플랫폼"
+                              desc="AI 기반 전자기기 쇼핑 플랫폼 프로젝트입니다. 상품 탐색, 추천 흐름, 상세 페이지, 사용자 경험 중심의 UI를 포함합니다."
+                            />
+                          </div>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                          <div className="project-list-scroll w-full min-w-0 overflow-y-auto max-h-[80vh] ">
+                            <ProjectDetail
+                              className="flex-col min-h-[90vh]"
+                              thumbnail={PortFolio2}
+                              itemsClassName="max-w-full overflow-y-hidden"
+                              title="PORTFOLIO"
                               desc="AI 기반 전자기기 쇼핑 플랫폼 프로젝트입니다. 상품 탐색, 추천 흐름, 상세 페이지, 사용자 경험 중심의 UI를 포함합니다."
                             />
                           </div>
@@ -241,7 +284,7 @@ export const SubPage = () => {
                               className="flex-col min-h-[90vh]"
                               thumbnail={PortFolio}
                               itemsClassName="max-w-full overflow-y-hidden"
-                              title="GOREON"
+                              title="PORTFOLIO"
                               desc="AI 기반 전자기기 쇼핑 플랫폼 프로젝트입니다. 상품 탐색, 추천 흐름, 상세 페이지, 사용자 경험 중심의 UI를 포함합니다."
                             />
                           </div>
