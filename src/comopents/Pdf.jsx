@@ -18,7 +18,7 @@ export const Pdf = ({ isOpen, setIsOpen }) => {
           onClick={() => setIsOpen(false)}
         >
           <div
-            className="relative w-full max-w-5xl h-[85vh] rounded-2xl border border-[#1F4360] bg-[#071A2A] overflow-hidden shadow-2xl "
+            className="relative w-full max-w-full h-[85vh] rounded-2xl border border-[#1F4360] bg-[#071A2A] overflow-hidden shadow-2xl "
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between border-b border-[#1F4360] px-5 py-4">
@@ -60,7 +60,7 @@ export const Pdf = ({ isOpen, setIsOpen }) => {
                     >
                       <Page
                         pageNumber={index + 1}
-                        width={780}
+                        width={1024}
                         renderTextLayer={true}
                         renderAnnotationLayer={true}
                       />
