@@ -26,6 +26,7 @@ import { Contact } from "./Contact";
 import { ContactMe, ContactMe2 } from "./ContactMe";
 // 스와이퍼 모듈 cSS
 import "swiper/css";
+import { Pdf } from "./Pdf";
 
 const contactClasses = {
   card: " w-full",
@@ -39,6 +40,7 @@ export const SubPage = () => {
   const [isActive, setIsActive] = useState("projects");
   const [isSelectProject, setIsSelectProject] = useState("all");
   const [isLeaving, setIsLeaving] = useState(false);
+  const [isOepn, setIsOpen] = useState(false);
 
   function tabButton(tabName) {
     setIsActive(tabName);
@@ -52,6 +54,7 @@ export const SubPage = () => {
 
   return (
     <section className="relative z-10 w-full text-white flex gap-5">
+      <Pdf isOpen={isOepn} setIsOpen={setIsOpen} />
       {/* 프로필  */}
       <div
         className={`${isLeaving ? "section-profile-leave" : "section-profile-enter"} max-w-1/3 w-full flex items-center justify-center `}
@@ -72,8 +75,7 @@ export const SubPage = () => {
               <ContactMe2
                 src={PDF}
                 title="이력서"
-                url="/files/이승찬_이력서.pdf"
-                downloadName="이승찬_이력서.pdf"
+                onClick={() => setIsOpen(true)}
               />
             </div>
           </Card>
@@ -90,7 +92,7 @@ export const SubPage = () => {
           if (event.animationName === "sectionContentLeave") {
             setTimeout(() => {
               dispatch(showMain());
-            }, 500);
+            }, 700);
           }
         }}
       >
