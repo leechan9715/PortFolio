@@ -1,5 +1,7 @@
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
+import Email from "../assets/img/email.png";
+import Card from "./Card";
 
 const buttonClasses = {
   button:
@@ -37,31 +39,58 @@ export const Contact = () => {
   };
 
   return (
-    <>
-      <form ref={formRef} onSubmit={sendEmail} className="flex flex-col gap-4">
+    <Card className="h-screen flex items-center justify-center ">
+      <form
+        ref={formRef}
+        onSubmit={sendEmail}
+        className="flex flex-col gap-4 max-w-2xl w-full"
+      >
+        <div className="flex items-center gap-5">
+          <img
+            className="p-5 bg-(--border) rounded-full"
+            src={Email}
+            alt="email"
+          />
+          <div className="flex flex-col gap-y-1">
+            <h2 className="text-2xl font-bold text-white">문의하기</h2>
+
+            <h3 className="text-sm font-light leading-relaxed text-gray-400">
+              <span className="block text-lg font-bold text-white">
+                채용 제안, 프로젝트 제안, 협업 문의
+              </span>
+              함께할 기회나 궁금한 점이 있다면 편하게 남겨주세요.
+              <br />
+              빠른 연락이 필요하신 경우{" "}
+              <span className="font-bold text-white">전화</span>로 문의해
+              주세요.
+            </h3>
+          </div>
+        </div>
         <input
           type="text"
           name="user_email"
           placeholder="example@email.com"
           required
-          className="rounded-xl border border-[#1F4360] bg-transparent px-4 py-3 text-white"
+          className="rounded-xl border border-(--border) hover:border-(--hover-border) bg-transparent px-4 py-3 text-white focus:border-(--hover-border) focus:outline-none"
         />
         <textarea
           name="message"
           placeholder="문의 내용을 입력해주세요"
           required
-          className="min-h-40 rounded-xl border border-[#1F4360] bg-transparent px-4 py-3 text-white"
+          className="min-h-40 rounded-xl border border-(--border) hover:border-(--hover-border)
+          focus:outline-none
+          focus:border-(--hover-border) bg-transparent px-4 py-3 text-white"
         />
         <button
           type="submit"
-          className={`${buttonClasses.button} w-1/4 flex self-center`}
+          className={`${buttonClasses.button}  flex self-center`}
         >
           <p className={`${buttonClasses.buttonText} w-full `}>
-            {isSending ? "전송 중..." : "메일 보내기"}
+            {isSending ? "전송 중..." : "문의하기"}
           </p>
         </button>
         {message && <p className="text-sm text-white">{message}</p>}
       </form>
-    </>
+    </Card>
   );
 };

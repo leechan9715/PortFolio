@@ -33,9 +33,9 @@ export const projects = [
   },
   {
     src: Goreon,
-    title: "MUTE",
-    desc: "AI기반 뮤직 웹앱",
-    skils: ["vue", "php"],
+    title: "GOREON",
+    desc: "AI기반 전자기기쇼핑몰",
+    skils: ["react", "express", "php"],
   },
   {
     src: Shop,
