@@ -177,7 +177,7 @@ export const Main = () => {
               <div className={profileClasses.tags}>
                 <p className={profileClasses.tag}>React</p>
                 <p className={profileClasses.tag}>Next.js</p>
-                <p className={profileClasses.tag}>TypeScript</p>
+                <p className={profileClasses.tag}>Vue</p>
               </div>
             </div>
           </Card>

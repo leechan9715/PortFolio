@@ -18,9 +18,17 @@ export const ContactMe = ({ src, title, url, href }) => {
   );
 };
 
-export const ContactMe2 = ({ downloadName, title, src, url }) => {
+export const ContactMe2 = ({ onClick, title, src, url }) => {
   return (
-    <a href={url} download={downloadName}>
+    <a
+      href={url}
+      onClick={(event) => {
+        if (onClick) {
+          event.preventDefault();
+          onClick(event);
+        }
+      }}
+    >
       <Card
         style={{ padding: "11px 7px" }}
         className="bg-(--deepdark-gradient)"
