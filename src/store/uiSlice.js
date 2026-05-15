@@ -16,6 +16,9 @@ const uiSlice = createSlice({
     startMainTransition: (state) => {
       state.isTransitioning = true;
     },
+    startMainReturn: (state) => {
+      state.isTransitioning = false;
+    },
     hideMain: (state) => {
       state.isMainHidden = true;
       state.isTransitioning = true;
@@ -27,6 +30,11 @@ const uiSlice = createSlice({
   },
 });
 
-export const { showMain, startMainTransition, hideMain, toggleMain } =
-  uiSlice.actions;
+export const {
+  showMain,
+  startMainTransition,
+  startMainReturn,
+  hideMain,
+  toggleMain,
+} = uiSlice.actions;
 export default uiSlice.reducer;

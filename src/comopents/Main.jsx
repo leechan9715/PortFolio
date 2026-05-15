@@ -30,7 +30,7 @@ import Icon3 from "../assets/img/icon_3.png";
 import Icon4 from "../assets/img/icon_4.png";
 import Email from "../assets/img/email.png";
 
-import Mute from "../assets/img/mute.png";
+import Mute from "../assets/img/main-mute.png";
 import Goreon from "../assets/img/goreon.png";
 import Shop from "../assets/img/shop.png";
 import Netflix from "../assets/img/netflix.png";

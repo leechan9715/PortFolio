@@ -94,6 +94,17 @@ img {
   max-height: 0;
 }
 
+.section-profile-leave {
+  animation: sectionProfileLeave 0.75s ease 0.75s forwards;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.section-content-leave {
+  animation: sectionContentLeave 0.75s ease-in-out forwards;
+  max-height: 100%;
+}
+
 @keyframes sectionProfileEnter {
   to {
     opacity: 1;
@@ -101,9 +112,22 @@ img {
   }
 }
 
+@keyframes sectionProfileLeave {
+  to {
+    opacity: 0;
+    transform: translateX(-32px);
+  }
+}
+
 @keyframes sectionContentEnter {
   to {
     max-height: 100%;
+  }
+}
+
+@keyframes sectionContentLeave {
+  to {
+    max-height: 0;
   }
 }
 
