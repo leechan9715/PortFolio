@@ -29,6 +29,7 @@ import React, { useState } from "react";
 import { ProjectDetail } from "./ProjectDetail";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import { Contact } from "./Contact";
 
 const lightIcons = [
   { icon: IconGithub, title: "Github", percent: "90" },
@@ -107,7 +108,7 @@ export const SubPage = () => {
               >
                 <h2
                   className={
-                    isActive === "projects" ? "text-white" : "text-gray-400"
+                    isActive === "contact" ? "text-white" : "text-gray-400"
                   }
                 >
                   CONTACT
@@ -177,15 +178,15 @@ export const SubPage = () => {
                   >
                     {(isSelectProject === "all" ||
                       isSelectProject === "team") && (
-                      <React.Fragment>
-                        <SwiperSlide>
+                      <React.Fragment key="team-projects">
+                        <SwiperSlide key="team-mute">
                           <ProjectDetail
                             thumbnail={Mute}
                             title="MUTE"
                             desc="Vue 3 기반 음악 서비스 팀 프로젝트입니다. 온보딩, 로컬/소셜 로그인, 메인/검색/차트, 플레이어, 라이브러리, 마이페이지, AI 페이지를 포함합니다."
                           />
                         </SwiperSlide>
-                        <SwiperSlide>
+                        <SwiperSlide key="team-goreon">
                           <div className="project-list-scroll w-full min-w-0 overflow-y-auto max-h-[80vh] ">
                             <ProjectDetail
                               className="flex-col min-h-[90vh]"
@@ -200,8 +201,8 @@ export const SubPage = () => {
                     )}
                     {(isSelectProject === "all" ||
                       isSelectProject === "personal") && (
-                      <React.Fragment>
-                        <SwiperSlide>
+                      <React.Fragment key="personal">
+                        <SwiperSlide key="personal-kakao">
                           <div className="project-list-scroll w-full min-w-0 overflow-y-auto max-h-[80vh] ">
                             <ProjectDetail
                               className="flex-col min-h-[90vh]"
@@ -212,7 +213,7 @@ export const SubPage = () => {
                             />
                           </div>
                         </SwiperSlide>
-                        <SwiperSlide>
+                        <SwiperSlide key="personal-netflix">
                           <div className="project-list-scroll w-full min-w-0 overflow-y-auto max-h-[80vh] ">
                             <ProjectDetail
                               className="flex-col min-h-[90vh]"
@@ -223,7 +224,7 @@ export const SubPage = () => {
                             />
                           </div>
                         </SwiperSlide>
-                        <SwiperSlide>
+                        <SwiperSlide key="personal-shop">
                           <div className="project-list-scroll w-full min-w-0 overflow-y-auto max-h-[80vh] ">
                             <ProjectDetail
                               className="flex-col min-h-[90vh]"
@@ -251,6 +252,7 @@ export const SubPage = () => {
                 </div>
               </Card>
             )}
+            {isActive === "contact" && <Contact />}
           </Card>
         </div>
       </div>
