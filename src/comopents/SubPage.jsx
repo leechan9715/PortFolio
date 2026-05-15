@@ -27,6 +27,7 @@ import { ContactMe, ContactMe2 } from "./ContactMe";
 // 스와이퍼 모듈 cSS
 import "swiper/css";
 import { Pdf } from "./Pdf";
+import { personalProjectInfo, teamProjectInfo } from "../data/ProjectData";
 
 const contactClasses = {
   card: " w-full",
@@ -98,7 +99,7 @@ export const SubPage = () => {
       >
         <div className="w-full max-h-12">
           <Card
-            style={{ borderTop: "none", paddingTop: 0 }}
+            style={{ border: "none", padding: 0 }}
             className="flex gap-3 flex-col rounded-t-none"
           >
             {/* 탭버튼 */}
@@ -211,7 +212,7 @@ export const SubPage = () => {
                   </li>
                 </ul>
                 {/* 프로젝트 목록 슬라이드 */}
-                <div className="w-full min-w-0 overflow-hidden">
+                <div className="w-full min-w-0 overflow-hidden ">
                   <Swiper
                     className="w-full"
                     slidesPerView={1}
@@ -226,6 +227,7 @@ export const SubPage = () => {
                             thumbnail={Mute}
                             title="MUTE"
                             desc="Vue 3 기반 음악 서비스 팀 프로젝트입니다. 온보딩, 로컬/소셜 로그인, 메인/검색/차트, 플레이어, 라이브러리, 마이페이지, AI 페이지를 포함합니다."
+                            items={teamProjectInfo[0].info}
                           />
                         </SwiperSlide>
                         <SwiperSlide key="team-goreon">
@@ -236,6 +238,7 @@ export const SubPage = () => {
                               itemsClassName="max-w-full overflow-y-hidden"
                               title="GOREON"
                               desc="AI 기반 전자기기 쇼핑 플랫폼 프로젝트입니다. 상품 탐색, 추천 흐름, 상세 페이지, 사용자 경험 중심의 UI를 포함합니다."
+                              items={teamProjectInfo[1].info}
                             />
                           </div>
                         </SwiperSlide>
@@ -252,6 +255,7 @@ export const SubPage = () => {
                               itemsClassName="max-w-full overflow-y-hidden"
                               title="Kakao Renewal"
                               desc="AI 기반 전자기기 쇼핑 플랫폼 프로젝트입니다. 상품 탐색, 추천 흐름, 상세 페이지, 사용자 경험 중심의 UI를 포함합니다."
+                              items={personalProjectInfo[0].info}
                             />
                           </div>
                         </SwiperSlide>
@@ -263,6 +267,7 @@ export const SubPage = () => {
                               itemsClassName="max-w-full overflow-y-hidden"
                               title="Netflix Clone"
                               desc="AI 기반 전자기기 쇼핑 플랫폼 프로젝트입니다. 상품 탐색, 추천 흐름, 상세 페이지, 사용자 경험 중심의 UI를 포함합니다."
+                              items={personalProjectInfo[1].info}
                             />
                           </div>
                         </SwiperSlide>
@@ -274,6 +279,7 @@ export const SubPage = () => {
                               itemsClassName="max-w-full overflow-y-hidden"
                               title="쇼핑몰 플랫폼"
                               desc="AI 기반 전자기기 쇼핑 플랫폼 프로젝트입니다. 상품 탐색, 추천 흐름, 상세 페이지, 사용자 경험 중심의 UI를 포함합니다."
+                              items={personalProjectInfo[2].info}
                             />
                           </div>
                         </SwiperSlide>
@@ -285,6 +291,7 @@ export const SubPage = () => {
                               itemsClassName="max-w-full overflow-y-hidden"
                               title="PORTFOLIO"
                               desc="AI 기반 전자기기 쇼핑 플랫폼 프로젝트입니다. 상품 탐색, 추천 흐름, 상세 페이지, 사용자 경험 중심의 UI를 포함합니다."
+                              items={personalProjectInfo[3].info}
                             />
                           </div>
                         </SwiperSlide>
@@ -296,6 +303,7 @@ export const SubPage = () => {
                               itemsClassName="max-w-full overflow-y-hidden"
                               title="PORTFOLIO"
                               desc="AI 기반 전자기기 쇼핑 플랫폼 프로젝트입니다. 상품 탐색, 추천 흐름, 상세 페이지, 사용자 경험 중심의 UI를 포함합니다."
+                              items={personalProjectInfo[4].info}
                             />
                           </div>
                         </SwiperSlide>
