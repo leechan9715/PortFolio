@@ -1,168 +1,31 @@
 import { useEffect, useRef, useState } from "react";
+import { useDispatch } from "react-redux";
+import { hideMain, startMainTransition } from "../store/uiSlice";
 import { FreeMode } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/free-mode";
+/* 컴포넌트 */
 import Card, { CardTitleBlue, CardTitleGreen, Circle } from "./Card";
+import { ContactMe } from "./ContactMe";
 import { OperationProcessIcon } from "./OperationProcessIcon";
 import { ProjectList } from "./ProjectList";
-import { ContactMe } from "./ContactMe";
+/* 이미지 , 아이콘 */
 import Porfile from "../assets/img/profile.png";
 import Call from "../assets/img/call.png";
-import GithubDark from "../assets/img/Github-dark.png";
-import HtmlDark from "../assets/img/html-dark.png";
-import CssDark from "../assets/img/css-dark.png";
-import FigmaDark from "../assets/img/Figma-Dark.png";
-import JavascriptDark from "../assets/img/javascript-dark.png";
-import JqueryDark from "../assets/img/jquery-dark.png";
-import BootstrapDark from "../assets/img/Bootstrap-dark.png";
-import MongodbDark from "../assets/img/mongodb-dark.png";
-import NextJsDark from "../assets/img/NextJS-Dark.png";
-import NodeJsDark from "../assets/img/NodeJS-Dark.png";
-import PhpDark from "../assets/img/PHP-Dark.png";
-import ReactDark from "../assets/img/React-Dark.png";
-import SassDark from "../assets/img/sass-dark.png";
-import TailwindCssDark from "../assets/img/TailwindCSS-Dark.png";
-import VueDark from "../assets/img/Vue-Dark.png";
-import Icon1 from "../assets/img/icon_1.png";
-import Icon2 from "../assets/img/icon_2.png";
-import Icon3 from "../assets/img/icon_3.png";
-import Icon4 from "../assets/img/icon_4.png";
 import Email from "../assets/img/email.png";
 
-import Mute from "../assets/img/main-mute.png";
-import Goreon from "../assets/img/goreon.png";
-import Shop from "../assets/img/shop.png";
-import Netflix from "../assets/img/netflix.png";
-import PortFolio2 from "../assets/img/portfolio-2.png";
-import PortFolio from "../assets/img/portfolio.png";
-import Kakao from "../assets/img/kakao.png";
-
-import { useDispatch } from "react-redux";
-import { hideMain, startMainTransition } from "../store/uiSlice";
-
-const projects = [
-  {
-    src: Mute,
-    title: "MUTE",
-    desc: "AI기반 뮤직 웹앱",
-    skils: ["vue", "php"],
-  },
-  {
-    src: Goreon,
-    title: "MUTE",
-    desc: "AI기반 뮤직 웹앱",
-    skils: ["vue", "php"],
-  },
-  {
-    src: Shop,
-    title: "Shop",
-    desc: "AI기반 뮤직 웹앱",
-    skils: ["vue", "php"],
-  },
-  {
-    src: Netflix,
-    title: "MUTE",
-    desc: "AI기반 뮤직 웹앱",
-    skils: ["vue", "php"],
-  },
-  {
-    src: PortFolio,
-    title: "MUTE",
-    desc: "AI기반 뮤직 웹앱",
-    skils: ["vue", "php"],
-  },
-  {
-    src: PortFolio2,
-    title: "MUTE",
-    desc: "AI기반 뮤직 웹앱",
-    skils: ["vue", "php"],
-  },
-  {
-    src: Kakao,
-    title: "MUTE",
-    desc: "AI기반 뮤직 웹앱",
-    skils: ["vue", "php"],
-  },
-];
-
-const darkIcons = [
-  GithubDark,
-  HtmlDark,
-  CssDark,
-  FigmaDark,
-  JavascriptDark,
-  JqueryDark,
-  BootstrapDark,
-  MongodbDark,
-  NextJsDark,
-  NodeJsDark,
-  PhpDark,
-  ReactDark,
-  SassDark,
-  TailwindCssDark,
-  VueDark,
-];
-
-const layoutClasses = {
-  section:
-    "flex flex-wrap items-center justify-between relative z-10 w-full rounded-2xl border border-(--border) px-10 py-6.25 gap-3.5 max-sm:py-3.25 max-sm:px-5",
-  topRow: "flex w-full max-lg:flex-col max-lg:gap-2.5 max-md:gap-2.5",
-  bottomRow:
-    "w-full flex justify-between max-md:flex-col max-md:gap-2.5 max-lg:gap-2.5",
-};
-
-const profileClasses = {
-  card: "max-w-83 w-full max-lg:order-2 max-lg:max-w-none",
-  body: "flex flex-col items-center text-center",
-  image: "max-w-1/3 mb-6.5",
-  role: "text-sm bg-clip-text text-transparent bg-(image:--text-color) bac mb-6.5",
-  desc: "text-sm font-light mb-6.5",
-  tags: "flex gap-1.5 items-center",
-  tag: "text-sm bg-clip-text text-transparent bg-(image:--text-color) px-2 py-1 rounded-lg border border-(--border)",
-};
-
-const heroClasses = {
-  wrap: "flex items-center justify-center flex-col gap-3 flex-1 text-center tracking-widest max-lg:order-1 max-lg:w-full",
-  meta: "flex items-center gap-5 mb-8  max-xl:grid max-xl:grid-cols-2 max-md:mb-2 max-xl:justify-items-center max-lg:flex max-md:grid max-md:grid-cols-2 ",
-  metaItem: "flex items-center max-lg:gap-2.5 min-xl:gap-5",
-  circle: "max-md:hidden min-lg:hidden min-xl:block",
-  metaText: "font-extralight text-gray-300 text-sm ",
-  name: "text-center text-7xl bg-clip-text text-transparent bg-(image:--main-title-color) font-bold max-xl:text-5xl max-lg:text-4xl max-md:text-3xl",
-  line: "text-4xl font-semibold max-xl:text-3xl max-md:text-2xl",
-  accent:
-    "text-5xl bg-clip-text text-transparent bg-(image:--text-color) max-xl:text-4xl max-md:text-3xl",
-  button:
-    "text-gray-500 cursor-pointer [background:var(--button-bg)] border-2 border-(--border) px-14 py-2.5 rounded-lg duration-300 hover:[background:var(--button-hover)] hover:text-white hover:border-(--hover-border) max-md:px-8 max-md:py-1",
-  buttonText: "font-bold text-2xl max-xl:text-xl max-md:text-lg",
-};
-
-const projectClasses = {
-  card: "max-w-83 w-full flex flex-col max-lg:order-3 max-lg:max-w-none",
-  list: "flex flex-col gap-3",
-};
-
-const contactClasses = {
-  card: "max-w-83 w-full max-md:max-w-full",
-  list: "flex flex-col gap-5.5",
-};
-
-const processClasses = {
-  card: "max-w-83 w-full flex flex-col max-md:max-w-full max-sm:hidden ",
-  layout: "flex gap-3.5 ",
-  rail: "flex flex-col items-center justify-center",
-  step: "w-8 h-8 border border-(--border) text-sm rounded-full flex justify-center items-center before",
-  line: "h-5 w-0.5 bg-(--border)",
-  content: "flex flex-col justify-between items-start",
-};
-
-const skillClasses = {
-  wrap: "w-full min-w-0",
-  panel: "w-full min-w-0 overflow-hidden bg-(--dark-gradient)",
-  tile: "bg-(--deepdark-gradient) flex flex-col gap-1.5",
-  icon: "skill-icon-image cursor-pointer",
-  floatingIcon: "pointer-events-none fixed z-50 w-12",
-};
+/* 데이터 목록 */
+import {
+  contactClasses,
+  heroClasses,
+  layoutClasses,
+  processClasses,
+  profileClasses,
+  projectClasses,
+  skillClasses,
+} from "../data/MainClass";
+import { darkIcons, ProcessList, projects } from "../data/Main";
 
 export const Main = () => {
   const [isClicked, setIsClicked] = useState(false);
@@ -287,7 +150,9 @@ export const Main = () => {
         ref={wrap}
         style={{ borderColor: "var(--border)" }}
       >
+        {/* 프로필 , 프로젝트리스트 , Hero */}
         <div className={layoutClasses.topRow}>
+          {/* 프로필 */}
           <Card
             ref={content1}
             className={profileClasses.card}
@@ -316,6 +181,7 @@ export const Main = () => {
               </div>
             </div>
           </Card>
+          {/* Hero Section */}
           <div
             className={heroClasses.wrap}
             ref={content6}
@@ -355,6 +221,7 @@ export const Main = () => {
               </button>
             </div>
           </div>
+          {/* 프로젝트 리스트 */}
           <Card
             className={projectClasses.card}
             ref={content2}
@@ -376,7 +243,9 @@ export const Main = () => {
             </div>
           </Card>
         </div>
+        {/* Contact me , 운영 프로세스  */}
         <div className={layoutClasses.bottomRow}>
+          {/* contact me card */}
           <Card
             className={contactClasses.card}
             ref={content3}
@@ -392,6 +261,7 @@ export const Main = () => {
               />
             </div>
           </Card>
+          {/* 운영 프로세스 card */}
           <Card
             className={processClasses.card}
             ref={content4}
@@ -409,30 +279,19 @@ export const Main = () => {
                 <p className={processClasses.step}>04</p>
               </div>
               <div className={processClasses.content}>
-                <OperationProcessIcon
-                  src={Icon1}
-                  title="기획분석"
-                  desc="요구사항 분석 및 사용자 흐름 정의"
-                />
-                <OperationProcessIcon
-                  src={Icon2}
-                  title="UI/UX 설계"
-                  desc="와이어프레임 및 UI 설계"
-                />
-                <OperationProcessIcon
-                  src={Icon3}
-                  title="개발 구현"
-                  desc="재사용 검증한 컴포넌트 개발"
-                />
-                <OperationProcessIcon
-                  src={Icon4}
-                  title="배포 & 운영"
-                  desc="안정적인 운영 및 지속적 모니터링"
-                />
+                {ProcessList.map((item, index) => (
+                  <OperationProcessIcon
+                    key={index}
+                    src={item.icon}
+                    title={item.title}
+                    desc={item.desc}
+                  />
+                ))}
               </div>
             </div>
           </Card>
         </div>
+        {/* Skill Icons 목록 */}
         <div
           className={skillClasses.wrap}
           ref={content5}
@@ -467,7 +326,6 @@ export const Main = () => {
                           x: event.clientX,
                           y: event.clientY,
                         };
-
                         floatingIconTarget.current = startPosition;
                         floatingIconCurrent.current = startPosition;
                         setFloatingIconPosition(startPosition);
