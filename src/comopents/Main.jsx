@@ -29,10 +29,63 @@ import Icon2 from "../assets/img/icon_2.png";
 import Icon3 from "../assets/img/icon_3.png";
 import Icon4 from "../assets/img/icon_4.png";
 import Email from "../assets/img/email.png";
+
+import Mute from "../assets/img/main-mute.png";
+import Goreon from "../assets/img/goreon.png";
+import Shop from "../assets/img/shop.png";
+import Netflix from "../assets/img/netflix.png";
+import PortFolio2 from "../assets/img/portfolio-2.png";
+import PortFolio from "../assets/img/portfolio.png";
+import Kakao from "../assets/img/kakao.png";
+
 import { useDispatch } from "react-redux";
 import { hideMain, startMainTransition } from "../store/uiSlice";
 
-const skills = ["HTML5", "CSS3"];
+const projects = [
+  {
+    src: Mute,
+    title: "MUTE",
+    desc: "AI기반 뮤직 웹앱",
+    skils: ["vue", "php"],
+  },
+  {
+    src: Goreon,
+    title: "MUTE",
+    desc: "AI기반 뮤직 웹앱",
+    skils: ["vue", "php"],
+  },
+  {
+    src: Shop,
+    title: "Shop",
+    desc: "AI기반 뮤직 웹앱",
+    skils: ["vue", "php"],
+  },
+  {
+    src: Netflix,
+    title: "MUTE",
+    desc: "AI기반 뮤직 웹앱",
+    skils: ["vue", "php"],
+  },
+  {
+    src: PortFolio,
+    title: "MUTE",
+    desc: "AI기반 뮤직 웹앱",
+    skils: ["vue", "php"],
+  },
+  {
+    src: PortFolio2,
+    title: "MUTE",
+    desc: "AI기반 뮤직 웹앱",
+    skils: ["vue", "php"],
+  },
+  {
+    src: Kakao,
+    title: "MUTE",
+    desc: "AI기반 뮤직 웹앱",
+    skils: ["vue", "php"],
+  },
+];
+
 const darkIcons = [
   GithubDark,
   HtmlDark,
@@ -311,26 +364,15 @@ export const Main = () => {
             <div
               className={`${projectClasses.list} project-list-scroll max-h-70 overflow-y-auto overflow-x-hidden overscroll-contain pr-2`}
             >
-              <ProjectList
-                title="GOREON"
-                desc="AI 전자기기 쇼핑 플랫폼"
-                skills={skills}
-              />
-              <ProjectList
-                title="GOREON"
-                desc="AI 전자기기 쇼핑 플랫폼"
-                skills={skills}
-              />
-              <ProjectList
-                title="GOREON"
-                desc="AI 전자기기 쇼핑 플랫폼"
-                skills={skills}
-              />
-              <ProjectList
-                title="GOREON"
-                desc="AI 전자기기 쇼핑 플랫폼"
-                skills={skills}
-              />
+              {projects.map((item, index) => (
+                <ProjectList
+                  key={index}
+                  src={item.src}
+                  title={item.title}
+                  desc={item.desc}
+                  skills={item.skils}
+                />
+              ))}
             </div>
           </Card>
         </div>

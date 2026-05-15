@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import Mute from "../assets/img/mute.png";
 import Goreon from "../assets/img/goreon.png";
@@ -11,6 +11,8 @@ import PDF from "../assets/img/pdf.png";
 
 import ProfileImg from "../assets/img/profile-2.png";
 import Card from "./Card";
+
+import Arrow from "../assets/img/arrow.png";
 import IconBootstrap from "../assets/img/light/Bootstrap-Light.png";
 import IconCss from "../assets/img/light/CSS-Light.png";
 import IconFigma from "../assets/img/light/Figma-Light.png";
@@ -35,6 +37,7 @@ import { Contact } from "./Contact";
 import Email from "../assets/img/email.png";
 import Call from "../assets/img/call.png";
 import { ContactMe, ContactMe2 } from "./ContactMe";
+import { showMain, startMainReturn } from "../store/uiSlice";
 const contactClasses = {
   card: " w-full",
   list: "grid grid-cols-2 gap-5.5 ",
@@ -58,18 +61,28 @@ const lightIcons = [
 ];
 
 export const SubPage = () => {
+  const dispatch = useDispatch();
   const { isMainHidden } = useSelector((state) => state.ui);
   const [shouldFillSkills, setShouldFillSkills] = useState(false);
   const [isActive, setIsActive] = useState("skills");
   const [isSelectProject, setIsSelectProject] = useState("all");
+  const [isLeaving, setIsLeaving] = useState(false);
 
   function tabButton(tabName) {
     setIsActive(tabName);
   }
 
+  function handleBackClick() {
+    setIsLeaving(true);
+    setShouldFillSkills(false);
+    dispatch(startMainReturn());
+  }
+
   return (
     <section className="relative z-10 w-full text-white flex gap-5">
-      <div className="section-profile-enter max-w-1/3 w-full flex items-center justify-center ">
+      <div
+        className={`${isLeaving ? "section-profile-leave" : "section-profile-enter"} max-w-1/3 w-full flex items-center justify-center `}
+      >
         <div className="flex justify-center flex-col items-center  ">
           <img src={ProfileImg} className="text-center " alt="profile" />
           <Card className={`${contactClasses.card} relative -bottom-10`}>
@@ -97,10 +110,16 @@ export const SubPage = () => {
         </div>
       </div>
       <div
-        className="section-content-enter max-w-2/3 w-full flex justify-center overflow-hidden"
+        className={`${isLeaving ? "section-content-leave" : "section-content-enter"} max-w-2/3 w-full flex justify-center overflow-hidden`}
         onAnimationEnd={(event) => {
           if (event.animationName === "sectionContentEnter") {
             setShouldFillSkills(true);
+          }
+
+          if (event.animationName === "sectionContentLeave") {
+            setTimeout(() => {
+              dispatch(showMain());
+            }, 500);
           }
         }}
       >
@@ -109,43 +128,48 @@ export const SubPage = () => {
             style={{ borderTop: "none", paddingTop: 0 }}
             className="flex gap-3 flex-col rounded-t-none"
           >
-            <div className="flex h-full w-full ">
-              <Card
-                className="flex items-center justify-center h-full w-1/6 border-t-0 rounded-t-none rounded-br-none"
-                onClick={() => tabButton("skills")}
-              >
-                <h2
-                  className={
-                    isActive === "skills" ? "text-white" : "text-gray-400"
-                  }
+            <div className="flex justify-between">
+              <div className="flex h-full w-full ">
+                <Card
+                  className="flex items-center justify-center h-full w-1/6 border-t-0 rounded-t-none rounded-br-none"
+                  onClick={() => tabButton("skills")}
                 >
-                  SKILLS
-                </h2>
-              </Card>
-              <Card
-                className="flex items-center justify-center h-full w-1/6 border-t-0 rounded-t-none border-l-0 rounded-b-none hover:border-l"
-                onClick={() => tabButton("projects")}
-              >
-                <h2
-                  className={
-                    isActive === "projects" ? "text-white" : "text-gray-400"
-                  }
+                  <h2
+                    className={
+                      isActive === "skills" ? "text-white" : "text-gray-400"
+                    }
+                  >
+                    SKILLS
+                  </h2>
+                </Card>
+                <Card
+                  className="flex items-center justify-center h-full w-1/6 border-t-0 rounded-t-none border-l-0 rounded-b-none hover:border-l"
+                  onClick={() => tabButton("projects")}
                 >
-                  PROJECTS
-                </h2>
-              </Card>
-              <Card
-                className="flex items-center justify-center h-full w-1/6 border-t-0 rounded-t-none border-l-0 rounded-bl-none hover:border-l"
-                onClick={() => tabButton("contact")}
-              >
-                <h2
-                  className={
-                    isActive === "contact" ? "text-white" : "text-gray-400"
-                  }
+                  <h2
+                    className={
+                      isActive === "projects" ? "text-white" : "text-gray-400"
+                    }
+                  >
+                    PROJECTS
+                  </h2>
+                </Card>
+                <Card
+                  className="flex items-center justify-center h-full w-1/6 border-t-0 rounded-t-none border-l-0 rounded-bl-none hover:border-l"
+                  onClick={() => tabButton("contact")}
                 >
-                  CONTACT
-                </h2>
-              </Card>
+                  <h2
+                    className={
+                      isActive === "contact" ? "text-white" : "text-gray-400"
+                    }
+                  >
+                    CONTACT
+                  </h2>
+                </Card>
+              </div>
+              <button className="cursor-pointer" onClick={handleBackClick}>
+                <img className="max-w-8" src={Arrow} alt="arrow" />
+              </button>
             </div>
             {isActive === "skills" && (
               <Card className="grid grid-cols-2 gap-12" style={{ padding: 40 }}>

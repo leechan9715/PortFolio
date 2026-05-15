@@ -1,13 +1,12 @@
 import Card from "./Card";
-import ProjectImg from "../assets/img/projectImg.png";
 
-export const ProjectList = ({ title, desc, skills }) => {
+export const ProjectList = ({ title, desc, skills, src }) => {
   return (
     <Card
       className="flex items-center gap-5 max-md:flex-col"
       style={{ padding: 15 }}
     >
-      <img className="max-w-23 w-full" src={ProjectImg} alt="ProjectImg" />
+      <img className="max-w-23 w-full" src={src} alt="ProjectImg" />
       <div className="flex flex-col items-start gap-0.5 max-md:items-center">
         <h3 className="font-bold text-xs">{title}</h3>
         <h4 className="text-xs text-[#a4a4a4]">{desc}</h4>
