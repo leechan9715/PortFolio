@@ -1,5 +1,13 @@
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
+import { Swiper, SwiperSlide } from "swiper/react";
+// 데이터
+import { ContactData, LightIcons } from "../data/SubPage";
+// redux 상태
+import { showMain, startMainReturn } from "../store/uiSlice";
+// 프로필 전신 이미지
+import ProfileImg from "../assets/img/profile-2.png";
+// 프로젝트 썸네일 이미지
 import Mute from "../assets/img/mute.png";
 import Goreon from "../assets/img/goreon.png";
 import Shop from "../assets/img/shop.png";
@@ -7,58 +15,22 @@ import Netflix from "../assets/img/netflix.png";
 import PortFolio2 from "../assets/img/portfolio-2.png";
 import PortFolio from "../assets/img/portfolio.png";
 import Kakao from "../assets/img/kakao.png";
+// 아이콘
 import PDF from "../assets/img/pdf.png";
-
-import ProfileImg from "../assets/img/profile-2.png";
-import Card from "./Card";
-
 import Arrow from "../assets/img/arrow.png";
-import IconBootstrap from "../assets/img/light/Bootstrap-Light.png";
-import IconCss from "../assets/img/light/CSS-Light.png";
-import IconFigma from "../assets/img/light/Figma-Light.png";
-import IconGithub from "../assets/img/light/Github-Light.png";
-import IconHtml from "../assets/img/light/HTML-Light.png";
-import IconJavaScript from "../assets/img/light/JavaScript-Light.png";
-import IconJQuery from "../assets/img/light/JQuery-Light.png";
-import IconMongoDB from "../assets/img/light/mongodb-light.png";
-import IconNextJS from "../assets/img/light/NextJS-Light.png";
-import IconNodeJS from "../assets/img/light/NodeJS-Light.png";
-import IconPhp from "../assets/img/light/PHP-Light.png";
-import IconReact from "../assets/img/light/React-Light.png";
-import IconSass from "../assets/img/light/Sass-Light.png";
-import IconTailwindCSS from "../assets/img/light/TailwindCSS-Light.png";
-import IconVueJS from "../assets/img/light/VueJS-Light.png";
+// 컴포넌트
+import Card from "./Card";
 import { SkillStat } from "./SkillStat";
-import React, { useState } from "react";
 import { ProjectDetail } from "./ProjectDetail";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
 import { Contact } from "./Contact";
-import Email from "../assets/img/email.png";
-import Call from "../assets/img/call.png";
 import { ContactMe, ContactMe2 } from "./ContactMe";
-import { showMain, startMainReturn } from "../store/uiSlice";
+// 스와이퍼 모듈 cSS
+import "swiper/css";
+
 const contactClasses = {
   card: " w-full",
   list: "grid grid-cols-2 gap-5.5 ",
 };
-const lightIcons = [
-  { icon: IconGithub, title: "Github", percent: "90" },
-  { icon: IconHtml, title: "HTML", percent: "95" },
-  { icon: IconCss, title: "CSS", percent: "95" },
-  { icon: IconJavaScript, title: "JavaScript", percent: "85" },
-  { icon: IconJQuery, title: "JQuery", percent: "90" },
-  { icon: IconSass, title: "Sass", percent: "85" },
-  { icon: IconTailwindCSS, title: "TailwindCSS", percent: "90" },
-  { icon: IconReact, title: "React", percent: "90" },
-  { icon: IconNextJS, title: "NextJS", percent: "83" },
-  { icon: IconVueJS, title: "VueJS", percent: "80" },
-  { icon: IconNodeJS, title: "NodeJS", percent: "80" },
-  { icon: IconMongoDB, title: "MongoDB", percent: "83" },
-  { icon: IconPhp, title: "PHP", percent: "75" },
-  { icon: IconFigma, title: "Figma", percent: "83" },
-  { icon: IconBootstrap, title: "Bootstrap", percent: "85" },
-];
 
 export const SubPage = () => {
   const dispatch = useDispatch();
@@ -80,6 +52,7 @@ export const SubPage = () => {
 
   return (
     <section className="relative z-10 w-full text-white flex gap-5">
+      {/* 프로필  */}
       <div
         className={`${isLeaving ? "section-profile-leave" : "section-profile-enter"} max-w-1/3 w-full flex items-center justify-center `}
       >
@@ -87,18 +60,15 @@ export const SubPage = () => {
           <img src={ProfileImg} className="text-center " alt="profile" />
           <Card className={`${contactClasses.card} relative -bottom-10`}>
             <div className={contactClasses.list}>
-              <ContactMe src={Call} title="Phone" url="010-8686-9869" />
-              <ContactMe
-                src={Email}
-                title="Email"
-                url="iseungchan809@gmail.com"
-              />
-              <ContactMe
-                src={IconGithub}
-                title="Github"
-                href="https://github.com/leechan9715"
-                url="github.com/leechan9715"
-              />
+              {ContactData.map((item, index) => (
+                <ContactMe
+                  src={item.src}
+                  key={index}
+                  title={item.title}
+                  url={item.url}
+                  href={item.href}
+                />
+              ))}
               <ContactMe2
                 src={PDF}
                 title="이력서"
@@ -109,6 +79,7 @@ export const SubPage = () => {
           </Card>
         </div>
       </div>
+      {/* SKILLS,PROJECT,CONTACT  */}
       <div
         className={`${isLeaving ? "section-content-leave" : "section-content-enter"} max-w-2/3 w-full flex justify-center overflow-hidden`}
         onAnimationEnd={(event) => {
@@ -128,6 +99,7 @@ export const SubPage = () => {
             style={{ borderTop: "none", paddingTop: 0 }}
             className="flex gap-3 flex-col rounded-t-none"
           >
+            {/* 탭버튼 */}
             <div className="flex justify-between">
               <div className="flex h-full w-full ">
                 <Card
@@ -171,10 +143,11 @@ export const SubPage = () => {
                 <img className="max-w-8" src={Arrow} alt="arrow" />
               </button>
             </div>
+            {/* 스킬목록 */}
             {isActive === "skills" && (
               <Card className="grid grid-cols-2 gap-12" style={{ padding: 40 }}>
                 <div className=" flex flex-col gap-5">
-                  {lightIcons.slice(0, 8).map((icon, index) => (
+                  {LightIcons.slice(0, 8).map((icon, index) => (
                     <SkillStat
                       key={`${isMainHidden}-${index}`}
                       percent={icon.percent}
@@ -185,7 +158,7 @@ export const SubPage = () => {
                   ))}
                 </div>
                 <div className=" flex flex-col gap-5">
-                  {lightIcons.slice(8, 15).map((icon, index) => (
+                  {LightIcons.slice(8, 15).map((icon, index) => (
                     <SkillStat
                       key={`${isMainHidden}-${index + 8}`}
                       percent={icon.percent}
@@ -197,8 +170,10 @@ export const SubPage = () => {
                 </div>
               </Card>
             )}
+            {/* 프로젝트 목록 */}
             {isActive === "projects" && (
               <Card style={{ padding: 40 }} className={`flex flex-col gap-5 `}>
+                {/* 프로젝트 탭 버튼 */}
                 <ul className="flex gap-5">
                   <li>
                     <Card
@@ -225,6 +200,7 @@ export const SubPage = () => {
                     </Card>
                   </li>
                 </ul>
+                {/* 프로젝트 목록 슬라이드 */}
                 <div className="w-full min-w-0 overflow-hidden">
                   <Swiper
                     className="w-full"
@@ -319,6 +295,7 @@ export const SubPage = () => {
                 </div>
               </Card>
             )}
+            {/* CONTACT 이메일 전송 폼 */}
             {isActive === "contact" && <Contact />}
           </Card>
         </div>
