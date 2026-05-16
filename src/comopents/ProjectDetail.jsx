@@ -1,5 +1,20 @@
 import Card from "./Card";
+const TextWithBreak = ({ text, className }) => {
+  if (!text) return null;
 
+  const lines = text.split("<br/>");
+
+  return (
+    <p className={className}>
+      {lines.map((line, index) => (
+        <span key={index}>
+          {line}
+          {index !== lines.length - 1 && <br />}
+        </span>
+      ))}
+    </p>
+  );
+};
 export const ProjectDetail = ({
   className,
   itemsClassName,
@@ -7,6 +22,8 @@ export const ProjectDetail = ({
   title,
   desc,
   items,
+  links,
+  textArea,
 }) => {
   return (
     <Card
@@ -21,13 +38,28 @@ export const ProjectDetail = ({
         />
       </div>
       <div
-        className={`project-list-scroll flex max-h-[65vh] max-w-2/3 w-full flex-1 flex-col overflow-y-auto  p-8  ${itemsClassName} `}
+        className={`project-list-scroll flex max-h-[65vh] max-w-2/3 w-full flex-1 flex-col overflow-y-auto p-8 gap-4 ${itemsClassName} `}
       >
-        <h2 className="mb-4 text-4xl font-bold tracking-wide text-white">
-          {title}
-        </h2>
-        <p className="mb-5 text-lg leading-8 text-gray-200">{desc}</p>
-        <ul className="mb-5 grid gap-2 text-sm text-gray-300">
+        <div className="flex justify-between items-center-safe">
+          <h2 className=" text-4xl font-bold tracking-wide text-white">
+            {title}
+          </h2>
+          <div className="flex gap-3">
+            {links?.map((item, index) => (
+              <a
+                key={index}
+                href={item.link}
+                target="_blank"
+                className="border border-[#1F4360] px-3 py-1 text-xs text-[#a4a4a4] hover:border-(--hover-border)"
+              >
+                <p>{item.label}</p>
+              </a>
+            ))}
+          </div>
+        </div>
+        <p className=" text-lg leading-8 text-gray-200">{desc}</p>
+
+        <ul className=" grid gap-2 text-sm text-gray-300">
           {items.map((item, index) => (
             <li key={index}>
               <p className="flex gap-2">
@@ -37,19 +69,10 @@ export const ProjectDetail = ({
             </li>
           ))}
         </ul>
-        <p className="text-base leading-7 text-gray-300">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis eum
-          ea asperiores pariatur. Iure quisquam provident, excepturi ipsam
-          dolorum omnis ut consequuntur, magni nemo dolore, quo hic!
-          Voluptatibus, consequuntur iure. Sint quisquam explicabo dignissimos
-          cumque optio, tempora, asperiores voluptate reiciendis mollitia
-          commodi iure? Possimus, cumque molestiae. Quia nobis molestiae
-          nesciunt aspernatur quos corporis, molestias at unde, eius dicta,
-          error possimus. Consequuntur, dolore hic! Perferendis, nisi quisquam
-          similique doloremque sapiente provident adipisci asperiores inventore
-          numquam magni, officia fuga laborum. Quibusdam veniam quidem sit quia
-          a neque, voluptatum consequatur non provident ducimus.
-        </p>
+        <TextWithBreak
+          text={textArea}
+          className="text-base leading-7 text-gray-300"
+        />
       </div>
     </Card>
   );

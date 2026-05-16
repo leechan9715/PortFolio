@@ -4,17 +4,27 @@ export const teamProjectInfo = [
     info: [
       { label: "구분", value: "팀 프로젝트" },
       { label: "인원", value: "3명" },
-      { label: "역할", value: "프론트엔드 개발" },
+      { label: "역할", value: "개발" },
       {
         label: "담당",
         value: "UI 퍼블리싱 · API 연동 · 플레이어 기능 · PHP API 개발",
       },
       {
         label: "기술",
-        value: "Vue3 / Pinia / CSS3 / Axios / PHP / MySQL",
+        value: ["Vue 3", "Pinia", "CSS3", "Axios", "PHP", "MySQL"],
       },
       { label: "배포", value: "Dothome" },
     ],
+    links: [
+      {
+        label: "GitHub",
+        link: "https://github.com/leechan9715/mutehtml/tree/vue/main",
+      },
+      { label: "LiveDemo", link: "https://muteapp.dothome.co.kr/splash" },
+    ],
+
+    textArea:
+      "Vue와 PHP를 학습한 후, Vue · PHP · MySQL을 활용한 AI 기반 음악 웹 애플리케이션 MUTE를 첫 팀 프로젝트로 진행했습니다.<br/>팀원들과 함께 기획, 디자인, 개발 전 과정에 참여하며 각 단계의 중요성을 직접 체감했습니다. 1인 개발과 달리 팀원들과 적극적으로 소통하고 의견을 조율하는 과정에서 더 완성도 높은 결과물을 만들 수 있었고, 협업의 힘을 실감한 프로젝트입니다.<br/>UI 퍼블리싱 · API 연동 · 플레이어 기능 · PHP API 개발을 담당하며 프론트엔드와 백엔드를 아우르는 다양한 경험을 쌓았습니다.<br/>개발 중 Vue와 PHP 간 API 통신에서 CORS 문제를 마주쳤고, 이를 해결하는 과정에서 클라이언트-서버 구조에 대한 이해를 한층 높일 수 있었습니다.<br/>또한 GitHub를 활용한 협업을 통해 브랜치 관리와 코드 리뷰 등 체계적인 개발 프로세스를 경험하며 팀 개발 역량을 키울 수 있었습니다.<br/>이 프로젝트를 통해 단순히 기능을 구현하는 것을 넘어, 팀 안에서 개발자로서 소통하고 책임감 있게 역할을 수행하는 것의 중요성을 배웠습니다",
   },
   {
     title: "GOREON",
@@ -25,27 +35,93 @@ export const teamProjectInfo = [
       { label: "담당", value: "기획 · 디자인 보조 / UI 개발" },
       {
         label: "기술",
-        value: "React / Express / Redux / SCSS / Axios / MongoDB",
+        value: "React · Express · Redux · SCSS · AxiosMongoDB",
       },
       { label: "배포", value: "Render" },
     ],
+    links: [
+      {
+        label: "GitHub",
+        link: "https://github.com/muteLJS/GOREON",
+      },
+      { label: "LiveDemo", link: "https://goreon-0x90.onrender.com/" },
+    ],
+
+    textArea:
+      "두 번째 팀 프로젝트로, React · Express · MongoDB를 활용한 AI 기반 전자기기 쇼핑몰 웹 서비스 GOREON을 진행했습니다.<br/>단순 상품 나열형 쇼핑몰이 아닌, 사용자가 직접 탐색하거나 AI 추천을 통해 상품을 비교하고 선택할 수 있는 흐름을 구현하는 것을 목표로 했습니다.<br/>첫 번째 프로젝트 MUTE를 통해 팀원과의 소통 방식과 협업 흐름을 익혔고, 이번 프로젝트에서는 그 경험을 바탕으로 초반부터 팀원들과 데이터 구조, 공통 컴포넌트, 스타일 기준을 먼저 맞추며 보다 체계적으로 협업을 이끌어 나갈 수 있었습니다.<br/>상품 리스트 · 상세 페이지 UI, Axios를 활용한 API 연동, Redux Toolkit 기반 전역 상태 관리, 찜 · 장바구니 기능, 반응형 레이아웃 구현을 담당했습니다.<br/>개발 과정에서 상품 데이터 필드 불일치 문제를 normalize 로직으로 해결하고, 찜 상태를 Redux로 전역 관리하여 화면 간 상태 일관성을 확보했습니다. 또한 SCSS 믹스인을 활용해 모바일 · 태블릿 · 데스크톱 환경에 맞는 반응형 그리드를 구현했습니다.<br/>첫 번째 프로젝트에서 협업의 흐름을 익혔다면, 이번 프로젝트에서는 데이터 구조 설계와 상태 관리 등 기술적인 깊이를 더하며 개발자로서 한 단계 더 성장할 수 있었습니다.",
   },
 ];
 
 export const personalProjectInfo = [
   {
-    title: "Kakao Renewal",
+    title: "BnbNetWork (HTML , 반응형)",
     info: [
       { label: "구분", value: "개인 프로젝트" },
       { label: "인원", value: "1명" },
-      { label: "기간", value: "3주" },
+      { label: "기간", value: "1달" },
       { label: "기여도", value: "100%" },
       {
         label: "기술",
-        value: "HTML5 / CSS3 / PHP / JavaScript / jQuery / MySQL",
+        value: "HTML · Css · Javascript · Bootstrap",
       },
-      { label: "배포", value: "Dothome" },
+      { label: "배포", value: "Cafe24" },
     ],
+    links: [
+      {
+        label: "GitHub",
+        link: "https://github.com/inpos12/bnbnetwork",
+      },
+      { label: "LiveDemo", link: "https://bnbnetworks.cafe24.com/" },
+    ],
+    textArea:
+      "HTML · CSS · JavaScript를 독학으로 학습하던 중 Bootstrap을 접하게 되었고, 반응형 웹을 직접 구현해보고자 BnbNetWork 자사 회사 사이트를 제작했습니다.<br/>지인으로부터 처음으로 외주 의뢰를 받아 진행한 개인 프로젝트로, 메인 페이지와 서브 페이지로 구성된 회사 소개 사이트를 구현했습니다.<br/>Bootstrap을 활용해 모바일 · 태블릿 · 데스크톱 환경에서 최적화된 반응형 레이아웃을 구성했으며, 학습한 HTML · CSS · JavaScript를 실제 프로젝트에 적용하며 기초를 탄탄히 다질 수 있었습니다.<br/>단순 학습용 프로젝트가 아닌 실제 클라이언트의 요구사항을 반영해야 했기에, 요구사항을 파악하고 이를 화면으로 구현하는 실무적인 경험을 쌓을 수 있었던 첫 번째 외주 프로젝트입니다. ",
+  },
+  {
+    title: "BnbNetWork (React)",
+    info: [
+      { label: "구분", value: "개인 프로젝트" },
+      { label: "인원", value: "1명" },
+      { label: "기간", value: "2.5주" },
+      { label: "기여도", value: "100%" },
+      {
+        label: "기술",
+        value: "React · React Router · Styled-Components · Kakao Maps API",
+      },
+      { label: "배포", value: "GitHub Pages" },
+    ],
+    links: [
+      {
+        label: "GitHub",
+        link: "https://github.com/inpos12/bnbnetworkreact",
+      },
+      { label: "LiveDemo", link: "https://inpos12.github.io/bnbnetworkreact/" },
+    ],
+    textArea:
+      "HTML · CSS · JavaScript로 제작했던 BnbNetWork 사이트를 React를 학습한 후 새롭게 재구현한 개인 프로젝트입니다.<br/>기존 HTML 버전과 동일한 사이트를 React로 다시 만들며, 컴포넌트 기반 구조로 코드 재사용성을 높이고 유지보수성을 개선하는 것을 목표로 했습니다.<br/>Styled Components를 활용해 스타일을 컴포넌트화하여 코드 중복을 줄였고, React Router로 페이지 전환 시 새로고침 없는 부드러운 이동을 구현했습니다. 미디어 쿼리와 Flexbox를 활용해 모바일 · 태블릿 · 데스크톱 환경에 맞는 반응형 레이아웃을 구성했으며, 모바일 환경에서는 햄버거 메뉴를 적용해 사용자 접근성을 높였습니다.<br/>또한 Kakao Maps API를 연동해 회사 위치를 지도에 직관적으로 표시했습니다.<br/>같은 사이트를 HTML에서 React로 직접 전환하며, 단순히 React 문법을 익히는 것을 넘어 컴포넌트 설계 방식과 구조적인 사고의 차이를 몸소 체감할 수 있었던 프로젝트입니다.",
+  },
+  {
+    title: "SHOP",
+    info: [
+      { label: "구분", value: "개인 프로젝트" },
+      { label: "인원", value: "1명" },
+      { label: "기간", value: "1달" },
+      { label: "기여도", value: "100%" },
+      {
+        label: "기술",
+        value:
+          "React · JavaScript · Styled-Components · Bootstrap · Firebase · Firestore",
+      },
+      { label: "배포", value: "GitHub Pages" },
+    ],
+    links: [
+      {
+        label: "GitHub",
+        link: "https://github.com/inpos12/shop",
+      },
+      { label: "LiveDemo", link: "https://inpos12.github.io/shop/" },
+    ],
+    textArea:
+      "HTML · CSS · JavaScript로 기초를 다진 후, BNB NetWorks 사이트를 React로 재구현하며 컴포넌트 기반 개발 방식에 익숙해진 뒤 도전한 개인 프로젝트입니다.<br/>React와 Firebase를 독학으로 학습하며 배운 내용을 직접 구현해보고자 PHARMACY SHOP을 기획했으며, React의 컴포넌트 기반 구조를 활용해 UI를 효율적으로 재사용하고 Firebase를 통해 별도의 서버 없이 클라우드 기반으로 데이터를 관리하는 쇼핑몰을 구현했습니다.<br/>Styled Components로 스타일을 컴포넌트화하여 유지보수성을 높였고, React Router로 페이지 전환 시 새로고침 없는 부드러운 이동을 구현했습니다. Bootstrap을 활용해 모바일 · 태블릿 · 데스크톱 환경에 맞는 반응형 레이아웃도 적용했습니다.<br/>관리자 기능으로는 로그인한 사용자의 UID를 비교해 어드민 여부를 판별하고, 관리자만 상품 데이터를 추가 · 수정할 수 있도록 접근을 제한했습니다. 또한 Kakao Maps API를 연동해 회사 위치를 지도에 표시하는 기능도 구현했습니다.<br/>단순 회사 사이트 구현을 넘어 Firebase 인증 · 데이터 관리 · 외부 API 연동까지 직접 구현하며, 스스로 문제를 정의하고 해결하는 능력을 한층 키울 수 있었던 프로젝트입니다.",
   },
   {
     title: "Netflix",
@@ -56,24 +132,16 @@ export const personalProjectInfo = [
       { label: "기여도", value: "100%" },
       {
         label: "기술",
-        value: "React / TypeScript / Styled-Components / TMDB API",
+        value: "React · TypeScript · Styled-Components · TMDB API",
       },
-      { label: "배포", value: "GitHub" },
+      { label: "배포", value: "GitHub Pages" },
     ],
-  },
-  {
-    title: "SHOP",
-    info: [
-      { label: "구분", value: "개인 프로젝트" },
-      { label: "인원", value: "1명" },
-      { label: "기간", value: "3주" },
-      { label: "기여도", value: "100%" },
+    links: [
       {
-        label: "기술",
-        value:
-          "React / JavaScript / Styled-Components / Bootstrap / Firebase / Firestore",
+        label: "GitHub",
+        link: "https://github.com/inpos12/netflix-project",
       },
-      { label: "배포", value: "GitHub" },
+      { label: "LiveDemo", link: "https://inpos12.github.io/netflix-project/" },
     ],
   },
   {
@@ -85,9 +153,30 @@ export const personalProjectInfo = [
       { label: "기여도", value: "100%" },
       {
         label: "기술",
-        value: "React / JavaScript / Tailwind CSS",
+        value: "React · JavaScript · Tailwind CSS",
       },
       { label: "배포", value: "Vercel" },
+    ],
+  },
+  {
+    title: "Kakao Renewal",
+    info: [
+      { label: "구분", value: "개인 프로젝트" },
+      { label: "인원", value: "1명" },
+      { label: "기간", value: "3주" },
+      { label: "기여도", value: "100%" },
+      {
+        label: "기술",
+        value: "HTML5 · SCSS · JavaScript · jQuery · PHP · MySQL",
+      },
+      { label: "배포", value: "Dothome" },
+    ],
+    links: [
+      {
+        label: "GitHub",
+        link: "https://github.com/leechan9715/Kakao-Renewal/tree/main",
+      },
+      { label: "LiveDemo", link: "https://young8686.dothome.co.kr/kakao/" },
     ],
   },
   {
@@ -100,9 +189,16 @@ export const personalProjectInfo = [
       {
         label: "기술",
         value:
-          "Next.js / TypeScript / Tailwind CSS / Axios / Styled-Components / MongoDB",
+          "Next.js · TypeScript · Tailwind CSS · Axios · Styled-Components · MongoDB",
       },
       { label: "배포", value: "Vercel" },
+    ],
+    links: [
+      {
+        label: "GitHub",
+        link: "https://github.com/inpos12/SCPortFolio",
+      },
+      { label: "LiveDemo", link: "https://sc-port-folio.vercel.app/" },
     ],
   },
 ];
