@@ -4,6 +4,7 @@ export const teamProjectInfo = [
     info: [
       { label: "구분", value: "팀 프로젝트" },
       { label: "인원", value: "3명" },
+      { label: "기간", value: "1달" },
       { label: "역할", value: "개발" },
       {
         label: "담당",
@@ -16,6 +17,7 @@ export const teamProjectInfo = [
       { label: "배포", value: "Dothome" },
     ],
     links: [
+      { label: "기획안" },
       {
         label: "GitHub",
         link: "https://github.com/leechan9715/mutehtml/tree/vue/main",
@@ -31,6 +33,7 @@ export const teamProjectInfo = [
     info: [
       { label: "구분", value: "팀 프로젝트" },
       { label: "인원", value: "5명" },
+      { label: "기간", value: "1달" },
       { label: "역할", value: "프론트엔드 개발" },
       { label: "담당", value: "기획 · 디자인 보조 / UI 개발" },
       {
@@ -40,6 +43,7 @@ export const teamProjectInfo = [
       { label: "배포", value: "Render" },
     ],
     links: [
+      { label: "기획안" },
       {
         label: "GitHub",
         link: "https://github.com/muteLJS/GOREON",
@@ -58,7 +62,7 @@ export const personalProjectInfo = [
     info: [
       { label: "구분", value: "개인 프로젝트" },
       { label: "인원", value: "1명" },
-      { label: "기간", value: "1달" },
+      { label: "기간", value: "2.5주" },
       { label: "기여도", value: "100%" },
       {
         label: "기술",
@@ -143,20 +147,8 @@ export const personalProjectInfo = [
       },
       { label: "LiveDemo", link: "https://inpos12.github.io/netflix-project/" },
     ],
-  },
-  {
-    title: "Portfolio",
-    info: [
-      { label: "구분", value: "개인 프로젝트" },
-      { label: "인원", value: "1명" },
-      { label: "기간", value: "2주" },
-      { label: "기여도", value: "100%" },
-      {
-        label: "기술",
-        value: "React · JavaScript · Tailwind CSS",
-      },
-      { label: "배포", value: "Vercel" },
-    ],
+    textArea:
+      "PHARMACY SHOP 프로젝트를 통해 React와 Firebase를 활용한 개발에 익숙해진 후, 새롭게 TypeScript를 접하게 되어 처음으로 도전한 개인 프로젝트입니다.<br/>완성도보다는 TypeScript의 타입 시스템과 외부 API 연동 방식을 직접 익히는 것을 목표로, TMDB API를 활용해 넷플릭스와 유사한 영화 스트리밍 사이트를 구현했습니다.<br/>TMDB API를 연동해 영화 목록 · 포스터 · 예고편 · 제목 · 상영 시간 · 장르 정보를 출력했으며, Styled Components를 활용해 컴포넌트 단위로 스타일을 관리했습니다.<br/>기존 JavaScript로 작업하던 방식에서 벗어나 TypeScript의 타입 정의와 인터페이스를 적용하며, 코드의 안정성과 가독성을 높이는 개발 방식을 체감할 수 있었던 프로젝트입니다.",
   },
   {
     title: "Kakao Renewal",
@@ -178,9 +170,11 @@ export const personalProjectInfo = [
       },
       { label: "LiveDemo", link: "https://young8686.dothome.co.kr/kakao/" },
     ],
+    textArea:
+      "TypeScript와 TMDB API를 활용한 프로젝트를 마친 후, 그동안 배운 기술들을 복습하고 새로운 기술을 함께 익히고자 진행한 개인 프로젝트입니다.<br/>Kakao 메인 사이트를 리뉴얼하는 방식으로 Kakao Renewal을 기획했으며, HTML · SCSS · JavaScript · jQuery · PHP · MySQL을 활용해 풀스택 흐름을 직접 경험했습니다.<br/>로그인 · 회원가입 · 이메일 변경 · 비밀번호 변경 기능을 PHP와 MySQL로 구현하며 서버와 데이터베이스 간 데이터 흐름을 직접 다뤄볼 수 있었습니다.<br/>원스크롤 페이지 특성상 반응형 레이아웃을 구현하는 데 어려움이 있었습니다. 섹션마다 콘텐츠 구조와 배치가 달라 화면 크기에 따라 레이아웃이 무너지는 문제가 반복됐고, 며칠간 고민하며 각 섹션별 미디어 쿼리를 세밀하게 조정한 끝에 모바일 · 태블릿 · 데스크톱 환경에서 자연스럽게 동작하는 반응형 원스크롤 사이트를 완성할 수 있었습니다.<br/>React 중심의 개발에서 벗어나 HTML · SCSS · jQuery 기반으로 돌아와 기초를 다시 다지면서, 프레임워크 없이도 구조적으로 코드를 작성하는 능력을 키울 수 있었던 프로젝트입니다.",
   },
   {
-    title: "Portfolio-2",
+    title: "Portfolio",
     info: [
       { label: "구분", value: "개인 프로젝트" },
       { label: "인원", value: "1명" },
@@ -188,17 +182,21 @@ export const personalProjectInfo = [
       { label: "기여도", value: "100%" },
       {
         label: "기술",
-        value:
-          "Next.js · TypeScript · Tailwind CSS · Axios · Styled-Components · MongoDB",
+        value: "React · JavaScript · Tailwind CSS",
       },
       { label: "배포", value: "Vercel" },
     ],
     links: [
       {
         label: "GitHub",
-        link: "https://github.com/inpos12/SCPortFolio",
+        link: "https://github.com/leechan9715/PortFolio",
       },
-      { label: "LiveDemo", link: "https://sc-port-folio.vercel.app/" },
+      {
+        label: "LiveDemo",
+        link: "https://portfolio-nine-murex-vtgmelanap.vercel.app/",
+      },
     ],
+    textArea:
+      "그동안 진행해온 모든 프로젝트와 기술 역량을 한눈에 볼 수 있도록 React · Tailwind CSS · JavaScript를 활용해 제작한 개인 포트폴리오 웹사이트입니다.<br/>메인 페이지에서는 보유 기술 스택을 아이콘으로 한눈에 확인할 수 있으며, 버튼 클릭 시 화면 전환 애니메이션과 함께 각 스킬의 숙련도를 퍼센트 게이지로 시각적으로 표현했습니다.<br/>프로젝트는 개인 프로젝트 · 팀 프로젝트로 탭을 나눠 분류했으며, 전체 탭에서 모든 프로젝트를 한번에 확인할 수 있도록 구성했습니다. 메인 페이지에서도 프로젝트 리스트를 간략하게 미리 볼 수 있어 빠른 탐색이 가능합니다.<br/>문의하기 탭을 통해 이메일을 직접 전송할 수 있는 기능을 구현해 방문자가 바로 연락할 수 있도록 했습니다.<br/>단순히 프로젝트를 나열하는 것을 넘어, 그동안의 성장 과정과 기술 역량을 직관적으로 전달할 수 있도록 구조와 사용자 경험을 고민하며 제작한 사이트입니다.",
   },
 ];

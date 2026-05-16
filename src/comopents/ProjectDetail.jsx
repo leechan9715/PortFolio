@@ -23,6 +23,7 @@ export const ProjectDetail = ({
   desc,
   items,
   links,
+  onClick,
   textArea,
 }) => {
   return (
@@ -47,6 +48,7 @@ export const ProjectDetail = ({
           <div className="flex gap-3">
             {links?.map((item, index) => (
               <a
+                onClick={onClick}
                 key={index}
                 href={item.link}
                 target="_blank"
