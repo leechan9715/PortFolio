@@ -10,6 +10,8 @@ import ProfileImg from "../assets/img/profile-2.png";
 // 프로젝트 썸네일 이미지
 import Mute from "../assets/img/mute.png";
 import Goreon from "../assets/img/goreon.png";
+import BnbNetworks from "../assets/img/bnbnetworks.png";
+import BnbNetworksReact from "../assets/img/bnbnetworks-react.png";
 import Shop from "../assets/img/shop.png";
 import Netflix from "../assets/img/netflix.png";
 import PortFolio2 from "../assets/img/portfolio-2.png";
@@ -226,8 +228,9 @@ export const SubPage = () => {
                           <ProjectDetail
                             thumbnail={Mute}
                             title="MUTE"
-                            desc="Vue 3 기반 음악 서비스 팀 프로젝트입니다. 온보딩, 로컬/소셜 로그인, 메인/검색/차트, 플레이어, 라이브러리, 마이페이지, AI 페이지를 포함합니다."
                             items={teamProjectInfo[0].info}
+                            links={teamProjectInfo[0].links}
+                            textArea={teamProjectInfo[0].textArea}
                           />
                         </SwiperSlide>
                         <SwiperSlide key="team-goreon">
@@ -237,8 +240,9 @@ export const SubPage = () => {
                               thumbnail={Goreon}
                               itemsClassName="max-w-full overflow-y-hidden"
                               title="GOREON"
-                              desc="AI 기반 전자기기 쇼핑 플랫폼 프로젝트입니다. 상품 탐색, 추천 흐름, 상세 페이지, 사용자 경험 중심의 UI를 포함합니다."
                               items={teamProjectInfo[1].info}
+                              links={teamProjectInfo[1].links}
+                              textArea={teamProjectInfo[1].textArea}
                             />
                           </div>
                         </SwiperSlide>
@@ -247,27 +251,29 @@ export const SubPage = () => {
                     {(isSelectProject === "all" ||
                       isSelectProject === "personal") && (
                       <React.Fragment key="personal">
-                        <SwiperSlide key="personal-kakao">
+                        <SwiperSlide key="personal-bnb-html">
                           <div className="project-list-scroll w-full min-w-0 overflow-y-auto max-h-[80vh] ">
                             <ProjectDetail
                               className="flex-col min-h-[90vh]"
-                              thumbnail={Kakao}
+                              thumbnail={BnbNetworks}
                               itemsClassName="max-w-full overflow-y-hidden"
-                              title="Kakao Renewal"
-                              desc="AI 기반 전자기기 쇼핑 플랫폼 프로젝트입니다. 상품 탐색, 추천 흐름, 상세 페이지, 사용자 경험 중심의 UI를 포함합니다."
+                              title="BnbNetWork"
                               items={personalProjectInfo[0].info}
+                              links={personalProjectInfo[0].links}
+                              textArea={personalProjectInfo[0].textArea}
                             />
                           </div>
                         </SwiperSlide>
-                        <SwiperSlide key="personal-netflix">
+                        <SwiperSlide key="personal-bnb-react">
                           <div className="project-list-scroll w-full min-w-0 overflow-y-auto max-h-[80vh] ">
                             <ProjectDetail
                               className="flex-col min-h-[90vh]"
-                              thumbnail={Netflix}
+                              thumbnail={BnbNetworksReact}
                               itemsClassName="max-w-full overflow-y-hidden"
-                              title="Netflix Clone"
-                              desc="AI 기반 전자기기 쇼핑 플랫폼 프로젝트입니다. 상품 탐색, 추천 흐름, 상세 페이지, 사용자 경험 중심의 UI를 포함합니다."
+                              title="BnbNetworksReact"
                               items={personalProjectInfo[1].info}
+                              links={personalProjectInfo[1].links}
+                              textArea={personalProjectInfo[1].textArea}
                             />
                           </div>
                         </SwiperSlide>
@@ -277,25 +283,39 @@ export const SubPage = () => {
                               className="flex-col min-h-[90vh]"
                               thumbnail={Shop}
                               itemsClassName="max-w-full overflow-y-hidden"
-                              title="쇼핑몰 플랫폼"
-                              desc="AI 기반 전자기기 쇼핑 플랫폼 프로젝트입니다. 상품 탐색, 추천 흐름, 상세 페이지, 사용자 경험 중심의 UI를 포함합니다."
+                              title="SHOP"
                               items={personalProjectInfo[2].info}
+                              links={personalProjectInfo[2].links}
+                              textArea={personalProjectInfo[2].textArea}
                             />
                           </div>
                         </SwiperSlide>
-                        <SwiperSlide>
+                        <SwiperSlide key="personal-netflix">
                           <div className="project-list-scroll w-full min-w-0 overflow-y-auto max-h-[80vh] ">
                             <ProjectDetail
                               className="flex-col min-h-[90vh]"
-                              thumbnail={PortFolio2}
+                              thumbnail={Netflix}
                               itemsClassName="max-w-full overflow-y-hidden"
-                              title="PORTFOLIO"
-                              desc="AI 기반 전자기기 쇼핑 플랫폼 프로젝트입니다. 상품 탐색, 추천 흐름, 상세 페이지, 사용자 경험 중심의 UI를 포함합니다."
+                              title="Netflix"
                               items={personalProjectInfo[3].info}
+                              links={personalProjectInfo[3].links}
+                              textArea={personalProjectInfo[3].textArea}
                             />
                           </div>
                         </SwiperSlide>
-                        <SwiperSlide>
+                        <SwiperSlide key="personal-kakao">
+                          <div className="project-list-scroll w-full min-w-0 overflow-y-auto max-h-[80vh] ">
+                            <ProjectDetail
+                              className="flex-col min-h-[90vh]"
+                              thumbnail={Kakao}
+                              itemsClassName="max-w-full overflow-y-hidden"
+                              title="Kakao Renewal"
+                              items={personalProjectInfo[5].info}
+                              links={personalProjectInfo[5].links}
+                            />
+                          </div>
+                        </SwiperSlide>
+                        <SwiperSlide key="personal-portfolio">
                           <div className="project-list-scroll w-full min-w-0 overflow-y-auto max-h-[80vh] ">
                             <ProjectDetail
                               className="flex-col min-h-[90vh]"
@@ -304,6 +324,20 @@ export const SubPage = () => {
                               title="PORTFOLIO"
                               desc="AI 기반 전자기기 쇼핑 플랫폼 프로젝트입니다. 상품 탐색, 추천 흐름, 상세 페이지, 사용자 경험 중심의 UI를 포함합니다."
                               items={personalProjectInfo[4].info}
+                              links={personalProjectInfo[4].links}
+                            />
+                          </div>
+                        </SwiperSlide>
+                        <SwiperSlide key="personal-portfolio-2">
+                          <div className="project-list-scroll w-full min-w-0 overflow-y-auto max-h-[80vh] ">
+                            <ProjectDetail
+                              className="flex-col min-h-[90vh]"
+                              thumbnail={PortFolio2}
+                              itemsClassName="max-w-full overflow-y-hidden"
+                              title="PORTFOLIO"
+                              desc="AI 기반 전자기기 쇼핑 플랫폼 프로젝트입니다. 상품 탐색, 추천 흐름, 상세 페이지, 사용자 경험 중심의 UI를 포함합니다."
+                              items={personalProjectInfo[6].info}
+                              links={personalProjectInfo[6].links}
                             />
                           </div>
                         </SwiperSlide>
