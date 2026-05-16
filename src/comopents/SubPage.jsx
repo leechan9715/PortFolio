@@ -14,8 +14,8 @@ import BnbNetworks from "../assets/img/bnbnetworks.png";
 import BnbNetworksReact from "../assets/img/bnbnetworks-react.png";
 import Shop from "../assets/img/shop.png";
 import Netflix from "../assets/img/netflix.png";
-import PortFolio2 from "../assets/img/portfolio-2.png";
-import PortFolio from "../assets/img/portfolio.png";
+import PortFolio from "../assets/img/portfolio-2.png";
+
 import Kakao from "../assets/img/kakao.png";
 // 아이콘
 import PDF from "../assets/img/pdf.png";
@@ -35,6 +35,23 @@ const contactClasses = {
   card: " w-full",
   list: "grid grid-cols-2 gap-5.5 ",
 };
+// PDF
+const resumePdf = {
+  title: "이력서 미리보기",
+  fileName: "이승찬_이력서.pdf",
+  file: "/files/이승찬_이력서.pdf",
+};
+const goreonPdf = {
+  title: "GOREON 기획안",
+  fileName: "Goreon_기획안.pdf",
+  file: "/files/Goreon_기획안.pdf",
+};
+
+// const mutePdf = {
+//   title: "MUTE 기획안",
+//   fileName: "MUTE_기획안.pdf",
+//   file: "/files/MUTE_기획안.pdf",
+// };
 
 export const SubPage = () => {
   const dispatch = useDispatch();
@@ -43,7 +60,10 @@ export const SubPage = () => {
   const [isActive, setIsActive] = useState("projects");
   const [isSelectProject, setIsSelectProject] = useState("all");
   const [isLeaving, setIsLeaving] = useState(false);
+  // PDF
   const [isOepn, setIsOpen] = useState(false);
+  const [goreonOpen, setGoreonOpen] = useState(false);
+  // const [muteOpen, setMuteOpen] = useState(false);
 
   function tabButton(tabName) {
     setIsActive(tabName);
@@ -57,7 +77,9 @@ export const SubPage = () => {
 
   return (
     <section className="relative z-10 w-full text-white flex gap-5">
-      <Pdf isOpen={isOepn} setIsOpen={setIsOpen} />
+      <Pdf isOpen={isOepn} setIsOpen={setIsOpen} {...resumePdf} />
+      <Pdf isOpen={goreonOpen} setIsOpen={setGoreonOpen} {...goreonPdf} />
+      {/* <Pdf isOpen={muteOpen} setIsOpen={setMuteOpen} {...mutePdf} /> */}
       {/* 프로필  */}
       <div
         className={`${isLeaving ? "section-profile-leave" : "section-profile-enter"} max-w-1/3 w-full flex items-center justify-center `}
@@ -231,6 +253,7 @@ export const SubPage = () => {
                             items={teamProjectInfo[0].info}
                             links={teamProjectInfo[0].links}
                             textArea={teamProjectInfo[0].textArea}
+                            onClick={() => setGoreonOpen(true)}
                           />
                         </SwiperSlide>
                         <SwiperSlide key="team-goreon">
@@ -243,6 +266,7 @@ export const SubPage = () => {
                               items={teamProjectInfo[1].info}
                               links={teamProjectInfo[1].links}
                               textArea={teamProjectInfo[1].textArea}
+                              onClick={() => setGoreonOpen(true)}
                             />
                           </div>
                         </SwiperSlide>
@@ -310,8 +334,9 @@ export const SubPage = () => {
                               thumbnail={Kakao}
                               itemsClassName="max-w-full overflow-y-hidden"
                               title="Kakao Renewal"
-                              items={personalProjectInfo[5].info}
-                              links={personalProjectInfo[5].links}
+                              items={personalProjectInfo[4].info}
+                              links={personalProjectInfo[4].links}
+                              textArea={personalProjectInfo[4].textArea}
                             />
                           </div>
                         </SwiperSlide>
@@ -323,21 +348,9 @@ export const SubPage = () => {
                               itemsClassName="max-w-full overflow-y-hidden"
                               title="PORTFOLIO"
                               desc="AI 기반 전자기기 쇼핑 플랫폼 프로젝트입니다. 상품 탐색, 추천 흐름, 상세 페이지, 사용자 경험 중심의 UI를 포함합니다."
-                              items={personalProjectInfo[4].info}
-                              links={personalProjectInfo[4].links}
-                            />
-                          </div>
-                        </SwiperSlide>
-                        <SwiperSlide key="personal-portfolio-2">
-                          <div className="project-list-scroll w-full min-w-0 overflow-y-auto max-h-[80vh] ">
-                            <ProjectDetail
-                              className="flex-col min-h-[90vh]"
-                              thumbnail={PortFolio2}
-                              itemsClassName="max-w-full overflow-y-hidden"
-                              title="PORTFOLIO"
-                              desc="AI 기반 전자기기 쇼핑 플랫폼 프로젝트입니다. 상품 탐색, 추천 흐름, 상세 페이지, 사용자 경험 중심의 UI를 포함합니다."
-                              items={personalProjectInfo[6].info}
-                              links={personalProjectInfo[6].links}
+                              items={personalProjectInfo[5].info}
+                              links={personalProjectInfo[5].links}
+                              textArea={personalProjectInfo[5].textArea}
                             />
                           </div>
                         </SwiperSlide>

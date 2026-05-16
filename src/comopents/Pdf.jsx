@@ -7,25 +7,49 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   "pdfjs-dist/build/pdf.worker.min.mjs",
   import.meta.url,
 ).toString();
-export const Pdf = ({ isOpen, setIsOpen }) => {
-  const [numPages, setNumPages] = useState(null);
+
+const DEFAULT_PDF_FILE = "/files/이승찬_이력서.pdf";
+
+const getFileName = (file) => {
+  if (!file || typeof file !== "string") return "PDF 파일";
+
+  return decodeURIComponent(file.split("/").pop());
+};
+
+export const Pdf = ({
+  isOpen,
+  setIsOpen,
+  title = "PDF 미리보기",
+  file = DEFAULT_PDF_FILE,
+  fileName = getFileName(file),
+  pageWidth = 1024,
+}) => {
+  const [pdfInfo, setPdfInfo] = useState({ file: null, numPages: 0 });
+  const numPages = pdfInfo.file === file ? pdfInfo.numPages : 0;
+
+  const closePdf = () => {
+    setIsOpen(false);
+  };
 
   return (
     <>
       {isOpen && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-4 cursor-pointer "
-          onClick={() => setIsOpen(false)}
+          onClick={closePdf}
         >
           <div
             className="relative w-full max-w-full h-[85vh] rounded-2xl border border-[#1F4360] bg-[#071A2A] overflow-hidden shadow-2xl "
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between border-b border-[#1F4360] px-5 py-4">
-              <h2 className="text-white font-bold">이력서 미리보기</h2>
+              <div>
+                <h2 className="text-white font-bold">{title}</h2>
+                <p className="mt-1 text-xs text-gray-400">{fileName}</p>
+              </div>
 
               <button
-                onClick={() => setIsOpen(false)}
+                onClick={closePdf}
                 className="text-gray-400 hover:text-white text-xl transition-colors cursor-pointer"
               >
                 ✕
@@ -39,8 +63,8 @@ export const Pdf = ({ isOpen, setIsOpen }) => {
                   "
             >
               <Document
-                file="/files/이승찬_이력서.pdf"
-                onLoadSuccess={({ numPages }) => setNumPages(numPages)}
+                file={file}
+                onLoadSuccess={({ numPages }) => setPdfInfo({ file, numPages })}
                 loading={
                   <p className="text-center text-gray-400">
                     PDF를 불러오는 중입니다...
@@ -60,7 +84,7 @@ export const Pdf = ({ isOpen, setIsOpen }) => {
                     >
                       <Page
                         pageNumber={index + 1}
-                        width={1024}
+                        width={pageWidth}
                         renderTextLayer={true}
                         renderAnnotationLayer={true}
                       />
