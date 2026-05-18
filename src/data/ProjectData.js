@@ -1,6 +1,16 @@
+import Mute from "../assets/img/main-mute.png";
+import Goreon from "../assets/img/goreon.png";
+import BnbNetWorks from "../assets/img/bnbnetworks.png";
+import BnbNetworksReact from "../assets/img/bnbnetworks-react.png";
+import Shop from "../assets/img/shop.png";
+import Netflix from "../assets/img/netflix.png";
+import PortFolio2 from "../assets/img/portfolio-2.png";
+import Kakao from "../assets/img/kakao.png";
+
 export const teamProjectInfo = [
   {
     title: "MUTE",
+    src: Mute,
     info: [
       { label: "구분", value: "팀 프로젝트" },
       { label: "인원", value: "3명" },
@@ -30,6 +40,7 @@ export const teamProjectInfo = [
   },
   {
     title: "GOREON",
+    src: Goreon,
     info: [
       { label: "구분", value: "팀 프로젝트" },
       { label: "인원", value: "5명" },
@@ -43,6 +54,7 @@ export const teamProjectInfo = [
       { label: "배포", value: "Render" },
     ],
     links: [
+      { label: "반응형" },
       { label: "기획안" },
       {
         label: "GitHub",
@@ -59,6 +71,7 @@ export const teamProjectInfo = [
 export const personalProjectInfo = [
   {
     title: "BnbNetWork (HTML , 반응형)",
+    src: BnbNetWorks,
     info: [
       { label: "구분", value: "개인 프로젝트" },
       { label: "인원", value: "1명" },
@@ -71,6 +84,7 @@ export const personalProjectInfo = [
       { label: "배포", value: "Cafe24" },
     ],
     links: [
+      { label: "반응형" },
       {
         label: "GitHub",
         link: "https://github.com/inpos12/bnbnetwork",
@@ -82,6 +96,7 @@ export const personalProjectInfo = [
   },
   {
     title: "BnbNetWork (React)",
+    src: BnbNetworksReact,
     info: [
       { label: "구분", value: "개인 프로젝트" },
       { label: "인원", value: "1명" },
@@ -94,6 +109,7 @@ export const personalProjectInfo = [
       { label: "배포", value: "GitHub Pages" },
     ],
     links: [
+      { label: "반응형" },
       {
         label: "GitHub",
         link: "https://github.com/inpos12/bnbnetworkreact",
@@ -105,6 +121,7 @@ export const personalProjectInfo = [
   },
   {
     title: "SHOP",
+    src: Shop,
     info: [
       { label: "구분", value: "개인 프로젝트" },
       { label: "인원", value: "1명" },
@@ -118,6 +135,7 @@ export const personalProjectInfo = [
       { label: "배포", value: "GitHub Pages" },
     ],
     links: [
+      { label: "반응형" },
       {
         label: "GitHub",
         link: "https://github.com/inpos12/shop",
@@ -129,6 +147,7 @@ export const personalProjectInfo = [
   },
   {
     title: "Netflix",
+    src: Netflix,
     info: [
       { label: "구분", value: "개인 프로젝트" },
       { label: "인원", value: "1명" },
@@ -152,6 +171,7 @@ export const personalProjectInfo = [
   },
   {
     title: "Kakao Renewal",
+    src: Kakao,
     info: [
       { label: "구분", value: "개인 프로젝트" },
       { label: "인원", value: "1명" },
@@ -164,6 +184,7 @@ export const personalProjectInfo = [
       { label: "배포", value: "Dothome" },
     ],
     links: [
+      { label: "반응형" },
       {
         label: "GitHub",
         link: "https://github.com/leechan9715/Kakao-Renewal/tree/main",
@@ -175,6 +196,7 @@ export const personalProjectInfo = [
   },
   {
     title: "Portfolio",
+    src: PortFolio2,
     info: [
       { label: "구분", value: "개인 프로젝트" },
       { label: "인원", value: "1명" },

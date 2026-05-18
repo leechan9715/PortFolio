@@ -1,4 +1,5 @@
 import Card from "./Card";
+import { ProjectLink } from "./ProjectLink";
 const TextWithBreak = ({ text, className }) => {
   if (!text) return null;
 
@@ -33,13 +34,13 @@ export const ProjectDetail = ({
     >
       <div className={`max-w-1/3 overflow-y-auto ${itemsClassName}`}>
         <img
-          className="w-full h-full  rounded-2xl border-2 border-(--border) bg-white/95 "
+          className="w-full h-full rounded-2xl border-2 border-(--border) bg-white/95 "
           src={thumbnail}
           alt={thumbnail}
         />
       </div>
       <div
-        className={`project-list-scroll flex max-h-[65vh] max-w-2/3 w-full flex-1 flex-col overflow-y-auto p-8 gap-4 ${itemsClassName} `}
+        className={`project-list-scroll flex max-h-screen max-w-2/3 w-full flex-1 flex-col overflow-y-auto p-8 gap-4 ${itemsClassName} `}
       >
         <div className="flex justify-between items-center-safe">
           <h2 className=" text-4xl font-bold tracking-wide text-white">
@@ -47,15 +48,12 @@ export const ProjectDetail = ({
           </h2>
           <div className="flex gap-3">
             {links?.map((item, index) => (
-              <a
-                onClick={onClick}
+              <ProjectLink
                 key={index}
-                href={item.link}
-                target="_blank"
-                className="border border-[#1F4360] px-3 py-1 text-xs text-[#a4a4a4] hover:border-(--hover-border)"
-              >
-                <p>{item.label}</p>
-              </a>
+                onClick={(event) => onClick?.(item, event)}
+                label={item.label}
+                link={item.link}
+              />
             ))}
           </div>
         </div>

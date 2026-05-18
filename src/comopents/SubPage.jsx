@@ -28,8 +28,10 @@ import { Contact } from "./Contact";
 import { ContactMe, ContactMe2 } from "./ContactMe";
 // 스와이퍼 모듈 cSS
 import "swiper/css";
+import "swiper/css/pagination";
 import { Pdf } from "./Pdf";
 import { personalProjectInfo, teamProjectInfo } from "../data/ProjectData";
+import { Pagination } from "swiper/modules";
 
 const contactClasses = {
   card: " w-full",
@@ -242,10 +244,12 @@ export const SubPage = () => {
                 {/* 프로젝트 목록 슬라이드 */}
                 <div className="w-full min-w-0 overflow-hidden ">
                   <Swiper
-                    className="w-full"
+                    className="project-swiper w-full"
                     slidesPerView={1}
                     spaceBetween={24}
                     grabCursor
+                    pagination={{ clickable: true }}
+                    modules={[Pagination]}
                   >
                     {(isSelectProject === "all" ||
                       isSelectProject === "team") && (
@@ -257,7 +261,11 @@ export const SubPage = () => {
                             items={teamProjectInfo[0].info}
                             links={teamProjectInfo[0].links}
                             textArea={teamProjectInfo[0].textArea}
-                            onClick={() => setGoreonOpen(true)}
+                            onClick={(item, event) => {
+                              if (item.label !== "기획안") return;
+                              event.preventDefault();
+                              setGoreonOpen(true);
+                            }}
                           />
                         </SwiperSlide>
                         <SwiperSlide key="team-goreon">
@@ -270,7 +278,11 @@ export const SubPage = () => {
                               items={teamProjectInfo[1].info}
                               links={teamProjectInfo[1].links}
                               textArea={teamProjectInfo[1].textArea}
-                              onClick={() => setGoreonOpen(true)}
+                              onClick={(item, event) => {
+                                if (item.label !== "기획안") return;
+                                event.preventDefault();
+                                setGoreonOpen(true);
+                              }}
                             />
                           </div>
                         </SwiperSlide>
