@@ -85,7 +85,11 @@ export const SubPage = () => {
         className={`${isLeaving ? "section-profile-leave" : "section-profile-enter"} max-w-1/3 w-full flex items-center justify-center `}
       >
         <div className="flex justify-center flex-col items-center  ">
-          <img src={ProfileImg} className="text-center " alt="profile" />
+          <img
+            src={ProfileImg}
+            className="text-center max-w-44.5 max-h-153.25 "
+            alt="profile"
+          />
           <Card className={`${contactClasses.card} relative -bottom-10`}>
             <div className={contactClasses.list}>
               {ContactData.map((item, index) => (

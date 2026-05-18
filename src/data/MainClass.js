@@ -9,7 +9,7 @@ export const layoutClasses = {
 export const profileClasses = {
   card: "max-w-83 w-full max-lg:order-2 max-lg:max-w-none",
   body: "flex flex-col items-center text-center",
-  image: "max-w-1/3 mb-6.5",
+  image: "max-w-1/2 mb-6.5",
   role: "text-sm bg-clip-text text-transparent bg-(image:--text-color) bac mb-6.5",
   desc: "text-sm font-light mb-6.5",
   tags: "flex gap-1.5 items-center",
