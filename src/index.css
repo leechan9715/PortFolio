@@ -57,6 +57,24 @@ img {
   width: 80px;
 }
 
+.project-swiper {
+  padding-bottom: 2.5rem;
+}
+
+.project-swiper .swiper-pagination {
+  bottom: 0;
+  z-index: 10;
+}
+
+.project-swiper .swiper-pagination-bullet {
+  background: rgba(255, 255, 255, 0.65);
+  opacity: 1;
+}
+
+.project-swiper .swiper-pagination-bullet-active {
+  background: #2bb3fd;
+}
+
 .skill-icon-image {
   width: 3rem;
   min-width: 3rem;

@@ -15,11 +15,13 @@ import TailwindCssDark from "../assets/img/TailwindCSS-Dark.png";
 import VueDark from "../assets/img/Vue-Dark.png";
 import Mute from "../assets/img/main-mute.png";
 import Goreon from "../assets/img/goreon.png";
+import BnbNetWorks from "../assets/img/bnbnetworks.png";
+import BnbNetworksReact from "../assets/img/bnbnetworks-react.png";
 import Shop from "../assets/img/shop.png";
 import Netflix from "../assets/img/netflix.png";
-import PortFolio2 from "../assets/img/portfolio-2.png";
-import PortFolio from "../assets/img/portfolio.png";
 import Kakao from "../assets/img/kakao.png";
+import PortFolio2 from "../assets/img/portfolio-2.png";
+
 import Icon1 from "../assets/img/icon_1.png";
 import Icon2 from "../assets/img/icon_2.png";
 import Icon3 from "../assets/img/icon_3.png";
@@ -29,43 +31,57 @@ export const projects = [
     src: Mute,
     title: "MUTE",
     desc: "AI기반 뮤직 웹앱",
-    skils: ["vue", "php"],
+    link: "https://muteapp.dothome.co.kr/splash",
+    skills: ["vue", "Pinia", "PHP"],
   },
   {
     src: Goreon,
     title: "GOREON",
-    desc: "AI기반 전자기기쇼핑몰",
-    skils: ["react", "express", "php"],
+    desc: "AI기반 전자기기 쇼핑몰 반응형 제작",
+    link: "https://goreon-0x90.onrender.com/",
+    skills: ["React", "Express", "MongoDB"],
+  },
+  {
+    src: BnbNetWorks,
+    title: "BnbNetWorks",
+    desc: "자사 웹사이트 반응형 제작",
+    link: "https://bnbnetworks.cafe24.com/",
+    skills: ["HTML", "CSS", "Bootstrap"],
+  },
+  {
+    src: BnbNetworksReact,
+    title: "BnbNetworksReact",
+    desc: "자사 웹사이트 React 리뉴얼",
+    link: "https://inpos12.github.io/bnbnetworkreact/",
+    skills: ["React", "Style-Components"],
   },
   {
     src: Shop,
     title: "Shop",
-    desc: "AI기반 뮤직 웹앱",
-    skils: ["vue", "php"],
+    desc: "쇼핑몰 반응형 웹사이트",
+    link: "https://inpos12.github.io/shop/",
+    skills: ["React", "Firebase", "Firestore"],
   },
   {
     src: Netflix,
-    title: "MUTE",
-    desc: "AI기반 뮤직 웹앱",
-    skils: ["vue", "php"],
-  },
-  {
-    src: PortFolio,
-    title: "MUTE",
-    desc: "AI기반 뮤직 웹앱",
-    skils: ["vue", "php"],
-  },
-  {
-    src: PortFolio2,
-    title: "MUTE",
-    desc: "AI기반 뮤직 웹앱",
-    skils: ["vue", "php"],
+    title: "Netflix",
+    desc: "TMDB 활용한 넷플릭스",
+    link: "https://inpos12.github.io/netflix-project/",
+    skills: ["React", "TypeScript", "TMDB"],
   },
   {
     src: Kakao,
-    title: "MUTE",
-    desc: "AI기반 뮤직 웹앱",
-    skils: ["vue", "php"],
+    title: "Kakao Renewal",
+    desc: "카카오 웹사이트 반응형 리뉴얼",
+    link: "https://young8686.dothome.co.kr/kakao/",
+    skills: ["HTML", "SCSS", "PHP"],
+  },
+  {
+    src: PortFolio2,
+    title: "포트폴리오",
+    desc: "개인 포트폴리오 웹사이트",
+    link: "https://portfolio-nine-murex-vtgmelanap.vercel.app/",
+    skills: ["React", "Tailwind CSS"],
   },
 ];
 

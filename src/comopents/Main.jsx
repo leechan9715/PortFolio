@@ -51,6 +51,24 @@ export const Main = () => {
     dispatch(startMainTransition());
     setIsClicked(true);
   };
+  // 브라우저 팝업 띄우기 함수
+
+  const popupMute = (e, link, title) => {
+    if (title !== "MUTE") return;
+    e.preventDefault();
+
+    const popup = window.open(
+      link,
+      "_blank",
+      "width=500,height=1080,left=100,top=0",
+    );
+
+    if (popup) {
+      popup.focus();
+    } else {
+      window.location.assign(link);
+    }
+  };
 
   useEffect(() => {
     if (!floatingIcon) return;
@@ -223,23 +241,27 @@ export const Main = () => {
           </div>
           {/* 프로젝트 리스트 */}
           <Card
-            className={projectClasses.card}
+            className={`${projectClasses.card} shrink-0 `}
             ref={content2}
             style={{ transform: "translateX(120%)", opacity: 0 }}
           >
             <CardTitleGreen>프로젝트</CardTitleGreen>
             <div
-              className={`${projectClasses.list} project-list-scroll max-h-70 overflow-y-auto overflow-x-hidden overscroll-contain pr-2`}
+              className={`${projectClasses.list} project-list-scroll max-h-100 overflow-y-auto overflow-x-hidden overscroll-contain pr-2 `}
             >
-              {projects.map((item, index) => (
-                <ProjectList
-                  key={index}
-                  src={item.src}
-                  title={item.title}
-                  desc={item.desc}
-                  skills={item.skils}
-                />
-              ))}
+              {projects.map((item, index) => {
+                return (
+                  <ProjectList
+                    onClick={(e) => popupMute(e, item.link, item.title)}
+                    href={item.link}
+                    key={index}
+                    src={item.src}
+                    title={item.title}
+                    desc={item.desc}
+                    skills={item.skills}
+                  />
+                );
+              })}
             </div>
           </Card>
         </div>
