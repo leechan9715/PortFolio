@@ -12,7 +12,7 @@ export const teamProjectInfo = [
       },
       {
         label: "기술",
-        value: ["Vue 3", "Pinia", "CSS3", "Axios", "PHP", "MySQL"],
+        value: "Vue 3 · Pinia · CSS3  · Axios · PHP · MySQL",
       },
       { label: "배포", value: "Dothome" },
     ],
