@@ -46,7 +46,7 @@ export const ProjectDetail = ({
           <h2 className=" text-4xl font-bold tracking-wide text-white">
             {title}
           </h2>
-          <div className="flex gap-3">
+          <div className="grid grid-cols-6 gap-2 text-center">
             {links?.map((item, index) => (
               <ProjectLink
                 key={index}
