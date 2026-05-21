@@ -49,11 +49,11 @@ const goreonPdf = {
   file: "/files/Goreon_기획안.pdf",
 };
 
-// const mutePdf = {
-//   title: "MUTE 기획안",
-//   fileName: "MUTE_기획안.pdf",
-//   file: "/files/MUTE_기획안.pdf",
-// };
+const mutePdf = {
+  title: "MUTE 기획안",
+  fileName: "MUTE_기획안.pdf",
+  file: "/files/MUTE_기획안.pdf",
+};
 
 export const SubPage = () => {
   const dispatch = useDispatch();
@@ -65,7 +65,7 @@ export const SubPage = () => {
   // PDF
   const [isOepn, setIsOpen] = useState(false);
   const [goreonOpen, setGoreonOpen] = useState(false);
-  // const [muteOpen, setMuteOpen] = useState(false);
+  const [muteOpen, setMuteOpen] = useState(false);
 
   function tabButton(tabName) {
     setIsActive(tabName);
@@ -77,11 +77,30 @@ export const SubPage = () => {
     dispatch(startMainReturn());
   }
 
+  function openMuteLiveDemo(item, event) {
+    if (item.label !== "LiveDemo" || !item.link) return;
+
+    event.preventDefault();
+
+    const popup = window.open(
+      item.link,
+      "_blank",
+      "width=500,height=868,left=100,top=0",
+    );
+
+    if (popup) {
+      popup.focus();
+      return;
+    }
+
+    window.location.assign(item.link);
+  }
+
   return (
     <section className="relative z-10 w-full text-white flex gap-5">
       <Pdf isOpen={isOepn} setIsOpen={setIsOpen} {...resumePdf} />
       <Pdf isOpen={goreonOpen} setIsOpen={setGoreonOpen} {...goreonPdf} />
-      {/* <Pdf isOpen={muteOpen} setIsOpen={setMuteOpen} {...mutePdf} /> */}
+      <Pdf isOpen={muteOpen} setIsOpen={setMuteOpen} {...mutePdf} />
       {/* 프로필  */}
       <div
         className={`${isLeaving ? "section-profile-leave" : "section-profile-enter"} max-w-1/3 w-full flex items-center justify-center `}
@@ -262,9 +281,10 @@ export const SubPage = () => {
                             links={teamProjectInfo[0].links}
                             textArea={teamProjectInfo[0].textArea}
                             onClick={(item, event) => {
+                              openMuteLiveDemo(item, event);
                               if (item.label !== "기획안") return;
                               event.preventDefault();
-                              setGoreonOpen(true);
+                              setMuteOpen(true);
                             }}
                           />
                         </SwiperSlide>

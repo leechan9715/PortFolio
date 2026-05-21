@@ -14,7 +14,7 @@ export const teamProjectInfo = [
     info: [
       { label: "구분", value: "팀 프로젝트" },
       { label: "인원", value: "3명" },
-      { label: "기간", value: "1달" },
+      { label: "기간", value: "기획 : 15일 / 디자인 : 19일 / 개발 : 33일" },
       { label: "역할", value: "개발" },
       {
         label: "담당",
@@ -27,12 +27,28 @@ export const teamProjectInfo = [
       { label: "배포", value: "Dothome" },
     ],
     links: [
+      { label: "SPLASH", link: "https://muteapp.dothome.co.kr/splash" },
+      { label: "메인", link: "https://muteapp.dothome.co.kr/main" },
+      { label: "AI페이지", link: "https://muteapp.dothome.co.kr/main/ai" },
+      {
+        label: "마이페이지",
+        link: "https://muteapp.dothome.co.kr/main/mypage",
+      },
+      { label: "차트", link: "https://muteapp.dothome.co.kr/main/chart" },
+      { label: "검색", link: "https://muteapp.dothome.co.kr/main/search" },
+      {
+        label: "라이브러리",
+        link: "https://muteapp.dothome.co.kr/main/library",
+      },
+      {
+        label: "간트차트",
+        link: "https://docs.google.com/spreadsheets/d/13GazU9eCavfxvy6y3nxorqrsIXHQIMl7fW89MIOw1IM/edit?gid=0#gid=0",
+      },
       { label: "기획안" },
       {
         label: "GitHub",
         link: "https://github.com/leechan9715/mutehtml/tree/vue/main",
       },
-      { label: "LiveDemo", link: "https://muteapp.dothome.co.kr/splash" },
     ],
 
     textArea:
@@ -44,7 +60,7 @@ export const teamProjectInfo = [
     info: [
       { label: "구분", value: "팀 프로젝트" },
       { label: "인원", value: "5명" },
-      { label: "기간", value: "1달" },
+      { label: "기간", value: "기획 : 6일 / 디자인 : 10일 / 개발 11일 " },
       { label: "역할", value: "프론트엔드 개발" },
       { label: "담당", value: "기획 · 디자인 보조 / UI 개발" },
       {
@@ -54,13 +70,45 @@ export const teamProjectInfo = [
       { label: "배포", value: "Render" },
     ],
     links: [
+      {
+        label: "회원가입",
+        link: "https://vercel-frontend-goreon.vercel.app/register",
+      },
+
+      {
+        label: "로그인",
+        link: "https://vercel-frontend-goreon.vercel.app/login",
+      },
+      {
+        label: "메인페이지",
+        link: "https://vercel-frontend-goreon.vercel.app/",
+      },
+      {
+        label: "장바구니",
+        link: "https://vercel-frontend-goreon.vercel.app/cart",
+      },
+      {
+        label: "찜한상품",
+        link: "https://vercel-frontend-goreon.vercel.app/wishlist",
+      },
+      {
+        label: "마이페이지",
+        link: "https://vercel-frontend-goreon.vercel.app/mypage",
+      },
+      {
+        label: "상품리스트",
+        link: "https://vercel-frontend-goreon.vercel.app/list?type=notebook",
+      },
+      {
+        label: "PC조립",
+        link: "https://vercel-frontend-goreon.vercel.app/pc-assembly",
+      },
       { label: "반응형" },
       { label: "기획안" },
       {
         label: "GitHub",
         link: "https://github.com/muteLJS/GOREON",
       },
-      { label: "LiveDemo", link: "https://goreon-0x90.onrender.com/" },
     ],
 
     textArea:
