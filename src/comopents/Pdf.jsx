@@ -58,7 +58,7 @@ export const Pdf = ({
 
             <div
               className="
-                    h-[calc(100%-57px)] overflow-y-auto overflow-x-hidden
+                    h-[calc(100%-57px)] overflow-y-auto overflow-x-hidden pb-20
                     project-list-scroll
                   "
             >
@@ -93,6 +93,13 @@ export const Pdf = ({
                 </div>
               </Document>
             </div>
+            <a
+              href={file}
+              download={fileName}
+              className="absolute right-5 bottom-5 rounded-full border border-[#4EA8FF] bg-[#071A2A]/95 px-5 py-2 text-sm font-semibold text-[#D8EEFF] shadow-xl shadow-black/30 transition-colors hover:border-[#8DD3FF] hover:bg-[#0B263D] hover:text-white"
+            >
+              PDF 다운로드
+            </a>
           </div>
         </div>
       )}
