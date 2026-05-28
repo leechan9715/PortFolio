@@ -15,6 +15,8 @@ import BnbNetworksReact from "../assets/img/bnbnetworks-react.png";
 import Shop from "../assets/img/shop.png";
 import Netflix from "../assets/img/netflix.png";
 import PortFolio from "../assets/img/portfolio-2.png";
+import LoopNote from "../assets/img/LoopNote.png";
+import WorkLog from "../assets/img/WorkLog.png";
 
 import Kakao from "../assets/img/kakao.png";
 // 아이콘
@@ -387,6 +389,34 @@ export const SubPage = () => {
                               items={personalProjectInfo[5].info}
                               links={personalProjectInfo[5].links}
                               textArea={personalProjectInfo[5].textArea}
+                            />
+                          </div>
+                        </SwiperSlide>
+                        <SwiperSlide key="personal-loopnote">
+                          <div className="project-list-scroll w-full min-w-0 overflow-y-auto max-h-[80vh] ">
+                            <ProjectDetail
+                              className="flex-col min-h-[90vh]"
+                              thumbnail={LoopNote}
+                              itemsClassName="max-w-full overflow-y-hidden"
+                              title="WorkLog"
+                              desc="AI 기반 전자기기 쇼핑 플랫폼 프로젝트입니다. 상품 탐색, 추천 흐름, 상세 페이지, 사용자 경험 중심의 UI를 포함합니다."
+                              items={personalProjectInfo[6].info}
+                              links={personalProjectInfo[6].links}
+                              textArea={personalProjectInfo[6].textArea}
+                            />
+                          </div>
+                        </SwiperSlide>
+                        <SwiperSlide key="personal-worklog">
+                          <div className="project-list-scroll w-full min-w-0 overflow-y-auto max-h-[80vh] ">
+                            <ProjectDetail
+                              className="flex-col min-h-[90vh]"
+                              thumbnail={WorkLog}
+                              itemsClassName="max-w-full overflow-y-hidden"
+                              title="WorkLog"
+                              desc="AI 기반 전자기기 쇼핑 플랫폼 프로젝트입니다. 상품 탐색, 추천 흐름, 상세 페이지, 사용자 경험 중심의 UI를 포함합니다."
+                              items={personalProjectInfo[6].info}
+                              links={personalProjectInfo[6].links}
+                              textArea={personalProjectInfo[6].textArea}
                             />
                           </div>
                         </SwiperSlide>
