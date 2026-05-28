@@ -398,7 +398,7 @@ export const SubPage = () => {
                               className="flex-col min-h-[90vh]"
                               thumbnail={LoopNote}
                               itemsClassName="max-w-full overflow-y-hidden"
-                              title="WorkLog"
+                              title="LoopNote"
                               desc="AI 기반 전자기기 쇼핑 플랫폼 프로젝트입니다. 상품 탐색, 추천 흐름, 상세 페이지, 사용자 경험 중심의 UI를 포함합니다."
                               items={personalProjectInfo[6].info}
                               links={personalProjectInfo[6].links}
