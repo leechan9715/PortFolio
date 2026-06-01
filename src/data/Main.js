@@ -13,6 +13,10 @@ import ReactDark from "../assets/img/React-Dark.png";
 import SassDark from "../assets/img/sass-dark.png";
 import TailwindCssDark from "../assets/img/TailwindCSS-Dark.png";
 import VueDark from "../assets/img/Vue-Dark.png";
+import ChatGpt from "../assets/img/openai.png";
+import Codex from "../assets/img/codex.png";
+import Antigravity from "../assets/img/antigravity.png";
+import Gemini from "../assets/img/gemini.png";
 import Mute from "../assets/img/main-mute.png";
 import Goreon from "../assets/img/goreon.png";
 import BnbNetWorks from "../assets/img/bnbnetworks.png";
@@ -101,6 +105,10 @@ export const darkIcons = [
   SassDark,
   TailwindCssDark,
   VueDark,
+  ChatGpt,
+  Codex,
+  Antigravity,
+  Gemini,
 ];
 
 export const ProcessList = [

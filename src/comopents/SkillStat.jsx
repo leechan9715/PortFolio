@@ -16,9 +16,7 @@ export const SkillStat = ({ icon, title, percent, shouldFill = false }) => {
     const animate = (currentTime) => {
       const progress = Math.min((currentTime - startTime) / duration, 1);
       const easedProgress = 1 - Math.pow(1 - progress, 3);
-      const nextPercent = Math.round(
-        1 + (targetPercent - 1) * easedProgress,
-      );
+      const nextPercent = Math.round(1 + (targetPercent - 1) * easedProgress);
 
       setDisplayPercent(nextPercent);
 
@@ -39,7 +37,7 @@ export const SkillStat = ({ icon, title, percent, shouldFill = false }) => {
   return (
     <>
       <div className="flex items-center gap-5">
-        <img className="" src={icon} alt="" />
+        <img className="" src={icon} alt="skills" width={50} height={50} />
         <div className="w-full flex flex-col gap-2.5">
           <div className="flex justify-between">
             <p>{title}</p>

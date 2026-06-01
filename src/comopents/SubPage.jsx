@@ -206,7 +206,7 @@ export const SubPage = () => {
                 style={{ padding: 40 }}
               >
                 <div className=" flex flex-col gap-5">
-                  {LightIcons.slice(0, 8).map((icon, index) => (
+                  {LightIcons.slice(0, 10).map((icon, index) => (
                     <SkillStat
                       key={`${isMainHidden}-${index}`}
                       percent={icon.percent}
@@ -217,7 +217,7 @@ export const SubPage = () => {
                   ))}
                 </div>
                 <div className=" flex flex-col gap-5">
-                  {LightIcons.slice(8, 15).map((icon, index) => (
+                  {LightIcons.slice(10, 19).map((icon, index) => (
                     <SkillStat
                       key={`${isMainHidden}-${index + 8}`}
                       percent={icon.percent}
