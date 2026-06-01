@@ -313,6 +313,73 @@ export const SubPage = () => {
                     {(isSelectProject === "all" ||
                       isSelectProject === "personal") && (
                       <React.Fragment key="personal">
+                        <SwiperSlide key="personal-loopnote">
+                          <div className="project-list-scroll w-full min-w-0 overflow-y-auto max-h-[80vh] ">
+                            <ProjectDetail
+                              className="flex-col min-h-[90vh]"
+                              thumbnail={LoopNote}
+                              itemsClassName="max-w-full overflow-y-hidden"
+                              title="LoopNote"
+                              desc="초등학생의 오답과 막힘을 '10분 회복 미션'으로 전환하는 AI 학습 플랫폼"
+                              items={personalProjectInfo[6].info}
+                              links={personalProjectInfo[6].links}
+                              textArea={personalProjectInfo[6].textArea}
+                            />
+                          </div>
+                        </SwiperSlide>
+                        <SwiperSlide key="personal-portfolio">
+                          <div className="project-list-scroll w-full min-w-0 overflow-y-auto max-h-[80vh] ">
+                            <ProjectDetail
+                              className="flex-col min-h-[90vh]"
+                              thumbnail={PortFolio}
+                              itemsClassName="max-w-full overflow-y-hidden"
+                              title="PORTFOLIO"
+                              desc="AI 기반 전자기기 쇼핑 플랫폼 프로젝트입니다. 상품 탐색, 추천 흐름, 상세 페이지, 사용자 경험 중심의 UI를 포함합니다."
+                              items={personalProjectInfo[5].info}
+                              links={personalProjectInfo[5].links}
+                              textArea={personalProjectInfo[5].textArea}
+                            />
+                          </div>
+                        </SwiperSlide>
+                        <SwiperSlide key="personal-kakao">
+                          <div className="project-list-scroll w-full min-w-0 overflow-y-auto max-h-[80vh] ">
+                            <ProjectDetail
+                              className="flex-col min-h-[90vh]"
+                              thumbnail={Kakao}
+                              itemsClassName="max-w-full overflow-y-hidden"
+                              title="Kakao Renewal"
+                              items={personalProjectInfo[4].info}
+                              links={personalProjectInfo[4].links}
+                              textArea={personalProjectInfo[4].textArea}
+                            />
+                          </div>
+                        </SwiperSlide>
+                        <SwiperSlide key="personal-netflix">
+                          <div className="project-list-scroll w-full min-w-0 overflow-y-auto max-h-[80vh] ">
+                            <ProjectDetail
+                              className="flex-col min-h-[90vh]"
+                              thumbnail={Netflix}
+                              itemsClassName="max-w-full overflow-y-hidden"
+                              title="Netflix"
+                              items={personalProjectInfo[3].info}
+                              links={personalProjectInfo[3].links}
+                              textArea={personalProjectInfo[3].textArea}
+                            />
+                          </div>
+                        </SwiperSlide>
+                        <SwiperSlide key="personal-shop">
+                          <div className="project-list-scroll w-full min-w-0 overflow-y-auto max-h-[80vh] ">
+                            <ProjectDetail
+                              className="flex-col min-h-[90vh]"
+                              thumbnail={Shop}
+                              itemsClassName="max-w-full overflow-y-hidden"
+                              title="SHOP"
+                              items={personalProjectInfo[2].info}
+                              links={personalProjectInfo[2].links}
+                              textArea={personalProjectInfo[2].textArea}
+                            />
+                          </div>
+                        </SwiperSlide>
                         <SwiperSlide key="personal-bnb-html">
                           <div className="project-list-scroll w-full min-w-0 overflow-y-auto max-h-[80vh] ">
                             <ProjectDetail
@@ -336,73 +403,6 @@ export const SubPage = () => {
                               items={personalProjectInfo[1].info}
                               links={personalProjectInfo[1].links}
                               textArea={personalProjectInfo[1].textArea}
-                            />
-                          </div>
-                        </SwiperSlide>
-                        <SwiperSlide key="personal-shop">
-                          <div className="project-list-scroll w-full min-w-0 overflow-y-auto max-h-[80vh] ">
-                            <ProjectDetail
-                              className="flex-col min-h-[90vh]"
-                              thumbnail={Shop}
-                              itemsClassName="max-w-full overflow-y-hidden"
-                              title="SHOP"
-                              items={personalProjectInfo[2].info}
-                              links={personalProjectInfo[2].links}
-                              textArea={personalProjectInfo[2].textArea}
-                            />
-                          </div>
-                        </SwiperSlide>
-                        <SwiperSlide key="personal-netflix">
-                          <div className="project-list-scroll w-full min-w-0 overflow-y-auto max-h-[80vh] ">
-                            <ProjectDetail
-                              className="flex-col min-h-[90vh]"
-                              thumbnail={Netflix}
-                              itemsClassName="max-w-full overflow-y-hidden"
-                              title="Netflix"
-                              items={personalProjectInfo[3].info}
-                              links={personalProjectInfo[3].links}
-                              textArea={personalProjectInfo[3].textArea}
-                            />
-                          </div>
-                        </SwiperSlide>
-                        <SwiperSlide key="personal-kakao">
-                          <div className="project-list-scroll w-full min-w-0 overflow-y-auto max-h-[80vh] ">
-                            <ProjectDetail
-                              className="flex-col min-h-[90vh]"
-                              thumbnail={Kakao}
-                              itemsClassName="max-w-full overflow-y-hidden"
-                              title="Kakao Renewal"
-                              items={personalProjectInfo[4].info}
-                              links={personalProjectInfo[4].links}
-                              textArea={personalProjectInfo[4].textArea}
-                            />
-                          </div>
-                        </SwiperSlide>
-                        <SwiperSlide key="personal-portfolio">
-                          <div className="project-list-scroll w-full min-w-0 overflow-y-auto max-h-[80vh] ">
-                            <ProjectDetail
-                              className="flex-col min-h-[90vh]"
-                              thumbnail={PortFolio}
-                              itemsClassName="max-w-full overflow-y-hidden"
-                              title="PORTFOLIO"
-                              desc="AI 기반 전자기기 쇼핑 플랫폼 프로젝트입니다. 상품 탐색, 추천 흐름, 상세 페이지, 사용자 경험 중심의 UI를 포함합니다."
-                              items={personalProjectInfo[5].info}
-                              links={personalProjectInfo[5].links}
-                              textArea={personalProjectInfo[5].textArea}
-                            />
-                          </div>
-                        </SwiperSlide>
-                        <SwiperSlide key="personal-loopnote">
-                          <div className="project-list-scroll w-full min-w-0 overflow-y-auto max-h-[80vh] ">
-                            <ProjectDetail
-                              className="flex-col min-h-[90vh]"
-                              thumbnail={LoopNote}
-                              itemsClassName="max-w-full overflow-y-hidden"
-                              title="LoopNote"
-                              desc="초등학생의 오답과 막힘을 '10분 회복 미션'으로 전환하는 AI 학습 플랫폼"
-                              items={personalProjectInfo[6].info}
-                              links={personalProjectInfo[6].links}
-                              textArea={personalProjectInfo[6].textArea}
                             />
                           </div>
                         </SwiperSlide>
