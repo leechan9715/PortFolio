@@ -14,6 +14,11 @@ import IconReact from "../assets/img/light/React-Light.png";
 import IconSass from "../assets/img/light/Sass-Light.png";
 import IconTailwindCSS from "../assets/img/light/TailwindCSS-Light.png";
 import IconVueJS from "../assets/img/light/VueJS-Light.png";
+import IconChatGpt from "../assets/img/light/openai.png";
+import IconCodex from "../assets/img/light/codex-color.svg";
+import IconGemini from "../assets/img/light/gemini-color.svg";
+import IconAntigravity from "../assets/img/light/antigravity-color.svg";
+
 // profile
 import Email from "../assets/img/email.png";
 import Call from "../assets/img/call.png";
@@ -27,6 +32,8 @@ export const LightIcons = [
   { icon: IconSass, title: "Sass", percent: "85" },
   { icon: IconTailwindCSS, title: "TailwindCSS", percent: "90" },
   { icon: IconReact, title: "React", percent: "90" },
+  { icon: IconCodex, title: "Codex Cli", percent: "97" },
+  { icon: IconAntigravity, title: "Antigravity Cli", percent: "96" },
   { icon: IconNextJS, title: "NextJS", percent: "83" },
   { icon: IconVueJS, title: "VueJS", percent: "80" },
   { icon: IconNodeJS, title: "NodeJS", percent: "80" },
@@ -34,6 +41,8 @@ export const LightIcons = [
   { icon: IconPhp, title: "PHP", percent: "75" },
   { icon: IconFigma, title: "Figma", percent: "83" },
   { icon: IconBootstrap, title: "Bootstrap", percent: "85" },
+  { icon: IconChatGpt, title: "ChatGpt", percent: "97" },
+  { icon: IconGemini, title: "Gemini Cli", percent: "96" },
 ];
 
 export const ContactData = [
