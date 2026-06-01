@@ -399,7 +399,7 @@ export const SubPage = () => {
                               thumbnail={LoopNote}
                               itemsClassName="max-w-full overflow-y-hidden"
                               title="LoopNote"
-                              desc="AI 기반 전자기기 쇼핑 플랫폼 프로젝트입니다. 상품 탐색, 추천 흐름, 상세 페이지, 사용자 경험 중심의 UI를 포함합니다."
+                              desc="초등학생의 오답과 막힘을 '10분 회복 미션'으로 전환하는 AI 학습 플랫폼"
                               items={personalProjectInfo[6].info}
                               links={personalProjectInfo[6].links}
                               textArea={personalProjectInfo[6].textArea}
@@ -413,10 +413,10 @@ export const SubPage = () => {
                               thumbnail={WorkLog}
                               itemsClassName="max-w-full overflow-y-hidden"
                               title="WorkLog"
-                              desc="AI 기반 전자기기 쇼핑 플랫폼 프로젝트입니다. 상품 탐색, 추천 흐름, 상세 페이지, 사용자 경험 중심의 UI를 포함합니다."
-                              items={personalProjectInfo[6].info}
-                              links={personalProjectInfo[6].links}
-                              textArea={personalProjectInfo[6].textArea}
+                              desc="반응형 기업 사내 인트라넷 포털 시스템"
+                              items={personalProjectInfo[7].info}
+                              links={personalProjectInfo[7].links}
+                              textArea={personalProjectInfo[7].textArea}
                             />
                           </div>
                         </SwiperSlide>
