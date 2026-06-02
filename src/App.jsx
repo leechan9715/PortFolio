@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
+import { Analytics } from "@vercel/analytics/react";
 import { Main } from "./comopents/Main";
 import { SubPage } from "./comopents/SubPage";
 
@@ -39,17 +40,20 @@ function App() {
   }, [isTransitioning]);
 
   return (
-    <div
-      className={`relative min-h-screen flex px-6.25 max-md:px-2.25 ${isMainHidden ? "py-0" : "py-2.5"}`}
-    >
+    <>
       <div
-        className="absolute inset-0 z-0 [background:var(--full-absolute-bg)]"
-        ref={absoluteBg}
-        style={{ opacity: 1 }}
-      />
-      {!isMainHidden && <Main />}
-      {isMainHidden && <SubPage />}
-    </div>
+        className={`relative min-h-screen flex px-6.25 max-md:px-2.25 ${isMainHidden ? "py-0" : "py-2.5"}`}
+      >
+        <div
+          className="absolute inset-0 z-0 [background:var(--full-absolute-bg)]"
+          ref={absoluteBg}
+          style={{ opacity: 1 }}
+        />
+        {!isMainHidden && <Main />}
+        {isMainHidden && <SubPage />}
+      </div>
+      <Analytics />
+    </>
   );
 }
 
