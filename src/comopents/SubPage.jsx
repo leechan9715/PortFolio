@@ -21,7 +21,6 @@ import WorkLog from "../assets/img/WorkLog.png";
 import Kakao from "../assets/img/kakao.png";
 // 아이콘
 import PDF from "../assets/img/pdf.png";
-import Arrow from "../assets/img/arrow.png";
 // 컴포넌트
 import Card from "./Card";
 import { SkillStat } from "./SkillStat";
@@ -195,9 +194,29 @@ export const SubPage = () => {
                   </h2>
                 </Card>
               </div>
-              <button className="cursor-pointer" onClick={handleBackClick}>
-                <img className="max-w-8" src={Arrow} alt="arrow" />
-              </button>
+              <Card
+                className="group/btn flex items-center gap-2.5 mcursor-pointer rounded-t-none"
+                onClick={handleBackClick}
+              >
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 14 14"
+                  fill="none"
+                  className="group/btn text-gray-400 group-hover/btn:text-[#ffffff]"
+                >
+                  <path
+                    d="M11 7H3M3 7L7 3M3 7L7 11"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+                <span className="text-gray-400 group-hover/btn:text-[#ffffff]">
+                  BACK
+                </span>
+              </Card>
             </div>
             {/* 스킬목록 */}
             {isActive === "skills" && (
