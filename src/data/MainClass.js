@@ -1,6 +1,6 @@
 export const layoutClasses = {
   section:
-    "flex flex-wrap items-center justify-between relative z-10 w-full rounded-2xl border border-(--border) px-10 py-6.25 gap-3.5 max-sm:py-3.25 max-sm:px-5",
+    "flex flex-wrap items-center justify-between relative z-10 w-full rounded-2xl border-none border-(--border) px-10 py-5.25 gap-3.5 max-sm:py-3.25 max-sm:px-5",
   topRow: "flex w-full max-lg:flex-col max-lg:gap-2.5 max-md:gap-2.5",
   bottomRow:
     "w-full flex justify-between max-md:flex-col max-md:gap-2.5 max-lg:gap-2.5",
@@ -48,6 +48,15 @@ export const processClasses = {
   step: "w-8 h-8 border border-(--border) text-sm rounded-full flex justify-center items-center before",
   line: "h-5 w-0.5 bg-(--border)",
   content: "flex flex-col justify-between items-start",
+};
+
+export const certClasses = {
+  card: "max-w-83 w-full flex flex-col max-md:max-w-full max-sm:hidden",
+  list: "flex flex-col gap-3 max-h-[140px] overflow-y-auto overscroll-contain project-list-scroll pr-1",
+  item: "flex items-center gap-3.5 p-3 rounded-xl border border-(--border)",
+  badge: "w-8 h-8 shrink-0 rounded-full border border-(--border) flex items-center justify-center text-sm font-bold bg-clip-text text-transparent bg-(image:--text-color)",
+  name: "text-sm font-semibold",
+  issuer: "text-xs text-gray-400 mt-0.5",
 };
 
 export const skillClasses = {

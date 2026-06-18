@@ -8,7 +8,6 @@ import "swiper/css/free-mode";
 /* 컴포넌트 */
 import Card, { CardTitleBlue, CardTitleGreen, Circle } from "./Card";
 import { ContactMe } from "./ContactMe";
-import { OperationProcessIcon } from "./OperationProcessIcon";
 import { ProjectList } from "./ProjectList";
 /* 이미지 , 아이콘 */
 import Porfile from "../assets/img/profile.png";
@@ -17,15 +16,15 @@ import Email from "../assets/img/email.png";
 
 /* 데이터 목록 */
 import {
+  certClasses,
   contactClasses,
   heroClasses,
   layoutClasses,
-  processClasses,
   profileClasses,
   projectClasses,
   skillClasses,
 } from "../data/MainClass";
-import { darkIcons, ProcessList, projects } from "../data/Main";
+import { certifications, darkIcons, projects } from "../data/Main";
 
 export const Main = () => {
   const [isClicked, setIsClicked] = useState(false);
@@ -283,33 +282,23 @@ export const Main = () => {
               />
             </div>
           </Card>
-          {/* 운영 프로세스 card */}
+          {/* 자격증 card */}
           <Card
-            className={processClasses.card}
+            className={certClasses.card}
             ref={content4}
             style={{ transform: "translateX(120%)", opacity: 0 }}
           >
-            <CardTitleBlue>운영프로세스</CardTitleBlue>
-            <div className={processClasses.layout}>
-              <div className={processClasses.rail}>
-                <p className={processClasses.step}>01</p>
-                <div className={processClasses.line} />
-                <p className={processClasses.step}>02</p>
-                <div className={processClasses.line} />
-                <p className={processClasses.step}>03</p>
-                <div className={processClasses.line} />
-                <p className={processClasses.step}>04</p>
-              </div>
-              <div className={processClasses.content}>
-                {ProcessList.map((item, index) => (
-                  <OperationProcessIcon
-                    key={index}
-                    src={item.icon}
-                    title={item.title}
-                    desc={item.desc}
-                  />
-                ))}
-              </div>
+            <CardTitleBlue>자격증</CardTitleBlue>
+            <div className={certClasses.list}>
+              {certifications.map((cert, index) => (
+                <div key={index} className={certClasses.item}>
+                  <span className={certClasses.badge}>{index + 1}</span>
+                  <div>
+                    <p className={certClasses.name}>{cert.title}</p>
+                    <p className={certClasses.issuer}>{cert.issuer}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </Card>
         </div>

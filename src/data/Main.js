@@ -25,6 +25,8 @@ import Shop from "../assets/img/shop.png";
 import Netflix from "../assets/img/netflix.png";
 import Kakao from "../assets/img/kakao.png";
 import PortFolio2 from "../assets/img/portfolio-2.png";
+import LoopNote from "../assets/img/LoopNote.png";
+import WorkLog from "../assets/img/WorkLog.png";
 
 import Icon1 from "../assets/img/icon_1.png";
 import Icon2 from "../assets/img/icon_2.png";
@@ -87,6 +89,20 @@ export const projects = [
     link: "https://portfolio-nine-murex-vtgmelanap.vercel.app/",
     skills: ["React", "Tailwind CSS"],
   },
+  {
+    src: LoopNote,
+    title: "LoopNote",
+    desc: "AI 기반 에듀테크 학습 플랫폼",
+    link: "https://loopnote-alpha.vercel.app/",
+    skills: ["Next.js", "Tailwind CSS", "Gemini"],
+  },
+  {
+    src: WorkLog,
+    title: "WorkLog",
+    desc: "반응형 기업 사내 인트라넷 포털",
+    link: "https://tmdcks8686.dothome.co.kr/",
+    skills: ["PHP", "그누보드5"],
+  },
 ];
 
 export const darkIcons = [
@@ -131,5 +147,16 @@ export const ProcessList = [
     icon: Icon4,
     title: "배포 & 운영",
     desc: "안정적인 운영 및 지속적 모니터링",
+  },
+];
+
+export const certifications = [
+  {
+    title: "운전면허 1종 보통 (2016)",
+    issuer: "도로교통공단",
+  },
+  {
+    title: "웹디자인개발기능사 필기(2026)",
+    issuer: "한국산업인력공단",
   },
 ];
