@@ -256,26 +256,29 @@ export const SubPage = () => {
               >
                 {/* 프로젝트 탭 버튼 */}
                 <ul className="flex gap-5">
-                  <li>
+                  <li className="group/tab-all">
                     <Card
                       style={{ padding: "8px 60px", borderRadius: "20px" }}
                       onClick={() => setIsSelectProject("all")}
+                      className={`text-gray-400 group-hover/tab-all:text-white ${isSelectProject === "all" ? "text-white border-(--hover-border)" : ""}`}
                     >
                       <p>전체</p>
                     </Card>
                   </li>
-                  <li>
+                  <li className={"group/tab-gain"}>
                     <Card
                       style={{ padding: "8px 60px", borderRadius: "20px" }}
                       onClick={() => setIsSelectProject("personal")}
+                      className={`text-gray-400 group-hover/tab-gain:text-white ${isSelectProject === "personal" ? "text-white border-(--hover-border)" : ""}`}
                     >
                       <p>개인프로젝트</p>
                     </Card>
                   </li>
-                  <li>
+                  <li className={"group/tab-team"}>
                     <Card
                       style={{ padding: "8px 60px", borderRadius: "20px" }}
                       onClick={() => setIsSelectProject("team")}
+                      className={`text-gray-400 group-hover/tab-team:text-white ${isSelectProject === "team" ? "text-white border-(--hover-border)" : ""} `}
                     >
                       <p>팀 프로젝트</p>
                     </Card>
